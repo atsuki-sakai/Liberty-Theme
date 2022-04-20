@@ -11,6 +11,14 @@
           "url": "\/",
           "description": "description"
         }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "text": "title",
+          "textarea": "please mesasge...",
+          "menu": "footer"
+        }
       }
     },
     "content_for_index": [
