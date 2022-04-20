@@ -317,5 +317,11 @@
       "print": "印刷する",
       "add_to_apple_wallet": "Apple Walletに追加する"
     }
+  },
+  "shopify": {
+    "challenge": {
+      "message": "送信するためあなたがロボットで無いことを確認します。",
+      "submit_button_text": "送信する"
+    }
   }
 }
