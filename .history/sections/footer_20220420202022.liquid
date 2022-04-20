@@ -60,21 +60,22 @@
                 {% endfor %}
             </div>
             <div class="">
-                <h6 class="uppercase font-permanent_marker font-semibold flex justify-center md:justify-start">
+                <h6 class="uppercase font-permanent_marker font-semibold mb-4 flex justify-center md:justify-start">
                     Contact
                 </h6>
-                <a href="/pages/contact" class="flex items-center justify-center md:justify-start">
+                <a href="/pages/contact" class="flex items-center justify-center md:justify-start mb-4">
                     {% render 'icon-mail' %}
                     <span class="ml-1 text-gray-900 hover:text-gray-500">お問い合わせ</span></span>
                 </p>
             </div>
         </div>
     </div>
-    <div class="md:flex md:flex-wrap-reverse w-full text-center py-6 px-24 justify-between bg-gray-900 border-t-8 border-gray-600 text-white">
-        <div class="inline-flex items-center justify-center">
-            <span class="text-sm lg:text-base">© 2022 Copyright: {{ shop.name }}</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 text-center py-6 px-12 justify-between bg-gray-900 border-t-8 border-gray-600 text-white">
+        <div class="flex text-center">
+            <span class="text-sm">© 2022 Copyright: </span>
+            <a href="/" class="font-semibold ">{{ shop.name }}</a>
         </div>
-        <div class="flex my-3 justify-center items-center">
+        <div class="flex my-6 items-center justify-center">
             {% for type in shop.enabled_payment_types %}
                 {{ type | payment_type_svg_tag: class: 'mr-1' }}
             {% endfor %}

@@ -70,9 +70,10 @@
             </div>
         </div>
     </div>
-    <div class="md:flex md:flex-wrap-reverse w-full text-center py-6 px-24 justify-between bg-gray-900 border-t-8 border-gray-600 text-white">
+    <div class="md:flex md:flex-wrap-reverse text-center py-6 px-24 justify-between bg-gray-900 border-t-8 border-gray-600 text-white">
         <div class="inline-flex items-center justify-center">
-            <span class="text-sm lg:text-base">© 2022 Copyright: {{ shop.name }}</span>
+            <span class="text-sm">© 2022 Copyright{{ shop.name }}</span>
+            <a href="#!" class="font-sm "></a>
         </div>
         <div class="flex my-3 justify-center items-center">
             {% for type in shop.enabled_payment_types %}
