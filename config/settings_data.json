@@ -15,8 +15,8 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "text": "title",
-          "textarea": "please mesasge...",
+          "text": "",
+          "textarea": "- プレミアム製品でハンドメイド\n<br>\n- グルテンフリー\n<br>\n- 保存料フリー (パラベン & フタル酸類フリー)\n<br>\n- 動物実験なし\n<br>\n- 合成香料フリー\n<br>\n- 合成着色料フリー\n<br>\n- 100% ヴィーガン対応ではありません (ビーズワック使用)",
           "menu": "footer"
         }
       }
