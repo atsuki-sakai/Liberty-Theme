@@ -7,9 +7,9 @@
           "mobile-menu-title": "Menu",
           "menu": "main-menu",
           "show_banner": true,
-          "title": "title",
-          "url": "\/",
-          "description": "description"
+          "title": "25%Off",
+          "url": "shopify:\/\/products\/sample-product",
+          "description": "開店セール実施中!!"
         }
       },
       "footer": {
