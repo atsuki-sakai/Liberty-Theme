@@ -1,12 +1,47 @@
 {
-    "sections": {
-        "featured-collection": {
-            "type": "featured-collection"
+  "sections": {
+    "image_swiper": {
+      "type": "image_swiper",
+      "blocks": {
+        "e4ce7eca-1c89-4e4b-848e-186801a98d63": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg"
+          }
         },
-        "image_swiper": {
-            "type": "image_swiper"
-            
+        "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg"
+          }
+        },
+        "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg"
+          }
         }
+      },
+      "block_order": [
+        "e4ce7eca-1c89-4e4b-848e-186801a98d63",
+        "0fe8fbed-2428-43f4-b665-54183d2cb3f7",
+        "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc"
+      ],
+      "settings": {
+        "title": "Title"
+      }
     },
-    "order": ["image_swiper","featured-collection"]
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "",
+        "line_items_per_row": 4
+      }
+    }
+  },
+  "order": [
+    "image_swiper",
+    "featured-collection"
+  ]
 }
