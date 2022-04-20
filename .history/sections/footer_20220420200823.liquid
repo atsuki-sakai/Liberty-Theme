@@ -1,7 +1,7 @@
-{% liquid
-    if section.settings.menu.links == blank
+{% liquid 
+    if section.settings.menu.links == blank 
         assign footer_menu_links = linklists[section.settings.menu].links
-    else
+    else 
         assign footer_menu_links = section.settings.menu.links
     endif
 %}
@@ -53,7 +53,6 @@
                 <h3 class="font-permanent_marker uppercase">infomation</h3>
                 {% for link in footer_menu_links %}
                 <!-- MENU LINK -->
-                    <!-- リンクリストは表示させていない。 -->
                     {% if link.links == blank %}
                         <a href="{{ link.url }}" class="text-base text-gray-900 hover:text-gray-500">{{ link.title }}</a>
                     {% endif %}

@@ -1,7 +1,7 @@
-{% liquid
-    if section.settings.menu.links == blank
+{% liquid 
+    if section.settings.menu.links == blank 
         assign footer_menu_links = linklists[section.settings.menu].links
-    else
+    else 
         assign footer_menu_links = section.settings.menu.links
     endif
 %}
