@@ -26,9 +26,15 @@
       ],
       "settings": {
       }
+    },
+    "16504712312d0dd17b": {
+      "type": "newsletter-form",
+      "settings": {
+      }
     }
   },
   "order": [
-    "template"
+    "template",
+    "16504712312d0dd17b"
   ]
 }
