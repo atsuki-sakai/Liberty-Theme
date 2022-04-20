@@ -1,0 +1,11 @@
+{% paginate collection.products by 6 %}
+    {% for product in collection.products %}
+    {% if product.featured_image %}
+        <img src="{{ product.featured_image | image_url: 'medium' }}" />
+    {% endif %}
+        <a href="{{ product.url }}">{{ product.title }}</a>
+    {% else %}
+        <p>このコレクションの中に、現在商品はありません。。。</p>
+    {% endfor %}
+    {% render "pagination", pagination: paginate %}
+{% endpaginate %}

@@ -1,0 +1,12 @@
+{% paginate search.results by 10 %}
+    {% for item in search.results %}
+        {% case item.object_type %}
+            {% when 'product' %}
+                <div class="max-w-4xl mx-auto">
+                    {% render 'product-card', product: item %}
+                </div>
+            {% else %}
+                
+        {% endcase %}
+    {% endfor %}
+{% endpaginate %}

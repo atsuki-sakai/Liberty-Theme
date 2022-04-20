@@ -1,0 +1,24 @@
+
+
+<div class="px-4 py-8">
+    {% paginate collection.products by 6 %}
+    <h1 class="text-3xl text-center">{{ collection.title }}</h1>
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+    </div>
+    {% for product in collection.products %}
+        {% if product.featured_image %}
+            <img src="{{ product.featured_image | img_url: 'medium' }}"  alt="{{ product.featured_image.alt }}">
+        {% endif %}
+
+        <span >{{ product.vender }}</span>
+        <a href="{{ product.url }}">{{ product.title }}</a>
+        <p>{{ product.price | money }}</p>
+
+        {%- comment -%} コレクションの商品がない場合この"else"が選択 {%- endcomment -%}
+        {% else %}
+            <p>このコレクションの中に、現在商品はありません。。。</p>
+    {% endfor %}
+    {% render "pagination", pagination: paginate %}
+{% endpaginate %}
+</div>

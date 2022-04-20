@@ -1,0 +1,11 @@
+{
+    "general": {
+        "accessibility": {
+            "sampleValue": "sampleValue"
+        },
+        "404": {
+        "title": "404 エラー",
+        "subtext_html": "お探しのページは見つかりませんでした。。。"
+        }
+    }
+}

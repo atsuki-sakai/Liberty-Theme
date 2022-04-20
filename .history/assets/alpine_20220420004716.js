@@ -1,0 +1,1 @@
+<script src="https://unpkg.com/alpinejs@3.9.1/dist/cdn.min.js"></script>

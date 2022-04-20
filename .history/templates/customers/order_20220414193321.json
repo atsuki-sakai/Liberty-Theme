@@ -1,0 +1,10 @@
+{
+    "sectioins": {
+        "template": {
+            "type": "template-customer-order"
+        }
+    },
+    "order": [
+        "template"
+    ]
+}

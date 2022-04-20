@@ -1,0 +1,35 @@
+
+<div class="w-full h-80">
+    <h1 class= "text-center text-lg font-oswaldtext-lg font-bold text-red-500"><a href="{{ section.settings.url }}">{{section.settings.title}}</a></h1>
+    <p class="text-center text-sm font-medium font-oswald">{{section.settings.description }}</p>
+</div>
+{% schema %}
+{
+    "name": "Canpaign Banner",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "title",
+            "label": "Title"
+        },
+        {
+            "type":"url",
+            "id": "url",
+            "default": "/",
+            "label": "Link"
+        },
+        {
+            "type": "text",
+            "id": "description",
+            "default": "description",
+            "label": "Description"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Canpaign Banner"
+        }
+    ]
+}
+{% endschema %}

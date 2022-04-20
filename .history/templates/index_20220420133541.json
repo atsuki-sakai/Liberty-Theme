@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "featured-collection": {
+            "type": "featured-collection"
+        },
+        "image_swiper": {
+            "type": "image_swiper"
+        }
+    },
+    "order": ["image_swiper","featured-collection"]
+}

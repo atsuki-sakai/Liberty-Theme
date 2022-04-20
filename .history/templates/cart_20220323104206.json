@@ -1,0 +1,14 @@
+{
+    "sections": {
+        "template": {
+            "type": "template-cart",
+            "blocks": {
+                "subtotal": {
+                    "type": "subtotal"
+                }
+            },
+            "block_order": ["subtotal"]
+        }
+    },
+    "order": ["template"]
+}

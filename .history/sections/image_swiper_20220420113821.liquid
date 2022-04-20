@@ -1,0 +1,94 @@
+
+<!-- swiper.js CDN -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<style>
+    .swiper--wrapper {
+    /* wrapperのサイズを調整 */
+    width: 100%;
+    height: 300px;
+    }
+
+    .swiper-slide {
+    /* スライドのサイズを調整、中身のテキスト配置調整、背景色 */
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 300px;
+    }
+
+    .swiper-slide:nth-child() {
+        background-color: #211221;
+    }
+</style>
+
+<div class="max-w-6xl mx-auto px-6 py-2">
+    <div class="swiper">
+        <!-- 必要に応じたwrapper -->
+        <div class="swiper-wrapper">
+            {% for block in section.blocks limit: section.blocks.size %}
+                <div class="swiper-slide">
+                    <div class="h-80 overflow-hidden flex justify-center items-center p-2">
+                        {% if block.settings.image_picker != blank %}
+                            <img
+                                src="{{ block.settings.image_picker | img_url: 'large' }}" 
+                                alt="{{ block.settings.image_picker.alt }}" 
+                                height="{{ block.settings.image_picker.height }}" 
+                                width="{{ block.settings.image_picker.width }}"
+                                class="w-full h-100 object-cover object-center"
+                            >
+                        {% else %}
+                            {{ 'product-1' | placeholder_svg_tag: "w-full h-full object-cover" }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+            <!-- 必要に応じてナビボタン -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</div>
+
+<script>
+    const swiper = new Swiper(".swiper", {
+        // ページネーションが必要なら追加
+        pagination: {
+            el: ".swiper-pagination"
+        },
+        // ナビボタンが必要なら追加
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        }
+    });
+</script>
+
+
+{% schema %}
+{
+    "name": "Image Swiper",
+    "blocks": [
+        {
+            "type": "image_picker",
+            "name": "Slide Image",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image_picker",
+                    "label": "Slide Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Swiper Title"
+        }
+    ]
+}
+{% endschema %}

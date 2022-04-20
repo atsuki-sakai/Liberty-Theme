@@ -1,0 +1,68 @@
+<div class="flex justify-center">
+    <div class="relative">
+        <h1 class="text-2xl text-gray-900 font-bold">{{ section.settings.title }}</h1>
+        <p class="text-base text-gray-700 font-thin">{{ section.settings.subtext_title }}</p>
+        <div class="pt-12">
+            <div class="bg-red-300 rounded-md w-1/2 mx-auto">
+                <a href="/" class="">HOMEへ戻る</a></a>
+            </div>
+        </div>
+        {% if section.settings.show_banner %}
+            <div class="flex justify-center">
+                <div class="fixed bottom-0">
+                    <div class="bg-green-500 ring ring-green-200 shadow-lg rounded-lg mb-4 py-2 px-4">
+                        {% if section.settings.banner_link %}
+                            {% assign shop_url = shop.secure_url %}
+                        {% else %}
+                            {% assign shop_url = section.settings.banner_link %}
+                        {% endif %}
+                        <a class="text-base hover:text-gray-300 text-white" href="{{ shop_url }}">{{ section.settings.banner_text }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- en.default.jsonのgeneral.404.subtext_htmlに呼び出す事ができる -->
+<!-- <p class="text-base text-gray-500 font-thin">{{ "general.404.subtext_html" | t }}</p> -->
+
+{% schema %}
+{
+    "name":"Template 404",
+    "tag":"section",
+    "class": "flex justify-center text-center py-7 h-screen",
+    "settings": [
+        {
+            "type":"text",
+            "id":"title",
+            "default":"404",
+            "label":"404 Heading Title"
+        },
+        {
+            "type":"text",
+            "id":"subtext_title",
+            "default":"The page that your're looking for is not found...",
+            "label":"404 Subtext Title"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_banner",
+            "default": true,
+            "label": "Show Banner"
+        },
+        {
+            "type":"text",
+            "id":"banner_text",
+            "default":"Banner Text",
+            "label":"Banner Text"
+        },
+        {
+            "type":"text",
+            "id":"banner_link",
+            "default":"https://google.com",
+            "label":"Banner Link"
+        }
+    ]
+}
+{% endschema %}

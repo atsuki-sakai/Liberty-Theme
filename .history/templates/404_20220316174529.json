@@ -1,0 +1,6 @@
+{
+    "name": "Template 404",
+    "layout": "custom_theme",
+    "wrapper": "div#404_temmplate.custom-class[custom-attribute='Hello Attribute']"
+
+}

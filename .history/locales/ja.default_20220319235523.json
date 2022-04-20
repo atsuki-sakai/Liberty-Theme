@@ -1,0 +1,14 @@
+{
+    "general": {
+        "404": {
+        "title": "404 エラ-",
+        "subtext_html": "お探しのページは見つかりませんでした。。。",
+        "backhome_text": "ホームへ戻るf"
+        }
+    },
+    "blogs": {
+        "accessibility": {
+            "test": "test"
+        }
+    }
+}

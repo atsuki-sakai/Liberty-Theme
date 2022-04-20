@@ -1,0 +1,29 @@
+
+<div class="w-full h-80">
+    <p class="text-lg font-bold text-red-500">{{}}</p>
+</div>
+{% schema %}
+{
+    "name": "Canpaign Banner",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "title",
+            "label": "Title"
+        },
+        {
+            "type":"url",
+            "id": "url",
+            "default": "/",
+            "label": "Link"
+        },
+        {
+            "type": "text",
+            "id": "description",
+            "default": "description",
+            "label": "Description"
+        }
+    ]
+}
+{% endschema %}

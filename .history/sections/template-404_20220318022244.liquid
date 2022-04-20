@@ -1,0 +1,66 @@
+<div class="flex justify-center pt-24">
+    <div class="relative p-4">
+        <h1 class="text-xl text-gray-900 font-bold">{{ section.settings.title }}</h1>
+        <p class="text-sm text-gray-700 font-thin">{{ section.settings.subtext_title }}</p>
+        <div class="pt-8 flex justify-center">
+            <div class="bg-green-500 hover:bg-green-700 rounded-sm shadow-md ring-1 py-1 ring-blue-200 w-2/3">
+                <a href="/" class="text-white text-sm">HOMEへ戻る</a></a>
+            </div>
+        </div>
+        {% if section.settings.show_banner %}
+            <div class="flex justify-center">
+                <div class="fixed bottom-0">
+                    {% if section.settings.banner_link %}
+                            {% assign shop_url = shop.secure_url %}
+                        {% else %}
+                            {% assign shop_url = section.settings.banner_link %}
+                        {% endif %}
+                    <div class="bg-green-500 ring-1 ring-yellow-500 shadow-lg rounded-lg mb-4 py-2 px-4">
+                        <a href="{{ shop_url }}">{{ section.settings.banner_text }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name":"Template 404",
+    "tag":"section",
+    "class": "flex justify-center text-center py-7 h-screen",
+    "settings": [
+        {
+            "type":"text",
+            "id":"title",
+            "default":"404 エラー",
+            "label":"404 Heading Title"
+        },
+        {
+            "type":"text",
+            "id":"subtext_title",
+            "default":"お探しのURLのページは見つかりませんでした...",
+            "label":"404 Subtext Title"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_banner",
+            "default": true,
+            "label": "Show Banner"
+        },
+        {
+            "type":"text",
+            "id":"banner_text",
+            "default":"Banner Text",
+            "label":"Banner Text"
+        },
+        {
+            "type":"text",
+            "id":"banner_link",
+            "default":"https://google.com",
+            "label":"Banner Link"
+        }
+    ]
+}
+{% endschema %}

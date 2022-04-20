@@ -1,0 +1,40 @@
+<div class="max-w-6xl mx-auto p-3">
+    <div class="h-80 md:h-100 lg:h-120 overflow-hideen">
+        <img
+            loading="lazy"
+            class="w-full h-full object-cover transfrom ease-out duration-500 scale-100 hover:scale-105"
+            src="{{ section.settings.swiper_image | img_url: 'large' }}"
+            alt="{{ section.settings.swiper_image.alt }}"
+            height="{{ section.settings.swiper_image.height }}"
+            width="{{ section.settings.swiper_image.width }}"
+        >
+        {% for block in section.blocks limit: section.blocks.size %}
+            {% if block.settings.image_picker != blank %}
+                {{ block.settings.image_picker | img_url: '300px' | img_tag }}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Image Swiper",
+    "blocks": [
+        {
+            "type": "image_picker",
+            "name": "スライド画像",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id":"swiper_image",
+                    "label": "Swiper Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        { "name": "Swiper Image"}
+    ]
+}
+{% endschema %}

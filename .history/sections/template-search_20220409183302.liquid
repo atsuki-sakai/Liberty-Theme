@@ -1,0 +1,24 @@
+
+<div class="container mx-auto">
+        {% paginate search.results by 10 %}
+        <h1 class="text-xl my-4 tex-gray-700 text-center">検索結果</h1>
+        <div class="flex justify-center items-center">
+            <form class="border" action="{{ routes.search_url }}" method="get">
+                <input class="px-2 focus:outline-none"  type="search" name="q" placeholder="Search" value="{{ search.terms | escape }}">
+                <button type="submit" class="bg-gray-900 hover:bg-gray-700 text-white border px-4">Search</button>
+            </form>
+        </div>
+        {% if search.performed %}
+            {% if search.results.size > 0 %}
+            {% for item in search.results %}
+            {% case item.object_type %}
+                {% when 'product' %}
+                    {% render 'product-card', product: item %}
+                {% else %}
+            {% endcase %}
+        {% endfor %}
+            {% endif %}
+        {% endif %}
+        {% render "pagination", pagination: paginate %}
+        {% endpaginate %}
+</div>

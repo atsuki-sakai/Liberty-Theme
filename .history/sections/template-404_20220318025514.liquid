@@ -1,0 +1,45 @@
+<div class="flex justify-center pt-24">
+    <div class="relative p-4">
+        <h1 class="text-xl text-gray-900 font-bold">{{ section.settings.title }}</h1>
+        <p class="text-sm text-gray-700 font-thin">{{ section.settings.subtext_title }}</p>
+        <div class="pt-8 flex justify-center">
+            <div class="bg-green-500 hover:bg-green-700 rounded-sm shadow-md ring-1 py-1 ring-blue-200 w-2/3">
+                <a href="/" class="text-white text-sm">HOMEへ戻る</a></a>
+            </div>
+        </div>
+        {% render "dammy" %}
+        <div class="fixed bottom-4 right-2">
+            Hello World.
+        </div>
+    </div>
+</div>
+
+<script>
+    window.addEventListener('scroll',scroll);
+    function scroll() {
+        scroll_position = window.pageYOffset;
+        console.log(scroll_position);
+    }
+</script>
+
+{% schema %}
+{
+    "name":"Template 404",
+    "tag":"section",
+    "class": "flex justify-center text-center py-7 h-screen",
+    "settings": [
+        {
+            "type":"text",
+            "id":"title",
+            "default":"404 エラー",
+            "label":"404 Heading Title"
+        },
+        {
+            "type":"text",
+            "id":"subtext_title",
+            "default":"お探しのURLのページは見つかりませんでした...",
+            "label":"404 Subtext Title"
+        }
+    ]
+}
+{% endschema %}

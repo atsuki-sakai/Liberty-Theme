@@ -1,0 +1,38 @@
+<div class="flex justify-center pt-24">
+    <div class="relative p-4">
+        <h1 class="text-xl text-gray-900 font-bold">{{ general.404.title | t }}</h1>
+        <p class="text-sm text-gray-700 font-thin">{{ general.404.subtext_title | t }}</p>
+        <div class="pt-8 flex justify-center">
+            <div class="bg-green-500 hover:bg-green-700 rounded-sm shadow-md ring-1 py-1 ring-blue-200 w-2/3">
+                <a href="/" class="text-white text-sm">{{ general.404.backhome_text | t }}</a></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- name: テンプレートの名前、コンソールで表示 -->
+<!-- tag: 指定のHTMLタグで包む、falseでdivタグ -->
+<!-- class: 指定したクラスを追加 -->
+
+{% schema %}
+{
+    "name":"Template 404",
+    "tag":"section",
+    "class": "flex justify-center text-center py-7 h-screen",
+    "settings": [
+        {
+            "type":"text",
+            "id":"title",
+            "default":"404 エラー",
+            "label":"404 Heading Title"
+        },
+        {
+            "type":"text",
+            "id":"subtext_title",
+            "default":"お探しのURLのページは見つかりませんでした...",
+            "label":"404 Subtext Title"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,17 @@
+{
+    "general": {
+        "accessibility": {
+            "sampleValue": "sampleValue"
+        },
+        "404": {
+        "title": "404 エラー",
+        "subtext_html": "お探しのページは見つかりませんでした。。。",
+        "back_home_text": "ホームへ戻る"
+        }
+    },
+    "blogs": {
+        "accessibility": {
+            "test": "test"
+        }
+    }
+}

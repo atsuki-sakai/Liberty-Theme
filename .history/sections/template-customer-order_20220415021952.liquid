@@ -1,0 +1,165 @@
+<div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center md:items-end justify-between my-5">
+        <div class="w-1/2 rounded-md p-2 shadow-inner shadow-gray-400/50">
+            <h1 class="text-2xl font-bold text-gray-700">
+                Order{{ order.name }}
+            </h1>
+            <p class="text-gray-500 mt-2 text-sm md:text-base">注文日: {{ order.created_at | date:format: 'date' }}</p>
+            <div class="space-y-1 md:flex md:items-center md:space-x-4 ">
+                {% case order.financial_status %}
+                    {% when "pending" %}
+                        <span class="text-sm text-yellow-600 border-yellow-600 border-2 rounded-full my-2 px-4 py-1">
+                            {{ order.financial_status_label }}
+                        </span>
+                    {% when "authorized" %}
+                    <span class="text-sm text-green-600 border-green-600 border-2 rounded-full my-2 px-4 py-1">
+                        {{ order.financial_status_label }}
+                    </span>
+                    {% when "paid" %}
+                    <span class="text-sm text-green-600 border-green-600 border-2 rounded-full my-2 px-4 py-1">
+                        {{ order.financial_status_label }}
+                    </span>
+                    {% when "partially_paid" %}
+                    <span class="text-sm text-red-600 border-red-600 border-2 rounded-full my-2 px-4 py-1">
+                        {{ order.financial_status_label }}
+                    </span>
+                    {% when "refunded" %}
+                    <span class="text-sm text-yellow-600 border-yellow-600 border-2 rounded-full my-2 px-4 py-1">
+                        {{ order.financial_status_label }}
+                    </span>
+                    {% when "partially_refunded" %}
+                    <span class="text-sm text-yellow-600 border-yellow-600 border-2 rounded-full my-2 px-4 py-1">
+                        {{ order.financial_status_label }}
+                    </span>
+                    {% when "Voided" %}
+                    <span class="text-sm text-yellow-600 border-yellow-600 border-2 rounded-full my-2 px-4 py-1">
+                        {{ order.financial_status_label }}
+                    </span>
+                    {% else %}
+                {% endcase %}
+                <p class="text-gray-500 text-sm md:font-medium">合計注文数: <span class="text-base md:text-xl font-bold text-black">{{ order.line_items | size }}</span></p>
+                <p class="text-gray-500 text-sm md:font-medium">合計金額: <span class="text-base md:text-xl font-bold text-black">{{ order.total_price | money }}</span></p>
+                <p class="text-gray-500 text-sm md:font-medium">送料: <span class="text-base md:text-xl font-bold text-black">{{ order.shipping_price | money }}</span></p>
+            </div>
+        </div>
+        <a href="{{ routes.account_url }}" class="text-blue-700 hover:text-blue-900 underline font-medium">アカウントページへ戻る</a>
+    </div>
+    <div>
+        {% for line_item in order.line_items %}
+        <div class="w-full shadow-inner shadow-gray-400/50 rounded-md border-gray-200 mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12 p-4 md:p-12">
+                <div class="w-full h-80 min-h-80 rouded-sm mb-4">
+                    {% if line_item.image %}
+                    <img class="w-full h-full object-cover object-center rounded-md border" src="{{ line_item.image | img_url:'large'
+                        }}" alt="{{ line_item.image.alt }}">
+                    {% else %}
+                    {{ 'product-1'| placeholder_svg_tag:'h-full w-full object-cover object-center' }}
+                    {% endif %}
+                </div>
+                <div class="flex flex-col justify-between">
+                    <div class="text-xl font-medium mb-4  px-2">
+                        {{ line_item.title | link_to: line_item.product.url }}
+                    </div>
+                    <table class="table-auto w-full mb-4">
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">金額</td>
+                                <td class="border border-gray-400 px-4 py-2">{{ line_item.original_price | money}}</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">数量</td>
+                                <td class="border border-gray-400 px-4 py-2">{{ line_item.quantity}}</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-400 px-4 py-2">合計金額</td>
+                                <td class="border border-gray-400 px-4 py-2">{{ line_item.final_line_price | money}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-gray-500 mb-4">
+                        {{ line_item.product.description | truncatewords: 6 , "..."| truncate: 100, "..." }}
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-medium mb-4">配達先住所</h1>
+                    <div class="text-gray-500 mb-4">
+                        <div>
+                            <p>{{ order.shipping_address.country }}</p>
+                            <p>{{ order.shipping_address.zip}}</p>
+                            <p>{{ order.shipping_address.province }}{{ order.shipping_address.city }}{{
+                                order.shipping_address.address1 }}
+                                {%- comment -%} 日本の場合address2は無い。streetは番地{%- endcomment -%}
+                                {% if order.shipping_address.address2%}
+                                    {{ order.shipping_address.address2}}
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 md:p-12">
+                <h1 class="text-lg font-medium mb-4">配達情報</h1>
+                {%- comment -%}successfully_fulfillment_quantity: 注文数と発送数が一致指定ればtrueを返す。{%- endcomment -%}
+                {% if line_item.successfully_fulfilled_quantity > 0 %}
+                    <p class="mb-2">注文数: {{ line_item.successfully_fulfilled_quantity  }}</p>
+                    <p class="mb-2">配達業者: {{ line_item.fulfillment.tracking_company }}</p>
+                    <p class="mb-2">お問い合わせ番号: {{ line_item.fulfillment.tracking_number }}</p>
+                    <a class="flex transform duration-300 text-center ease-in-out w-max text-sm md:text-base   shadow-lg border border-indogo-800 bg-indigo-500 text-white font-medium rounded-full px-4 py-2 hover:bg-indigo-800 hover:scale-105" target="_blank" href="{{ line_item.fulfillment.tracking_url }}">
+                        注文を追跡する<span class="ml-1">{% render "icon-link" %}</span>
+                    </a>
+                {% else %}
+                    <p class="text-gray-500">このアイテムはまだ発送されていません。</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12 border border-gray-200 rounded-sm p-4 md:p-12 my-6 bg-gray-50">
+        <div>
+            <h1 class="text-lg font-medium mb-4">請求先住所</h1>
+            {{ order.billing_address | format_address }}
+        </div>
+        <div>
+            <h1 class="text-lg font-medium mb-4">支払い情報</h1>
+            {% for transaction in order.transactions %}
+                <div class="mb-4">
+                    {% assign credit_card_company = transaction.payment_details.credit_card_company %}
+                    {% assign credit_card_last_four_digits = transaction.payment_details.credit_card_number %}
+                    {% if credit_card_company %}
+                        <p>{{ credit_card_company }}</p>
+                        <p>{{ credit_card_last_four_digits }}</p>
+                        {% case transaction.status_label %}
+                            {% when 'Failure' %}
+                            <span class="bg-red-500 rounded-full text-sm px-4 py-1 text-white">{{ transaction.status_label }}</span>
+                            {% else %}
+                                <span class="bg-green-500 rounded-full text-sm px-4 py-1 text-white">{{ transaction.status_label }}</span>
+                        {% endcase %}
+                        {{ bgColor }}
+                    {% else %}
+                        <p class="text-sm mb-4 text-gray-500">この注文は手動で行われました。{{ shop.name }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <table class="table-auto w-full mb-4">
+                <tbody>
+                    <tr>
+                        {% assign date = order.transactions.first.created_at | date: format: "default" | split: '+'| first %}
+                        <td class="24 text-center border border-gray-200 px-3 py-1">請求日</td>
+                        <td class="border border-gray-200 px-3 py-1">{{ date }}</td>
+                    </tr>
+                    <tr>
+                        <td class="border text-center border-gray-200 px-3 py-1">決済方法</td>
+                        <td class="border border-gray-200 px-3 py-1">{{ order.transactions.first.gateway_display_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="border text-center border-gray-200 px-3 py-1">請求金額</td>
+                        <td class="border border-gray-200 px-3 py-1">{{ order.total_price | money }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

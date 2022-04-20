@@ -1,0 +1,13 @@
+{
+    "sections": {
+        "template": {
+            "type": "template-product",
+            "blocks": {
+                "vendor": {
+                    "type": "vendor"
+                }
+            }
+        }
+    },
+    "order":["template"]
+}

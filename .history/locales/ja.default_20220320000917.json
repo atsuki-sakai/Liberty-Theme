@@ -1,0 +1,22 @@
+{
+    "general": {
+        "accessibility": {
+            "test_lang": "test lang",
+            "skip_to_content": "Skip to content",
+            "close_modal": "Close",
+            "link_messages": {
+                "new_window": "Opens in a new window.",
+                "external": "Opens external website.",
+                "new_window_and_external": "Opens external website in a new window."
+            },
+            "refresh_page": "Choosing a selection results in a full page refresh.",
+            "selection_help": "Press the space key then arrow keys to make a selection.",
+            "unit_price_separator": "per",
+            "error": "Error"
+        },
+        "404": {
+            "title": "404 エラ-",
+            "subtext_html": "お探しのページは見つかりませんでした。。。"
+        }
+    }
+}

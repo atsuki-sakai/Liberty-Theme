@@ -1,0 +1,33 @@
+
+<div class="flex flex-col items-center my-8">
+    <h1 class="text-center text-3xl">{{ collections[section.settings.featured_collection].title }}</h1>
+    {% paginate collections[section.settings.featured_collection].products by 3 %}
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1  md:grid-cols-4 gap-4">
+            {% for product in collections[section.settings.featured_collection].products %}
+                {% render 'product-card', product: product %}
+            {% endfor %}
+        </div>
+    </div>
+    {% render 'pagination', pagination: paginate %}
+    {% endpaginate %}
+</div>
+
+{% schema %}
+{
+    "name": "Featured Collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Featured Collection",
+            "label": "Title"
+        },
+        {
+            "type":"collection",
+            "id": "featured_collection",
+            "label": "Collection"
+        }
+    ]
+}
+{% endschema %}

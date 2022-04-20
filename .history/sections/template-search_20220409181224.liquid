@@ -1,0 +1,14 @@
+
+<div class="mt-42">
+    {% paginate search.results by 12 %}
+    {% for item in search.results %}
+        {% case item.object_type %}
+            {% when 'product' %}
+                {% render 'product-card', product: item %}
+            {% else %}
+        {% endcase %}
+    {% endfor %}
+    {% render "pagination", paginate: search.results %}
+{% endpaginate %}
+
+</div>

@@ -1,0 +1,24 @@
+[
+  {
+    "name": {
+      "ja": "色"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": {
+          "ja": "背景"
+        }
+      },
+      {
+        "type":"color",
+        "id": "color_topbar_bg",
+        "label": {
+          "ja": "トップバーの背景色"
+        },
+        "default": "#204a80"
+      }
+    ]
+  }
+
+]

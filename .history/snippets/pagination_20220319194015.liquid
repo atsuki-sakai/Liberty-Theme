@@ -1,0 +1,22 @@
+
+{% if pagination.pages > 1 %}
+<div id="pagination" class="space-x-2">
+    {% if pagination.previous %}
+        <span class="text-blue-500 text-sm">{{ "戻る" | link_to: pagination.previous.url }}</span>
+    {% endif %}
+    {% for part in pagination.parts %}
+        {% if part.is_link %}
+            <span class="text-gray-500 text-base">{{ part.title | link_to: part.url }}</span>
+        {% else %}
+            {% if part.title == '…' %}
+                <span class="text-gray-500 text-base">{{ part.title }}</span>
+            {% else %}
+                <span class="text-gray-500 text-base">{{ part.title }}</span>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    {% if pagination.next %}
+        <span  class="text-blue-500 text-sm">{{ "次へ" | link_to: pagination.next.url }}</span>
+    {% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,11 @@
+{% if collection == null %}
+    <h1>コレクションは現在準備中です。</h1>
+{% endif %}
+{% paginate collection.products by 6 %}
+    {% for product in collection.products %}
+        <a href="{{ product.url }}">{{ product.title }}</a>
+    {% else %}
+        <p>このコレクションの中に、現在商品はありません。。。</p>
+    {% endfor %}
+    {% render "pagination", pagination: paginate %}
+{% endpaginate %}

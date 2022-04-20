@@ -1,0 +1,10 @@
+{
+   "setions": {
+       "template": {
+           "type": "template-blog"
+       }
+   },
+   "order": [
+       "template"
+   ]
+}

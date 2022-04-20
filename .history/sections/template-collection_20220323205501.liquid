@@ -1,0 +1,46 @@
+<!-- COLLECTION -->
+<div class="px-4 py-8">
+    {% paginate collection.products by section.settings.line_items %}
+    <!-- COLLECTION TITLE -->
+    <h1 class="text-{{ section.settings.title_font_size | escape }}xl text-center">{{ collection.title }}</h1>
+    <!-- COLLECTION CONTENTS -->
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% for product in collection.products %}
+                {% render "product-card" product:product %}
+            {%- comment -%} コレクションの商品がない場合この"else"が選択 {%- endcomment -%}
+            {% else %}
+            <!-- EMPTY COLLECTION -->
+            <p>このコレクションの中に、現在商品はありません。。。</p>
+            {% endfor %}
+        </div>
+    </div>
+    {% render "pagination", pagination: paginate %}
+    {% endpaginate %}
+</div>
+
+{% schema %}
+{
+    "name": "Template Collection",
+    "settings": [
+        {
+            "type": "range",
+            "id": "line_items",
+            "step": 1,
+            "min": 1,
+            "max": 6,
+            "default": 3,
+            "label": "Line items"
+        },
+        {
+            "type": "range",
+            "id": "title_font_size",
+            "step": 2,
+            "min": 2,
+            "max": 8,
+            "default": 2,
+            "label": "Title Font Size"
+        }
+    ]
+}
+{% endschema %}
