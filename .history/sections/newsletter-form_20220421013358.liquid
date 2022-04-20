@@ -1,0 +1,31 @@
+<div class="max-w-6xl mx-auto px-3">
+    <h3 class="text-gray-700 font-bold text-xl lg:text-3xl font-zen_maru_gothic p-1">{{ shop.name }}のファンになる</h3>
+    {% form 'customer' %}
+    {{ form.errors | default_errors }}
+    {% if form.posted_successfully? %}
+        <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
+    {% else %}
+    <div class="flex">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input class="border px-2 focus:outline-none" type="email" value="{% if customer %}{{ customer.email }}{% endif %}"
+            placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off"
+            autocapitalize="off"
+        >
+        <div class="bg-red-300 rounded-md ml-4 py-3 px-2 shadow-md">
+            <input class="text-xl font-zen_maru_gothic" type="submit" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+        </div>
+    </div>
+    {% endif %}
+    {% endform %}
+</div>
+
+{% schema %}
+{
+    "name": "Newsletter Form",
+    "presets": [
+        {
+            "name": "Newsletter Form"
+        }
+    ]
+}
+{% endschema %}
