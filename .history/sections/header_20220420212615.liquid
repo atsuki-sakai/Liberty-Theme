@@ -7,10 +7,10 @@
     endif
 %}
 <!-- HEADER -->
-<div class="header-bg w-full relative mb-12" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
+<div class="header-bg w-full relative" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
     {% if section.settings.show_banner %}
-        <div class="w-full flex justify-center items-center bg-indigo-600 border-y-4  border-yellow-300 py-4">
-            <a class="inline-flex items-center text-white hover:text-gray-500" href="{{ sectino.settings.url }}">
+        <div class="w-full flex justify-center items-center bg-red-400 border-y-4 border-gray-700 py-4">
+            <a class="inline-flex items-center text-gray-700 hover:text-blue-500" href="{{ sectino.settings.url }}">
                 <h1 class= "text-center text-lg font-oswaldtext-lg font-bold">{{section.settings.title}}</h1>
                 <p class="ml-2 text-center text-sm font-medium font-oswald">{{section.settings.description }}</p>
             </a>
@@ -30,7 +30,7 @@
             <div class="flex -mr-2  ml-3 md:hidden">
                 <button>
                     <a href="{{ routes.cart_url }}">
-                        <div class="p-2 inline-flex items-center rounded-t-2xl rounded-b-md  justify-center shadow shadow-gray-400 text-gray-900 transfrom ease-in-out duration-200 hover:bg-white hover:text-black hover:shadow-inner hover:shadow-gray-400 hover:translate-y-1" >
+                        <div class="transform ease-in-out duration-500 bg-white p-2 items-center inline-flex rounded-b-2xl rounded-t-md  justify-center text-black shadow shadow-gray-400 focus:outline-none hover:bg-gray-700 hover:text-white" >
                             {% render "icon-cart" %}
                             <h4 class="font-medium text-base ml-2">{{ cart.item_count }}</h4>
                         </div>
@@ -39,7 +39,7 @@
             </div>
             <div class="-mr-2 -my-2 ml-6 md:hidden">
                 <button x-on:click="mobileMenuOpen = true" type="button"
-                    class="p-2 inline-flex items-center rounded-t-2xl rounded-b-md  justify-center shadow shadow-gray-400 text-gray-900 transfrom ease-in-out duration-200 hover:bg-white hover:text-black hover:shadow-inner hover:shadow-gray-400 hover:translate-y-1">
+                    class="bg-black p-2 inline-flex items-center rounded-t-2xl rounded-b-md  justify-center shadow shadow-gray-400 text-white focus:outline-none transfrom ease-out duration-300 hover:bg-gray-400 hover:text-black">
                     {% render "icon-menu" %}
                 </button>
             </div>

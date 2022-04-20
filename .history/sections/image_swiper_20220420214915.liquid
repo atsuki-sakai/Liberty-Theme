@@ -50,7 +50,7 @@
         <!-- 必要に応じたwrapper -->
         <div class="swiper-wrapper">
             {% for block in section.blocks limit: section.blocks.size %}
-                <div class="swiper-slide ">
+                <div class="swiper-slide rounded-md">
                     <div class="h-80 overflow-hidden flex justify-center items-center">
                         {% if block.settings.image_picker != blank %}
                             <img
