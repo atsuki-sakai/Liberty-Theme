@@ -28,14 +28,14 @@
         "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc"
       ],
       "settings": {
-        "title": "New Product."
+        "title": "New Product"
       }
     },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
         "title": "Featured Collection",
-        "featured_collection": "",
+        "featured_collection": "select-cosme",
         "line_items_per_row": 4
       }
     }
