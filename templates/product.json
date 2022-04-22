@@ -63,7 +63,7 @@
           "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
           "settings": {
             "stars_fill_color": "#fff800",
-            "star_size": 15,
+            "star_size": 25,
             "text_align": "flex-end",
             "product": "oil",
             "stars_text_empty": "レビューはありません。最初の一人になってくれませんか？"
