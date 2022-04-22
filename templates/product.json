@@ -58,21 +58,10 @@
           "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
           "settings": {
           }
-        },
-        "4b6caab8-df42-4bcb-b65a-a33ff845ed4a": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
-            "stars_fill_color": "#fff800",
-            "star_size": 25,
-            "text_align": "flex-end",
-            "product": "oil",
-            "stars_text_empty": "レビューはありません。最初の一人になってくれませんか？"
-          }
         }
       },
       "block_order": [
-        "58b3205f-d56b-4af0-8b51-e426ad8861e5",
-        "4b6caab8-df42-4bcb-b65a-a33ff845ed4a"
+        "58b3205f-d56b-4af0-8b51-e426ad8861e5"
       ],
       "settings": {
       }
