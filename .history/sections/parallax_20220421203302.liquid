@@ -1,0 +1,128 @@
+<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper">
+    <div class="parallax-bg" style="
+        background-image: url(https://swiperjs.com/demos/images/nature-1.jpg);
+        " data-swiper-parallax="-23%"></div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="title" data-swiper-parallax="-300">{{ section.settings.title_1 }}</div>
+            <div class="subtitle" data-swiper-parallax="-200">{{ section.settings.subtitle_1 }}</div>
+            <div class="text" data-swiper-parallax="-100">
+                <p>
+                    {{ section.settings.description_1 }}
+                </p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="title" data-swiper-parallax="-300">{{ section.settings.title_2 }}</div>
+            <div class="subtitle" data-swiper-parallax="-200">{{ section.settings.subtitle_2 }}</div>
+            <div class="text" data-swiper-parallax="-100">
+                <p>
+                    {{ section.settings.description_2 }}
+                </p>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="title" data-swiper-parallax="-300">{{ section.settings.title_3 }}</div>
+            <div class="subtitle" data-swiper-parallax="-200">{{ section.settings.subtitle_3 }}</div>
+            <div class="text" data-swiper-parallax="-100">
+                <p>
+                    {{ section.settings.description_3 }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        speed: 600,
+        parallax: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Parallax Slider",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "title_1",
+            "id": "title_1",
+            "default": "Title 1",
+            "label": "First Title"
+        },
+        {
+            "type": "title_2",
+            "id": "title_2",
+            "default": "Title 2",
+            "label": "Second Title"
+        },
+        {
+            "type": "title_3",
+            "id": "title_3",
+            "default": "Title 3",
+            "label": "Third Title"
+        },
+        {
+            "type": "subtitle_1",
+            "id": "subtitle_1",
+            "default": "subtitle 1",
+            "label": "First subtitle"
+        },
+        {
+            "type": "subtitle_2",
+            "id": "subtitle_2",
+            "default": "subtitle 2",
+            "label": "Second subtitle"
+        },
+        {
+            "type": "subtitle_3",
+            "id": "subtitle_3",
+            "default": "subtitle 3",
+            "label": "Third subtitle"
+        },
+        {
+            "type": "description_1",
+            "id": "description_1",
+            "default": "description 1",
+            "label": "First description"
+        },
+        {
+            "type": "description_2",
+            "id": "description_2",
+            "default": "description 2",
+            "label": "Second description"
+        },
+        {
+            "type": "description_3",
+            "id": "description_3",
+            "default": "description 3",
+            "label": "Third description"
+        }
+    ],
+    "presets": [
+        {
+            "name": "parallax Slider"
+        }
+    ]
+}
+{% endschema %}
