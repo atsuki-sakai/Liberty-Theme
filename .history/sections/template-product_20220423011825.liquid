@@ -35,24 +35,21 @@
     }
 
     .spr-summary {
-        color: gray;
         display: flex;
         flex-flow: column;
     }
 
-    .spr-summary-actions a {
-        color: blue;
-        font-weight: bold;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        overflow: hidden
+    .spr-summary-actions-togglereviews {
+        color: gray;
     }
 
-    .spr-summary-actions a:active {
-        background-color: transparent;
+    .spr-summary-actions a {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        overflow: hidden
+        overflow: hidden;
+        font-weight: bold;
+        padding: 3rem;
+        color: blue;
     }
 
     .spr-icon-star-empty:before {
@@ -76,6 +73,10 @@
     .spr-content input {
         outline: 2px solid transparent;
         outline-offset: 2px;
+    }
+
+    .spr-form-title {
+        display: none;
     }
 
     .spr-form-message-error {
