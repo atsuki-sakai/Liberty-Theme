@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
 /*
-! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -1269,6 +1269,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-gray-400{
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.bg-opacity-60{
+  --tw-bg-opacity: 0.6;
 }
 
 .bg-opacity-50{
