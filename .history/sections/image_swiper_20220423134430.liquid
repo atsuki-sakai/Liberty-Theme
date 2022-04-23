@@ -51,7 +51,7 @@
         <div class="swiper-wrapper">
             {% for block in section.blocks limit: section.blocks.size %}
                 <div class="swiper-slide ">
-                    <div class="h-80 w-full overflow-hidden flex justify-center items-center">
+                    <div class="h-80 overflow-hidden flex justify-center items-center">
                         {% if block.settings.image_picker != blank %}
                         <div class="relative  w-full">
                             <img

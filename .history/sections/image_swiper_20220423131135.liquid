@@ -45,15 +45,28 @@
 </style>
 
 <div class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-center -skew-x-12 text-2xl mb-3 font-press2D underline">{{ section.settings.title }}</h1>
-    <div class="swiper rounded-md">
+    <div class="relative">
+        <div class="absolute -top-4 -left-4 border-8 border-black w-full h-80 -z-10">
+
+        </div>
+        <div class="absolute -top-4 right-4 border-8 w-full border-black h-80 -z-10">
+            
+        </div>
+        <div class="absolute top-4 left-4 border-8 w-full border-black h-80 -z-10">
+            
+        </div>
+
+        <!-- <h1 class="bg-green-500 text-center font-medium border-2 border-gray-900 ring ring-yellow-300 text-gray-500 py-3 text-2xl my-6">
+            {{ section.settings.title }}
+        </h1> -->
+    </div>
+    <div class="swiper border-8 border-black static">
         <!-- 必要に応じたwrapper -->
         <div class="swiper-wrapper">
             {% for block in section.blocks limit: section.blocks.size %}
                 <div class="swiper-slide ">
-                    <div class="h-80 w-full overflow-hidden flex justify-center items-center">
+                    <div class="h-80 overflow-hidden flex justify-center items-center">
                         {% if block.settings.image_picker != blank %}
-                        <div class="relative  w-full">
                             <img
                                 src="{{ block.settings.image_picker | img_url: 'large' }}" 
                                 alt="{{ block.settings.image_picker.alt }}" 
@@ -61,10 +74,6 @@
                                 width="{{ block.settings.image_picker.width }}"
                                 class="w-full h-80 object-cover object-center"
                             >
-                            <div class="absolute top-2 left-2 rounded-full">
-                                <p class="text-2xl shadow-md shadow-gray-600 px-2 py-1">{{ block.settings.text }}</p>
-                            </div>
-                        </div>
                         {% else %}
                             {{ 'product-1' | placeholder_svg_tag: "w-full h-80 object-cover object-center" }}
                         {% endif %}
@@ -120,12 +129,6 @@
                     "type": "image_picker",
                     "id": "image_picker",
                     "label": "Slide Image"
-                },
-                {
-                    "type":"text",
-                    "id":"text",
-                    "default": "sample text",
-                    "label": "Slide Text"
                 }
             ]
         }

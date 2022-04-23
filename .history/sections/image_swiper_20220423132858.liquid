@@ -45,15 +45,14 @@
 </style>
 
 <div class="max-w-6xl mx-auto px-4 py-12">
-    <h1 class="text-center -skew-x-12 text-2xl mb-3 font-press2D underline">{{ section.settings.title }}</h1>
     <div class="swiper rounded-md">
         <!-- 必要に応じたwrapper -->
         <div class="swiper-wrapper">
             {% for block in section.blocks limit: section.blocks.size %}
                 <div class="swiper-slide ">
-                    <div class="h-80 w-full overflow-hidden flex justify-center items-center">
+                    <div class="h-80 overflow-hidden flex justify-center items-center">
                         {% if block.settings.image_picker != blank %}
-                        <div class="relative  w-full">
+                        <div class="relative">
                             <img
                                 src="{{ block.settings.image_picker | img_url: 'large' }}" 
                                 alt="{{ block.settings.image_picker.alt }}" 
@@ -61,9 +60,6 @@
                                 width="{{ block.settings.image_picker.width }}"
                                 class="w-full h-80 object-cover object-center"
                             >
-                            <div class="absolute top-2 left-2 rounded-full">
-                                <p class="text-2xl shadow-md shadow-gray-600 px-2 py-1">{{ block.settings.text }}</p>
-                            </div>
                         </div>
                         {% else %}
                             {{ 'product-1' | placeholder_svg_tag: "w-full h-80 object-cover object-center" }}
@@ -120,12 +116,6 @@
                     "type": "image_picker",
                     "id": "image_picker",
                     "label": "Slide Image"
-                },
-                {
-                    "type":"text",
-                    "id":"text",
-                    "default": "sample text",
-                    "label": "Slide Text"
                 }
             ]
         }
