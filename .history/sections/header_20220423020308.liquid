@@ -8,11 +8,11 @@ endif
 <!-- HEADER -->
 <div class="header-bg w-full relative mb-12" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
     {% if section.settings.show_banner %}
-    <div class="w-full flex justify-center items-center bg-gray-900 py-6 border-y-2 border-gray-500">
+    <div class="w-full flex justify-center items-center bg-gray-900 border-3 border-white py-4">
         <a class="inline-flex items-center text-white hover:scale-105 hover:text-gray-300 transform duration-300 ease-in-out"
             href="{{ sectino.settings.url }}">
-            <h1 class="text-center text-2xl font-oswaldtext-lg font-bold">{{section.settings.title}}</h1>
-            <p class="ml-2 text-center text-base font-semibold font-oswald">{{section.settings.description }}</p>
+            <h1 class="text-center text-lg font-oswaldtext-lg font-bold">{{section.settings.title}}</h1>
+            <p class="ml-2 text-center text-sm font-medium font-oswald">{{section.settings.description }}</p>
         </a>
     </div>
     {% endif %}
