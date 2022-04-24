@@ -44,6 +44,40 @@
     },
     "1650765388056480a0": {
       "type": "animate_on_scroll_image",
+      "blocks": {
+        "096ffa8f-f691-42e0-a305-6b2b1156432d": {
+          "type": "image_picker",
+          "settings": {
+            "switch": false,
+            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
+            "title": "Title",
+            "description": "Description"
+          }
+        },
+        "f21a7a6b-28a1-4ecf-a2e9-618251e95f0e": {
+          "type": "image_picker",
+          "settings": {
+            "switch": true,
+            "image_picker": "shopify:\/\/shop_images\/barber-sprays-water-on-customers-head.jpg",
+            "title": "Title",
+            "description": "Description"
+          }
+        },
+        "fc0419d2-bd39-4b6c-b832-1dd946c73445": {
+          "type": "image_picker",
+          "settings": {
+            "switch": false,
+            "image_picker": "shopify:\/\/shop_images\/fashion-model-in-fur.jpg",
+            "title": "Title",
+            "description": "Description"
+          }
+        }
+      },
+      "block_order": [
+        "096ffa8f-f691-42e0-a305-6b2b1156432d",
+        "f21a7a6b-28a1-4ecf-a2e9-618251e95f0e",
+        "fc0419d2-bd39-4b6c-b832-1dd946c73445"
+      ],
       "settings": {
         "title": "Title",
         "desctiption": "Description"
