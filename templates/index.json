@@ -7,21 +7,21 @@
           "type": "image_picker",
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg",
-            "text": "sample text"
+            "text": "LEDIES"
           }
         },
         "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
           "type": "image_picker",
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
-            "text": "sample text"
+            "text": "MENS"
           }
         },
         "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
           "type": "image_picker",
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg",
-            "text": "sample text"
+            "text": "UNISEX"
           }
         }
       },
