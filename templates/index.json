@@ -6,19 +6,22 @@
         "e4ce7eca-1c89-4e4b-848e-186801a98d63": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg"
+            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg",
+            "text": "sample text"
           }
         },
         "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg"
+            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
+            "text": "sample text"
           }
         },
         "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg"
+            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg",
+            "text": "sample text"
           }
         }
       },
@@ -38,10 +41,18 @@
         "featured_collection": "select-cosme",
         "line_items_per_row": 4
       }
+    },
+    "1650765388056480a0": {
+      "type": "animate_on_scroll_image",
+      "settings": {
+        "title": "Title",
+        "desctiption": "Description"
+      }
     }
   },
   "order": [
     "image_swiper",
-    "featured-collection"
+    "featured-collection",
+    "1650765388056480a0"
   ]
 }
