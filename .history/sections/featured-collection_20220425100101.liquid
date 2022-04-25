@@ -1,0 +1,63 @@
+<!-- FEATURED COLLLECTION -->
+<div class="flex flex-col items-center  my-8">
+    <div class="max-w-6xl mx-auto px-4">
+        <!-- COLLECTION TITLE -->
+        <h1 class="text-center text-2xl mb-3 font-zen_maru_gothic text-gray-900">{{ collections[section.settings.featured_collection].title }}</h1>
+        <!-- COLLECTION DESCRIPTION -->
+        <span class="tetx-center text-lg font-zen_maru_gothic text-gray-500">{{ collections[section.settings.featured_collection].description }}</span>
+    </div>
+    <!-- COLLECTION PRODUCT -->
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {% for product in collections[section.settings.featured_collection].products limit: section.settings.line_items_per_row %}
+                {% render 'product-card', product: product %}
+            {% else %}
+                {%- comment -%}Collectionoがない時{%- endcomment -%}
+                {% for item in (1..4) %}
+                    {% render 'product-card-placeholder' %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{%- comment -%}presets:  管理画面からセクションを追加するできるようになる{%- endcomment -%}
+{%- comment -%}詳細:https://shopify.dev/themes/architecture/sections/section-schema#presets{%- endcomment -%}
+{% schema %}
+{
+    "name": "Featured Collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Featured Collection",
+            "label": "Title"
+        },
+        {
+            "type":"collection",
+            "id": "featured_collection",
+            "label": "Collection"
+        },
+        {
+            "type": "range",
+            "id": "line_items_per_row",
+            "min": 4,
+            "max": 12,
+            "step": 4,
+            "default": 4,
+            "label": "Line Items per row"
+        },
+        {
+            "type":"image_picker",
+            "id":"bg_image",
+            "label":"Backgroung Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Collection"
+        }
+    ]
+}
+{% endschema %}
