@@ -6,19 +6,22 @@
         "e4ce7eca-1c89-4e4b-848e-186801a98d63": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg"
+            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg",
+            "text": "LEDIES"
           }
         },
         "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg"
+            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
+            "text": "MENS"
           }
         },
         "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg"
+            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg",
+            "text": "UNISEX"
           }
         }
       },
@@ -38,10 +41,52 @@
         "featured_collection": "select-cosme",
         "line_items_per_row": 4
       }
+    },
+    "1650765388056480a0": {
+      "type": "animate_on_scroll_image",
+      "blocks": {
+        "096ffa8f-f691-42e0-a305-6b2b1156432d": {
+          "type": "image_picker",
+          "settings": {
+            "switch": false,
+            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
+            "title": "STEP.1",
+            "description": "お風呂上がり患部に２~３滴塗り込みます。"
+          }
+        },
+        "f21a7a6b-28a1-4ecf-a2e9-618251e95f0e": {
+          "type": "image_picker",
+          "settings": {
+            "switch": true,
+            "image_picker": "shopify:\/\/shop_images\/barber-sprays-water-on-customers-head.jpg",
+            "title": "STEP.2",
+            "description": "Lorem ipsum dolor sit amet, consecte"
+          }
+        },
+        "fc0419d2-bd39-4b6c-b832-1dd946c73445": {
+          "type": "image_picker",
+          "settings": {
+            "switch": false,
+            "image_picker": "shopify:\/\/shop_images\/fashion-model-in-fur.jpg",
+            "title": "STEP.2",
+            "description": "Descriptio　nLorem ipsum dolor sit amet, consecte"
+          }
+        }
+      },
+      "block_order": [
+        "096ffa8f-f691-42e0-a305-6b2b1156432d",
+        "f21a7a6b-28a1-4ecf-a2e9-618251e95f0e",
+        "fc0419d2-bd39-4b6c-b832-1dd946c73445"
+      ],
+      "settings": {
+        "title": "Title",
+        "desctiption": "Description"
+      }
     }
   },
   "order": [
     "image_swiper",
-    "featured-collection"
+    "featured-collection",
+    "1650765388056480a0"
   ]
 }
