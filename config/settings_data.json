@@ -3,11 +3,11 @@
     "color_banner_bg": "#dc0505",
     "color_topbar_bg": "#ffffff",
     "color_main_bg": "#ffffff",
-    "color_footer_bg": "#ffffff",
-    "color_footer_under_bg": "#14dc05",
+    "color_footer_bg": "#f1efef",
+    "color_footer_under_bg": "#c2c2c2",
     "color_banner_text": "#ffffff",
     "color_shop_text": "#14dc05",
-    "color_header_text": "#14dc05",
+    "color_header_text": "#262626",
     "color-main-text": "#ffffff",
     "sections": {
       "header": {
