@@ -1,10 +1,13 @@
 {
   "current": {
+    "color_banner_bg": "#fa1411",
+    "color_topbar_bg": "rgba(0,0,0,0)",
+    "color_shop_text": "#14dc05",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
-          "mobile-menu-title": "Menu",
+          "mobile_menu_title": "Menu",
           "menu": "main-menu",
           "show_banner": true,
           "title": "25%Off",
