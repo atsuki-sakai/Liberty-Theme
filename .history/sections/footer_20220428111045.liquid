@@ -15,7 +15,7 @@ assign footer_menu_links = section.settings.menu.links
 endif
 %}
 
-<footer id="footer-bg" class="mt-4 text-center lg:text-left text-gray-900">
+<footer id="footer-bg" class="mt-12 text-center lg:text-left text-gray-900">
     <div class="flex justify-center items-center lg:justify-between p-6 mr-12 ml-12 border-b border-gray-900">
         <div class="mr-12 hidden lg:block">
             <span class="font-orelega_one font-bold uppercase">Social Media</span>
@@ -47,8 +47,8 @@ endif
             </a>
         </div>
     </div>
-    <div class="mx-6 py-4 text-center md:text-left px-8">
-        <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6">
+    <div class="mx-6 py-10 text-center md:text-left px-8">
+        <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="">
                 <h6
                     class="uppercase text font-bold font-orelega_one mb-4 flex items-center justify-center md:justify-start">
@@ -66,7 +66,7 @@ endif
                 <!-- MENU LINK -->
                 <!-- リンクリストは表示させていない。 -->
                 {% if link.links == blank %}
-                    <a href="{{ link.url }}" class="font-zen_maru_gothic mb-1 text-base text-gray-600 hover:text-gray-400">{{ link.title }}</a>
+                <a href="{{ link.url }}" class="font-zen_maru_gothic mb-1 text-base text-gray-600 hover:text-gray-400">{{ link.title }}</a>
                 {% endif %}
                 {% endfor %}
             </div>
