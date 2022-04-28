@@ -1,9 +1,10 @@
 {
   "current": {
-    "color_banner_bg": "#14dc05",
+    "color_banner_bg": "#dc0505",
     "color_topbar_bg": "#ffffff",
-    "color_main_bg": "#000000",
-    "color_footer_bg": "#000000",
+    "color_main_bg": "#ffffff",
+    "color_footer_bg": "#ffffff",
+    "color_footer_under_bg": "#14dc05",
     "color_banner_text": "#ffffff",
     "color_shop_text": "#14dc05",
     "color_header_text": "#14dc05",
