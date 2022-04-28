@@ -1,37 +1,9 @@
 {
   "sections": {
-    "image_swiper": {
-      "type": "image_swiper",
-      "blocks": {
-        "e4ce7eca-1c89-4e4b-848e-186801a98d63": {
-          "type": "image_picker",
-          "settings": {
-            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg",
-            "text": "LEDIES"
-          }
-        },
-        "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
-          "type": "image_picker",
-          "settings": {
-            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
-            "text": "MENS"
-          }
-        },
-        "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
-          "type": "image_picker",
-          "settings": {
-            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg",
-            "text": "UNISEX"
-          }
-        }
-      },
-      "block_order": [
-        "e4ce7eca-1c89-4e4b-848e-186801a98d63",
-        "0fe8fbed-2428-43f4-b665-54183d2cb3f7",
-        "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc"
-      ],
+    "1651111861af9f49a9": {
+      "type": "background_image",
       "settings": {
-        "title": "New Product"
+        "bg_image": "shopify:\/\/shop_images\/bright-flatlay-of-a-makeup-pallet-and-other-items.jpg"
       }
     },
     "featured-collection": {
@@ -39,7 +11,8 @@
       "settings": {
         "title": "Featured Collection",
         "featured_collection": "select-cosme",
-        "line_items_per_row": 4
+        "line_items_per_row": 4,
+        "one_line": false
       }
     },
     "1650765388056480a0": {
@@ -82,11 +55,46 @@
         "title": "Title",
         "desctiption": "Description"
       }
+    },
+    "image_swiper": {
+      "type": "image_swiper",
+      "blocks": {
+        "e4ce7eca-1c89-4e4b-848e-186801a98d63": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg",
+            "text": "LEDIES"
+          }
+        },
+        "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
+            "text": "MENS"
+          }
+        },
+        "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg",
+            "text": "UNISEX"
+          }
+        }
+      },
+      "block_order": [
+        "e4ce7eca-1c89-4e4b-848e-186801a98d63",
+        "0fe8fbed-2428-43f4-b665-54183d2cb3f7",
+        "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc"
+      ],
+      "settings": {
+        "title": "New Product"
+      }
     }
   },
   "order": [
-    "image_swiper",
+    "1651111861af9f49a9",
     "featured-collection",
-    "1650765388056480a0"
+    "1650765388056480a0",
+    "image_swiper"
   ]
 }
