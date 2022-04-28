@@ -1,8 +1,13 @@
 {
   "current": {
-    "color_banner_bg": "#fa1411",
-    "color_topbar_bg": "rgba(0,0,0,0)",
+    "color_banner_bg": "#14dc05",
+    "color_topbar_bg": "#ffffff",
+    "color_main_bg": "#000000",
+    "color_footer_bg": "#000000",
+    "color_banner_text": "#ffffff",
     "color_shop_text": "#14dc05",
+    "color_header_text": "#14dc05",
+    "color-main-text": "#ffffff",
     "sections": {
       "header": {
         "type": "header",
