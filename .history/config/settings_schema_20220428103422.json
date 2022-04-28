@@ -93,35 +93,8 @@
                 "id": "color_banner_text",
                 "default": "#FFFFFF",
                 "label": {
-                    "en": "Banner Text Color",
-                    "ja": "バナーテキスト"
-                }
-            },
-            {
-                "type": "color",
-                "id": "color_shop_text",
-                "default": "#FFFFFF",
-                "label": {
-                    "en": "Header Shop Color",
-                    "ja": "ヘッダーショップテキスト"
-                }
-            },
-            {
-                "type":"color",
-                "id": "color_header_text",
-                "default": "#000000",
-                "label": {
-                    "en": "Header Text Color",
-                    "ja": "ヘッダーテキスト"
-                }
-            },
-            {
-                "type":"color",
-                "id":"color-main-text",
-                "default": "#000000",
-                "label": {
-                    "en":"Main Text Color",
-                    "ja": "本文の文字"
+                    "en": "Banner Text",
+                    "ja": "バナーのテキスト"
                 }
             }
         ]

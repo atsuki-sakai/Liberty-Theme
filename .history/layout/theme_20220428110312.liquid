@@ -23,10 +23,14 @@
   #main-bg {
     background-color: {{ settings.color_main_bg }};
   }
+  #main {
+    color: {{ settings.color-main-text }};
+  }
 </style>
 
 <body id="main-bg">
   {% section 'header' %}
+  <div id="main">
     {% if request.path == '/challenge' %}
       {% render 'challenge' %}
     {%  elsif request.path == '/en/challenge' %}
@@ -36,6 +40,7 @@
         {{ content_for_layout }}
       </main>
     {% endif %}
+  </div>
   {% section 'footer' %}
 </body>
 </html>

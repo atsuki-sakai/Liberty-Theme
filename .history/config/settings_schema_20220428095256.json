@@ -1,0 +1,50 @@
+[
+    {
+        "name": "theme_info",
+        "theme_name": "Liberty",
+        "theme_version": "1.0.0",
+        "theme_author": "Shopify",
+        "theme_documentation_url": "https:\/\/docs.shopify.com\/manual\/more\/official-shopify-themes\/minimal",
+        "theme_support_url": "https:\/\/support.shopify.com\/"
+    },
+    {
+        "name": {
+            "en": "Layout",
+            "ja": "レイアウト"
+        },
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable_wide_layout",
+                "label": {
+                    "en": "Enable wide layout",
+                    "ja": "ワイドレイアウトを有効にする"
+                }
+            }
+        ]
+    },
+    {
+        "name": {
+            "en": "Color",
+            "ja": "色"
+        },
+        "settings": [
+            {
+                "type":"header",
+                "content": {
+                    "en": "Background",
+                    "ja":"背景"
+                }
+            },
+            {
+                "type":"color",
+                "id": "color_topbar_bg",
+                "label": {
+                    "en": "Header Color",
+                    "ja":"ヘッダーの色"
+                }
+            }
+        ]
+    }
+
+]

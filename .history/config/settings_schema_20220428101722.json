@@ -42,7 +42,7 @@
                 "default": "#2E2E2E",
                 "label": {
                     "en": "Banner Color",
-                    "ja": "バナーの背景"
+                    "ja": "バナーの色"
                 }
             },
             {
@@ -51,7 +51,7 @@
                 "default": "#FFFFFF",
                 "label": {
                     "en": "Header Color",
-                    "ja":"ヘッダーの背景"
+                    "ja":"ヘッダーの色"
                 }
             },
             {
@@ -70,58 +70,6 @@
                 "label": {
                     "en": "Footer Color",
                     "ja": "フッターの背景"
-                }
-            },
-            {
-                "type": "color",
-                "id":"color_footer_under_bg",
-                "default":"#2E2E2E",
-                "label": {
-                    "en": "Footer Under Color",
-                    "ja": "フッター下部の背景"
-                }
-            },
-            {
-                "type":"header",
-                "content": {
-                    "en": "Text",
-                    "ja":"テキスト"
-                }
-            },
-            {
-                "type": "color",
-                "id": "color_banner_text",
-                "default": "#FFFFFF",
-                "label": {
-                    "en": "Banner Text Color",
-                    "ja": "バナーテキスト"
-                }
-            },
-            {
-                "type": "color",
-                "id": "color_shop_text",
-                "default": "#FFFFFF",
-                "label": {
-                    "en": "Header Shop Color",
-                    "ja": "ヘッダーショップテキスト"
-                }
-            },
-            {
-                "type":"color",
-                "id": "color_header_text",
-                "default": "#000000",
-                "label": {
-                    "en": "Header Text Color",
-                    "ja": "ヘッダーテキスト"
-                }
-            },
-            {
-                "type":"color",
-                "id":"color-main-text",
-                "default": "#000000",
-                "label": {
-                    "en":"Main Text Color",
-                    "ja": "本文の文字"
                 }
             }
         ]

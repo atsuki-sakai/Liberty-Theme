@@ -19,23 +19,17 @@
   <script src="{{ 'aos.js' | asset_url }}" defer></script>
 </head>
 
-<style lang="scss" scoped>
-  #main-bg {
-    background-color: {{ settings.color_main_bg }};
-  }
-</style>
-
-<body id="main-bg">
+<body>
   {% section 'header' %}
-    {% if request.path == '/challenge' %}
-      {% render 'challenge' %}
-    {%  elsif request.path == '/en/challenge' %}
-      {% render 'challenge' %}
-    {% else %}
-      <main role="main">
-        {{ content_for_layout }}
-      </main>
-    {% endif %}
+  {% if request.path == '/challenge' %}
+    {% render 'challenge' %}
+  {%  elsif request.path == '/en/challenge' %}
+    {% render 'challenge' %}
+  {% else %}
+    <main role="main">
+      {{ content_for_layout }}
+    </main>
+  {% endif %}
   {% section 'footer' %}
 </body>
 </html>

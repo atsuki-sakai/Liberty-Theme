@@ -114,15 +114,6 @@
                     "en": "Header Text Color",
                     "ja": "ヘッダーテキスト"
                 }
-            },
-            {
-                "type":"color",
-                "id":"color-main-text",
-                "default": "#000000",
-                "label": {
-                    "en":"Main Text Color",
-                    "ja": "本文の文字"
-                }
             }
         ]
     }

@@ -16,9 +16,6 @@
     #header-text {
         color: {{ settings.color_header_text }};
     }
-    #header-shop-text {
-        color: {{ settings.color_shop_text }};
-    }
 </style>
 
 {% liquid
@@ -39,11 +36,11 @@ endif
             </a>
         </div>
     {% endif %}
-    <div id="header-text" class="mx-auto px-8 sm:px-12 ">
+    <div class="mx-auto px-8 sm:px-12 ">
         <div class="flex justify-around items-center py-6 md:justify-start md:space-x-4 ">
             <!-- STORE NAME -->
             <div class="flex justify-start md:flex-1 truncate w-full">
-                <h1 id="header-shop-text" class="font-orelega_one text-lg lg:text-2xl font-bold truncate">
+                <h1 class="font-orelega_one text-lg lg:text-2xl font-bold truncate">
                     <a href="/">
                         {{ shop.name }}
                     </a>
@@ -52,7 +49,7 @@ endif
             <!-- MENU ICON -->
             <div class="flex -mr-2  ml-3 md:hidden">
                 <a href="{{ routes.cart_url }}">
-                    <div class="relative p-2 flex items-center justify-center hover:opacity-50">
+                    <div class="relative p-2 flex items-center justify-center text-black hover:text-gray-500">
                         {% render "icon-cart", size: 6 %}
                         <div class="absolute -top-1 -right-1 bg-gray-600 rounded-full">
                             <p class="font-orelega_one px-1.5 text-sm text-white">{{ cart.item_count }}</p>
@@ -62,7 +59,7 @@ endif
             </div>
             <div class="-mr-2 -my-2 ml-6 md:hidden">
                 <button x-on:click="mobileMenuOpen = true" type="button"
-                    class="p-2 flex items-center justify-center hover:opacity-50">
+                    class="p-2 flex items-center justify-center text-black hover:text-gray-500">
                     {% render "icon-menu" %}
                 </button>
             </div>
@@ -75,7 +72,7 @@ endif
                         {% if link.links != blank %}
                             {% assign link_handle = link.handle | replace: "-", "_" %}
                             <div class="relative max-w-md" x-data="{ {{ link_handle }}: false }">
-                                <button class="inline-flex items-center hover:opacity-50" x-on:click=" {{ link_handle }} = ! {{ link_handle }}">
+                                <button class="inline-flex items-center text-black transform ease-in-out duration-300 hover:text-gray-500" x-on:click=" {{ link_handle }} = ! {{ link_handle }}">
                                     {{ link.title }}
                                     {% render "icon-dropdown" %}
                                 </button>
@@ -104,7 +101,7 @@ endif
                                 </div>
                             </div>
                         {% else %}
-                            <a href="{{ link.url }}" class="hover:opacity-50">{{ link.title }}</a>
+                            <a href="{{ link.url }}" class=" text-black transform ease-in-out duration-300 hover:text-gray-500">{{ link.title }}</a>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -152,7 +149,7 @@ endif
                         <!-- MOBILE MENU HEADER TITLE AND CLOSEBUTTON -->
                         <div class="flex items-center justify-between py-3">
                             <h1 class="text-lg text-gray-900">
-                                {{ section.settings.mobile_menu_title }}
+                                {{ section.settings.mobile-menu-title }}
                             </h1>
                             <div class="-mr-2">
                                 <button x-on:click="mobileMenuOpen = false" type="button"
@@ -171,11 +168,11 @@ endif
                                     account
                             </a>
                                 {%- comment -%}Liquidのreplaceフィルターを使って<a>タグのclassにtailwindcssを付与{%- endcomment -%}
-                                {{ "ログアウト" | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                                {{ "Log out" | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
                             {% else %} 
                                 <!-- CUSTOMER NOT LOGIN -->
-                                {{ "ログイン" | customer_login_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
-                                {{ "登録" | customer_register_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                                {{ "Log in" | customer_login_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                                {{ "Register" | customer_register_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
                             {% endif %} 
                         {% endif %} 
                         <button
@@ -254,7 +251,7 @@ endif
     "settings": [
     {
     "type":"text",
-    "id":"mobile_menu_title",
+    "id":"mobile-menu-title",
     "default":"Menu",
     "label":"Mobile Menu Title"
     },

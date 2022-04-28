@@ -61,12 +61,12 @@ endif
                 </p>
             </div>
             <div class="grid grid-cols-1">
-                <h3 class="font-orelega_one font-bold uppercase mb-3">infomation</h3>
+                <h3 class="font-zen_maru_gothic font-bold uppercase mb-3">infomation</h3>
                 {% for link in footer_menu_links %}
                 <!-- MENU LINK -->
                 <!-- リンクリストは表示させていない。 -->
                 {% if link.links == blank %}
-                <a href="{{ link.url }}" class="font-zen_maru_gothic mb-1 text-base text-gray-600 hover:text-gray-400">{{ link.title }}</a>
+                <a href="{{ link.url }}" class="text-base text-gray-600 hover:text-gray-400">{{ link.title }}</a>
                 {% endif %}
                 {% endfor %}
             </div>

@@ -1,0 +1,54 @@
+[
+    {
+        "name": "theme_info",
+        "theme_name": "Liberty",
+        "theme_version": "1.0.0",
+        "theme_author": "Byte",
+        "theme_documentation_url": ""
+    },
+    {
+        "name": {
+            "en": "Layout",
+            "ja": "レイアウト"
+        },
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable_wide_layout",
+                "label": {
+                    "cs": "Povolit široké rozvržení",
+                    "da": "Aktivér bredt layout",
+                    "de": "Breites Layout aktivieren",
+                    "en": "Enable wide layout",
+                    "es": "Habilita diseño amplio",
+                    "fi": "Ota leveä asettelu käyttöön",
+                    "fr": "Activer une mise en page plus large",
+                    "it": "Abilita layout esteso",
+                    "ja": "ワイドレイアウトを有効にする",
+                    "ko": "넓은 레이아웃 사용",
+                    "nb": "Aktiver bredt oppsett",
+                    "nl": "Brede opmaak inschakelen",
+                    "pl": "Włącz układ szeroki",
+                    "pt-BR": "Habilitar layout amplo",
+                    "pt-PT": "Ativar esquema amplo",
+                    "sv": "Aktivera en bredare layout",
+                    "th": "เปิดใช้เลย์เอาต์แบบกว้าง",
+                    "tr": "Geniş düzeni etkinleştir",
+                    "vi": "Bật bố cục rộng",
+                    "zh-CN": "启用宽幅布局",
+                    "zh-TW": "啟用寬幅版面配置"
+                }
+            }
+        ]
+    },
+    {
+        "name": {
+          "en": "Layout",
+          "ja": "レイアウト"
+        },
+        "settings": [
+
+        ]
+    }
+
+]
