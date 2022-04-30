@@ -1,18 +1,12 @@
 {
   "sections": {
-    "1651111861af9f49a9": {
-      "type": "background_image",
-      "settings": {
-        "bg_image": "shopify:\/\/shop_images\/4k_bg.jpg"
-      }
-    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
         "title": "Featured Collection",
         "featured_collection": "select-cosme",
         "line_items_per_row": 4,
-        "one_line": false
+        "one_line": true
       }
     },
     "1650765388056480a0": {
@@ -92,7 +86,6 @@
     }
   },
   "order": [
-    "1651111861af9f49a9",
     "featured-collection",
     "1650765388056480a0",
     "image_swiper"
