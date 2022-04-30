@@ -1,0 +1,33 @@
+<div class="w-screen h-screen absolute inset-0 -z-50">
+    {% for block in section.blocks %}
+        {% assign original = "original" %}
+        <div
+            class='bg-cover bg-center w-full h-full mt-4 p-3' 
+            style="background-image: url('https:{{ block.settings.bg_image| img_url: `original` }}');"
+        />
+    {% endfor %}
+</div>
+{% schema %}
+{
+"name":"Background Images",
+"blocks": [
+{
+"type": "image_picker",
+"name": "Bacckground Images",
+"limit": 6,
+"settings": [
+{
+"type":"image_picker",
+"id":"bg_image",
+"label":"Backgroung Image"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Background Images"
+}
+]
+}
+{% endschema %}

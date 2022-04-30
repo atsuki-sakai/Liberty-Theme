@@ -1,0 +1,28 @@
+<div class="relative max-w-6xl mx-auto px-3">
+    <video 
+        src=""
+        muted="true"
+        autoplay="true"
+        loop="true"
+        playsinline="true"
+    >
+    </video>
+</div>
+
+{% schema %}
+{
+    "name": "Background Video Player",
+    "settings": [
+        {
+            "type":"url",
+            "id":"video_url",
+            "label": "Video Url"
+        }
+    ],
+    "presets": [
+        {
+            "name":"Background Video Player"
+        }
+    ]
+}
+{% endschema %}

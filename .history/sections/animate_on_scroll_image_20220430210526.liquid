@@ -1,0 +1,99 @@
+<div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 gap-3">
+        {% for block in section.blocks %}
+            <div class='flex mb-4 bg-red-300 {% if block.settings.switch %}flex-row-reverse{% endif %} justify-between'>
+                <div data-aos="zoom-in-right">
+                    <div class="w-full {% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %}">
+                        <img 
+                            loading="lazy" 
+                            class="w-full h-full object-cover transfrom ease-out duration-500 scale-100 hover:scale-105"
+                            src="{{ block.settings.image_picker | img_url: 'large' }}"
+                            alt="{{ block.settings.image_picker.alt }}"
+                            height="{{ block.settings.image_picker.height }}"
+                            width="{{ block.settings.image_picker.width }}"
+                        >
+                        <!-- <div class="font-zen_maru_gothic mx-auto p-4">
+                            <p class="font-bold text-2xl text-gray-900 ">{{ block.settings.title }}</p>
+                            <p class="text-gray-500 text-lg">{{ block.settings.description | truncate: 20, '...' }}</p> 
+                        </div> -->
+                    </div>
+                </div>
+                <div data-aos="zoom-in-left">
+                    <div class="w-full {% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
+                        <img 
+                            loading="lazy" 
+                            class="w-full h-full object-cover transfrom ease-out duration-500 scale-100 hover:scale-105"
+                            src="{{ block.settings.image_picker | img_url: 'large' }}"
+                            alt="{{ block.settings.image_picker.alt }}"
+                            height="{{ block.settings.image_picker.height }}"
+                            width="{{ block.settings.image_picker.width }}"
+                        >
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init();
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Animate on scroll image",
+    "settings": [
+        {
+            "type": "text",
+            "id":"title",
+            "default":"Title",
+            "label":"Title"
+        },
+        {
+            "type": "textarea",
+            "id":"desctiption",
+            "default":"Description",
+            "label":"Description"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image_picker",
+            "name": "Slide Image",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id":"switch",
+                    "default": false,
+                    "label": "Switch Position"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_picker",
+                    "label": "Slide Image"
+                },
+                {
+                    "type":"text",
+                    "id":"title",
+                    "default": "Title",
+                    "label": "Title"
+                },
+                {
+                    "type":"textarea",
+                    "id":"description",
+                    "default": "Description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Animate on scroll image"
+        }
+    ]
+}
+{% endschema %}
