@@ -40,26 +40,26 @@
                     </div>
                 {% endif %}
                 <div>
-                    <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium font-zen_maru_gothic text-white bg-gray-600 hover:gray-900">
-                        サインイン
+                    <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:gray-900">
+                        Sign in
                     </button>
                 </div>
                 <div class="my-2 mt-6 text-sm flex justify-center">
                     <a x-on:click="loginForm = !loginForm; pwRecoverForm = !pwRecoverForm;" href="#" class="underline text-gray-500 hover:text-gray-900">
-                        パスワードをお忘れですか?
+                        Forget your password?
                     </a>
                 </div>
             {% endform %}
         </div>
         {% if shop.checkout.guest_login %}
             <hr class="my-12">
-            <div class="mt-6 text-center font-zen_maru_gothic text-3xl font-bold">
-                ゲストとして続ける。
+            <div class="mt-6 text-center text-3xl font-bold">
+                Continue as a guest.
             </div>
             {% form 'guest_login' %}
             <div>
-                <button type="submit" class="relative font-zen_maru_gothic w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:gray-900">
-                    続ける
+                <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:gray-900">
+                    Continue
                 </button>
             </div>
             {% endform %}
@@ -68,13 +68,13 @@
     <!-- RECOVER PASSWORD FORM -->
     <div x-show="pwRecoverForm" class="max-w-md w-full space-y-8">
         <div>
-            <h1 class="text-center text-3xl font-bold mt-6">パスワードの再発行</h1>
+            <h1 class="text-center text-3xl font-bold mt-6">Recover Password </h1>
             <div class="mt-8">
                 {% form 'recover_customer_password' %}
                     {% if form.errors %}
                     {%- comment -%}role="alert": この要素が新しく生成されたことをスクリーンリーダに伝える。SEO?{%- endcomment -%}
                         <div class="relative border-2 border-red-700 bg-red-200 px-4 py-3" role="alert">
-                            <strong class="font-bold">エラー!!</strong>
+                            <strong class="font-bold">Error!!</strong>
                             <p class="block sm:inline">{{ form.errors | default_errors }}</p>
                         </div>
                     {% endif %}
@@ -91,13 +91,13 @@
                         >
                     </div>
                     <div>
-                        <button type="submit" class="relative w-full py-2 px-4 font-zen_maru_gothic text-sm font-medium text-white bg-gray-600 hover:gray-900">
-                            復旧する
+                        <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:gray-900">
+                            Recover Password
                         </button>
                     </div>
                     <div class="mt-8 text-sm flex justify-center">
-                        <a x-on:click="loginForm = !loginForm; pwRecoverForm = !pwRecoverForm;" href="#" class="underline text-gray-500 font-zen_maru_gothic hover:text-gray-900">
-                            ログインページへ戻る
+                        <a x-on:click="loginForm = !loginForm; pwRecoverForm = !pwRecoverForm;" href="#" class="underline text-gray-500 hover:text-gray-900">
+                            Go back login.
                         </a>
                     </div>
                 {% endform %}

@@ -192,7 +192,7 @@ endif
                                 <div class="relative" x-data="{ {{ link_handle }}: false }">
                                     <button
                                         x-on:click="{{ link_handle }} = ! {{ link_handle }}"
-                                        class="text-base transform text-gray-900 font-zen_maru_gothic hover:text-gray-500 flex items-center justify-between w-full"
+                                        class="text-base transform text-gray-900 hover:text-gray-500 flex items-center justify-between w-full"
                                     >
                                         {{ link.title }}
                                         {% render "icon-dropdown" %}
@@ -200,14 +200,14 @@ endif
                                     <ul x-show="{{ link_handle }}"
                                         click.away="{{ link_handle }} = false" x-cloak>
                                         {% for link in link.links %}
-                                        <li class="p-3 text-gray-600 font-zen_maru_gothic hover:text-gray-400">
+                                        <li class="p-3 text-gray-600 hover:text-gray-400">
                                             <a href="{{ link.url }}">{{ link.title }}</a>
                                         </li>
                                         {% endfor %}
                                     </ul>
                                 </div>
                             {% else %}
-                                <a class="text-gray-900 font-zen_maru_gothic hover:text-gray-500"
+                                <a class="text-gray-900 hover:text-gray-500"
                                 href="{{ link.url }}">{{ link.title }}</a>
                             {% endif %}
                         {% endfor %}
@@ -230,8 +230,8 @@ endif
             <form action="{{ routes.search_url }}" method="get">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <h2 class="text-xl text-gray-500 font-zen_maru_gothic font-bold">{{ shop.name }}</h2>
-                        <p class="text-sm text-gray-500 font-zen_maru_gothic font-thin">{{ shop.description }}</p>
+                        <h2 class="text-xl text-gray-500 font-bold">{{ shop.name }}</h2>
+                        <p class="text-sm text-gray-500 font-thin">{{ shop.description }}</p>
                     </div>
                     <div class="relative text-gray-500 px-10 border rounded-sm">
                         <input type="search" name="q" placeholder="Search"

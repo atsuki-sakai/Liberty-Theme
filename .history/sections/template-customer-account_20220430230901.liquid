@@ -1,10 +1,10 @@
 <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-    <h1 class="text-xl font-bold text-gray-700">アカウント情報</h1>
+    <h1 class="text-xl font-bold text-gray-700 font-zen_maru_gothic">アカウント情報</h1>
     <div class="block md:flex gap-4">
         {% assign number_of_orders = customer.orders | size %}
         {% if number_of_orders > 0 %}
         <div class="w-full my-6 md:my-12">
-            <h2 class="text-xl font-bold text-gray-700">注文履歴</h2>
+            <h2 class="text-xl font-bold text-gray-700">Order History</h2>
             {% paginate customer.orders by 6 %}
             <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {% for order in customer.orders %}
@@ -46,14 +46,14 @@
         </div>
         {% else %}
         <div class="w-full h-80 flex items-center justify-center">
-            <h2 class="text-base md:text-2xl font-medium">現在、注文はありません...</h2>
+            <h2 class="text-base md:text-2xl font-medium">You currently don't have any orders...</h2>
         </div>
         {% endif %}
         <div class="w-full md:w-1/4">
-            <h2 class="text-xl font-bold text-gray-700 mb-12">アカウント詳細</h2>
+            <h2 class="text-xl font-bold text-gray-700 mb-12">Account Details</h2>
             {{ customer.default_address | format_address }}
             <a href="{{ routes.account_addresses_url }}"
-                class="text-sm text-blue-600 hover:text-blue-900 under-line">住所を表示</a>
+                class="text-sm text-blue-600 hover:text-blue-900 under-line">View address</a>
         </div>
     </div>
 </div>
