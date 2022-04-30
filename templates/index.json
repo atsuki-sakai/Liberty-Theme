@@ -83,11 +83,19 @@
       "settings": {
         "title": "New Product"
       }
+    },
+    "16513285395115f606": {
+      "type": "newsletter-form",
+      "settings": {
+        "title": "お得な情報を受け取る",
+        "textarea": "Wealthystoreからのタトゥーケアのニュースを受け取ろう"
+      }
     }
   },
   "order": [
     "featured-collection",
     "1650765388056480a0",
-    "image_swiper"
+    "image_swiper",
+    "16513285395115f606"
   ]
 }
