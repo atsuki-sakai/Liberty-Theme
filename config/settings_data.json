@@ -15,7 +15,7 @@
         "settings": {
           "mobile_menu_title": "Menu",
           "menu": "main-menu",
-          "show_banner": true,
+          "show_banner": false,
           "title": "25%Off",
           "url": "shopify:\/\/products\/sample-product",
           "description": "開店セール実施中!!"
