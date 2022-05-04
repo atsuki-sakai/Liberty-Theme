@@ -90,12 +90,32 @@
         "title": "お得な情報を受け取る",
         "textarea": "Wealthystoreからのタトゥーケアのニュースを受け取ろう"
       }
+    },
+    "1651667062f5d06cd3": {
+      "type": "apps",
+      "blocks": {
+        "75ac1b71-05d6-4df7-a2c7-60ff6d6b8a86": {
+          "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "heading_font": "helvetica_n4",
+            "heading_size": 20,
+            "feed_width": 100,
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "75ac1b71-05d6-4df7-a2c7-60ff6d6b8a86"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "featured-collection",
     "1650765388056480a0",
     "image_swiper",
-    "16513285395115f606"
+    "16513285395115f606",
+    "1651667062f5d06cd3"
   ]
 }
