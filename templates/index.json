@@ -6,7 +6,7 @@
         "title": "Featured Collection",
         "featured_collection": "select-cosme",
         "line_items_per_row": 4,
-        "one_line": true
+        "one_line": false
       }
     },
     "1650765388056480a0": {
