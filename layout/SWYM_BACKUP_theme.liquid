@@ -31,24 +31,11 @@
       {% render 'challenge' %}
     {%  elsif request.path == '/en/challenge' %}
       {% render 'challenge' %}
-    {% elsif request.path == '/policies/privacy-policy' %}
-      {% section 'privacy-policy' %}
-    {% elsif request.path == '/policies/refund-policy' %}
-      {% section 'refund-policy' %}
-    {% elsif request.path == '/policies/shipping-policy' %}
-      {% section 'shipping-policy' %}
-    {% elsif request.path == '/policies/terms-of-service' %}
-      {% section 'terms-of-service' %}
-    {% elsif request.path == '/policies/legal-notice' %}
-      {% section 'legal-notice' %}
     {% else %}
-      <main class="relative" role="main">
+      <main role="main">
         {{ content_for_layout }}
       </main>
     {% endif %}
   {% section 'footer' %}
-
-{% include 'swymSnippet' %}
-
 </body>
 </html>
