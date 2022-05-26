@@ -1,0 +1,90 @@
+<div class="mx-8 my-12 md:my-24">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-center font-bold text-2xl mt-6">{{ section.settings.title }}</h2>
+        <p class="text-center font-bold text-sm text-gray-800 mb-6">{{ section.settings.description }}</p>
+        {% for block in section.blocks %}
+            <div class='flex w-full mb-4 {% if block.settings.switch %}flex-row-reverse{% endif %} items-center'>
+                <div class="w-1/2 h-12 rounded-md bg-red-200 {% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
+                    <div data-aos="zoom-in-right">
+                    
+                    </div>
+                </div>
+                <div class="w-1/2 h-12 rounded-md bg-yellow-200 {% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
+                        <div data-aos="zoom-in-left">
+                            <img 
+                                loading="lazy" 
+                                class="object-cover"
+                                src="{{ block.settings.image_picker | img_url: 'large' }}"
+                                alt="{{ block.settings.image_picker.alt }}"
+                                height="{{ block.settings.image_picker.height }}"
+                                width="{{ block.settings.image_picker.width }}"
+                            >
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init();
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Animate on scroll image",
+    "settings": [
+        {
+            "type": "text",
+            "id":"title",
+            "default":"Title",
+            "label":"Title"
+        },
+        {
+            "type": "textarea",
+            "id":"description",
+            "default":"Description",
+            "label":"Description"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image_picker",
+            "name": "Slide Image",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id":"switch",
+                    "default": false,
+                    "label": "Switch Position"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_picker",
+                    "label": "Slide Image"
+                },
+                {
+                    "type":"text",
+                    "id":"title",
+                    "default": "Title",
+                    "label": "Title"
+                },
+                {
+                    "type":"textarea",
+                    "id":"description",
+                    "default": "Description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Animate on scroll image"
+        }
+    ]
+}
+{% endschema %}

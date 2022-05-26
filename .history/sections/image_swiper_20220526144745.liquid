@@ -1,0 +1,146 @@
+
+<style>
+    .swiper-wrapper {
+    /* wrapperのサイズを調整 */
+    width: 100%;
+    height: 100%;
+    }
+
+    .swiper-slide {
+    /* スライドのサイズを調整、中身のテキスト配置調整、背景色 */
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 300px;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: #ffffff;
+        top: 120 !important;
+        height: 40px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 30px;
+    }
+
+    .swiper-pagination {
+        color: #ffffff;
+        bottom: 0 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: black !important;
+    }
+
+    .product--information {
+        height: fit-content;
+    }
+</style>
+
+<div class="mx-8 my-12 md:my-24">
+    <div class="relative max-w-5xl mx-auto">
+        <div class="flex justify-center mb-3">
+            <div class="bg-white text-gray-700 border-2 border-pink-500 px-3 py-1 rounded-md -skew-x-12 ">
+                <h1 class="text-center -skew-x-12 text-2xl font-bold">新商品</h1></h1>
+            </div>
+        </div>
+        <div class="swiper shadow-xl rounded-md relative">
+            <!-- 必要に応じたwrapper -->
+            <div class="swiper-wrapper">
+                {% for block in section.blocks limit: section.blocks.size %}
+                    <div class="swiper-slide">
+                        <div class=" h-40 md:h-80 w-full overflow-hidden flex justify-center items-center">
+                            {% if block.settings.image_picker != blank %}
+                            <div class="relative w-full">
+                                <img
+                                    loading="lazy"
+                                    src="{{ block.settings.image_picker | img_url: 'original' }}" 
+                                    alt="{{ block.settings.image_picker.alt }}" 
+                                    height="{{ block.settings.image_picker.height }}" 
+                                    width="{{ block.settings.image_picker.width }}"
+                                    class="w-full h-40 md:h-80 object-cover object-center"
+                                >
+                            </div>
+                            {% else %}
+                                {{ 'product-1' | placeholder_svg_tag: "w-full h-80 object-cover object-center" }}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="absolute z-10 top-0 left-0 right-0 bottom-0">
+                <div class="translate-x-1/2 translate-y1/2">
+                    <div class="w-1/2 h-1/2 bg-red-500 -translate-x-1/2 translate-y-1/2">
+                        <div class="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const swiper = new Swiper(".swiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            effect: "fade",
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    });
+</script>
+
+
+{% schema %}
+{
+    "name": "Image Swiper",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Title",
+            "label": "Swiper Title"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image_picker",
+            "name": "Slide Image",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image_picker",
+                    "label": "Slide Image"
+                },
+                {
+                    "type":"text",
+                    "id":"text",
+                    "default": "sample text",
+                    "label": "Slide Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Swiper Title"
+        }
+    ]
+}
+{% endschema %}
