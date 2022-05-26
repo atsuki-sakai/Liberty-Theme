@@ -1,0 +1,20 @@
+<div class="mx-8 my-6 ">
+    <div class="max-w-5xl mx-auto">
+        <h3>BLOG</h3>
+        {% for article in blog.articles %}
+            <h2>
+                {{ article.title }}
+            </h2>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "presets": [
+        {
+            "name": "Blog Contents"
+        }
+    ]
+}
+{% endschema %}

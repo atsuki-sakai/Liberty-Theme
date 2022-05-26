@@ -1,0 +1,26 @@
+<div class="mx-8 my-6 ">
+    <div class="max-w-5xl mx-auto">
+        <h3 class="text-center font-bold">BLOG</h3>
+        {% for blog in blog.articles %}
+            <p>{{ blog.title }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Feature Blog",
+    "settings": [
+        {
+            "type": "blog",
+            "id": "blog",
+            "label": "ブログ記事"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Feature Blog"
+        }
+    ]
+}
+{% endschema %}

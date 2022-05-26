@@ -1,0 +1,46 @@
+<div class="mx-8 my-6 ">
+    <div class="max-w-5xl mx-auto">
+        <h3>BLOG</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% for article in blog.articles %}
+                <!-- BLOG ARTICLE -->
+                <div class="w-full py-6 px-3">
+                    <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                        {% if article.image %}
+                            <div class="relative">
+                                <img loading="lazy" class="w-full h-80 object-cover mx-auto" src="{{ article.image | img_url: 'medium' }}" alt="{{ article.image.alt }}" height="{{ article.image.height }}" width="{{ article.image.width }}">
+                            </div>
+                        {% else %}
+                            <a href="{{ article.url }}">
+                                {{  'image' | placeholder_svg_tag: "w-full h-80 object-cover bg-gray-100" }}
+                            </a>
+                        {% endif %}
+                        <div class="p-4">
+                            <h1 class="text-xl font-medium text-gray-900 my-3">{{ article.title }}</h1>
+                            {% if article.excerpt.size > 0 %}
+                                <p class="text-thin text-sm text-gray-500">{{ article.excerpt | strip_html | truncatewords: 5, '...' }}</p>
+                            {% else %}
+                                {%- comment -%}truncatewordsで綺麗に整形{%- endcomment -%}
+                                <p class="text-thin text-sm text-gray-500">{{ article.content | strip_html | truncatewords: 5, '...' }}</p>
+                            {% endif %}
+                            <div class="my-2 flex text-blue-600 hover:text-blue-400">
+                                {% render "icon-readmore" %}
+                                <a class="text-base ml-1" href="{{ article.url }}">{{ section.settings.blog_read_more }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "presets": [
+        {
+            "name": "Blog Contents"
+        }
+    ]
+}
+{% endschema %}

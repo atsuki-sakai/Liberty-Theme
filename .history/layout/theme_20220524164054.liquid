@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{ page_title }}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  {{ content_for_header }}
+  <!-- Header hook for plugins -->
+  {{ 'application.css' | asset_url | stylesheet_tag }}
+  {{ 'swiper.css' | asset_url | stylesheet_tag }}
+  {{ 'aos.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'application.js' | asset_url }}" defer></script>
+  <script src="{{ 'alpine.js' | asset_url }}" defer></script>
+  {%- comment -%}deferを付けるとうまく動かない。解決策：呼び出し元でdocument.addEventListener('DOMContentLoaded', () => {内でSwiperをインスタンス化 {%- endcomment -%}
+  <script src="{{ 'swiper.js' | asset_url }}" defer></script>
+  <script src="{{ 'aos.js' | asset_url }}" defer></script>
+</head>
+
+<style lang="scss" scoped>
+  #main-bg {
+    background-color: {{ settings.color_main_bg }};
+  }
+</style>
+
+<body id="main-bg">
+  {% section 'header' %}
+    {% if request.path == '/challenge' %}
+      {% render 'challenge' %}
+    {%  elsif request.path == '/en/challenge' %}
+      {% render 'challenge' %}
+    {% elseif request.path == '/policies/privacy-policy' %}
+      {% render 'privacy-policy' %}
+    {% elseif request.path == '/policies/refund-policy' %}
+      {% render 'refund-policy' %}
+    {% elseif request.path == '/policies/shipping-policy' %}
+      {% render 'shipping-policy' %}
+    {% elseif request.path == '/policies/terms-of-service' %}
+      {% render 'terms-of-service' %}
+    {% elseif request.path == '/policies/legal-notice' %}
+      {% render 'legal-notice' %}
+    {% endif %}
+      <main role="main">
+        {{ content_for_layout }}
+      </main>
+    {% endif %}
+  {% section 'footer' %}
+</body>
+</html>
