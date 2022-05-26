@@ -65,17 +65,10 @@
       ],
       "settings": {
       }
-    },
-    "165356430960960554": {
-      "type": "fixed-banner",
-      "settings": {
-        "url": "https:\/\/lin.ee\/31HZrZP"
-      }
     }
   },
   "order": [
     "template",
-    "1650634855be01e3cf",
-    "165356430960960554"
+    "1650634855be01e3cf"
   ]
 }

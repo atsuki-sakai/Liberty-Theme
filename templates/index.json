@@ -121,6 +121,12 @@
         "blog": "shopify",
         "post_limit": 3
       }
+    },
+    "1653564408b05067ee": {
+      "type": "fixed-banner",
+      "settings": {
+        "url": "https:\/\/lin.ee\/31HZrZP"
+      }
     }
   },
   "order": [
@@ -129,6 +135,7 @@
     "image_swiper",
     "16513285395115f606",
     "1651667062f5d06cd3",
-    "1653543359720aded6"
+    "1653543359720aded6",
+    "1653564408b05067ee"
   ]
 }
