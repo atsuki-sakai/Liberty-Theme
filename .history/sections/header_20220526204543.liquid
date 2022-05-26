@@ -127,13 +127,13 @@ endif
                         </a>
                         {%- comment -%}Liquidのreplaceフィルターを使って<a>タグのclassにtailwindcssを付与{%- endcomment -%}
                             {{ "ログアウト" | customer_logout_link | replace: '
-                            <a', '<a aria-label="Logout" id="logout" class="transform ease-in-out duration-300 text-gray-600 hover:text-gray-400"' }} {% else %}
+                            <a', '<a class="transform ease-in-out duration-300 text-gray-600 hover:text-gray-400"' }} {% else %}
                             <!-- CUSTOMER NOT LOGIN -->
                             {{ "ログイン" | customer_login_link | replace: '<a'
-                                , '<a aria-label="Login" id="login" class="transform ease-in-out duration-300 text-gray-600 hover:text-gray-400"' }}
+                                , '<a class="transform ease-in-out duration-300 text-gray-600 hover:text-gray-400"' }}
                             {{ "会員登録" |
                                 customer_register_link | replace: '<a'
-                                , '<a aria-label="Register" id="register" class="transform ease-in-out duration-300 text-gray-600 hover:text-gray-400"' }}
+                                , '<a class="transform ease-in-out duration-300 text-gray-600 hover:text-gray-400"' }}
                         {% endif %}
                     {% endif %}
                 </div>
@@ -155,7 +155,7 @@ endif
                                 {{ section.settings.mobile_menu_title }}
                             </h1>
                             <div class="-mr-2">
-                                <button aria-label="Close Menu" x-on:click="mobileMenuOpen = false" type="button"
+                                <button x-on:click="mobileMenuOpen = false" type="button"
                                     class="bg-white rounded-md p-2 text-gray-500">
                                     {% render "icon-close" %}
                                 </button>
