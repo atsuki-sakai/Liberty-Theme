@@ -1,0 +1,139 @@
+<style>
+    .swiper-wrapper {
+    /* wrapperのサイズを調整 */
+    width: 100%;
+    height: 100%;
+    }
+
+    .swiper-slide {
+    /* スライドのサイズを調整、中身のテキスト配置調整、背景色 */
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 300px;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: #ffffff;
+        top: 120 !important;
+        height: 40px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 30px;
+    }
+
+    .swiper-pagination {
+        color: #ffffff;
+        bottom: 0 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: #ffffff !important;
+    }
+
+    .product--information {
+        height: fit-content;
+    }
+</style>
+
+
+<div class="swiper">
+    <!-- 必要に応じたwrapper -->
+    <div class="swiper-wrapper">
+        {% for block in section.blocks limit: section.blocks.size %}
+            <div class="swiper-slide relative">
+                {% if block.settings.image_picker != blank %}
+                    <img
+                        loading="lazy"
+                        src="{{ block.settings.image_picker | img_url: 'original' }}"
+                        alt="{{ block.settings.image_picker.alt }}"
+                        height="{{ block.settings.image_picker.height }}"
+                        width="{{ block.settings.image_picker.width }}"
+                        class="bg-cover bg-center w-full h-[350px] md:h-[550px] object-cover object-center"
+                    >
+                {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: "w-full h-80 object-cover object-center" }}
+                {% endif %}
+                <div class="absolute z-10 top-0 left-0 w-3/4 h-48 translate-x-1/2 translate-y-1/2 bg-red-400">
+                    <div class="-translate-x-1/2 w-full h-48  bg-yellow-300">
+                        <div class="mx-8 md:mx-14 lg:mx-24 bg-green-300">
+                            <p class="text-3xl md:text-3xl text-left text-white font-bold">{{ block.settings.text }}</p>
+                            <p class="text-sm md:text-3xl text-left text-white font-bold">{{ block.settings.sub_text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const swiper = new Swiper(".swiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            effect: "fade",
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    });
+</script>
+
+
+{% schema %}
+{
+    "name": "Top Contexts",
+    "blocks": [
+        {
+            "type": "image_picker",
+            "name": "Slide Image",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image_picker",
+                    "label": "Slide Image"
+                },
+                {
+                    "type":"text",
+                    "id":"text",
+                    "default": "sample text",
+                    "label": "Slide Text"
+                },
+                {
+                    "type":"text",
+                    "id":"sub_text",
+                    "default": "sample text",
+                    "label": "Slide Sub Text"
+                },
+                {
+                    "type": "text",
+                    "id": "url",
+                    "default": "https://wealthy-store.com",
+                    "label": "Link"
+                }
+            ]
+        }
+    ],
+    "presets":[
+        {
+            "name": "Top Contents"
+        }
+    ]
+}
+{% endschema %}

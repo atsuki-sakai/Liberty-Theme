@@ -1,0 +1,28 @@
+
+    <script language="javascript">
+        var msg = "私のホームページへようこそ。JavaScriptのサンプルなども用意してあります。　　　　　"
+        var scr_speed = 200	//スクロール速度
+        function msgScroll()
+            {
+            document.forms[0].msgDisp.value = msg
+            msg = msg.substring(2,msg.length) + msg.substring(0,2)
+            timerID = setTimeout("msgScroll()",scr_speed)
+        }
+    </script>
+    
+    
+    
+    <BODY BGCOLOR="gray" TEXT="white" onLoad="msgScroll()">
+    
+    <CENTER>
+    <FORM>
+    <FONT SIZE="+2">
+    <INPUT TYPE="text" NAME="msgDisp" SIZE=30>
+    </FONT>
+    </FORM>
+    </CENTER>
+    
+    
+    </BODY>
+    
+    

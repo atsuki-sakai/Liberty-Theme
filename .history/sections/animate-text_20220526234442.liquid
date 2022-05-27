@@ -1,0 +1,25 @@
+<div id="stream-text">
+</div>
+
+
+
+<script language="javascript">
+    var msg = "私のホームページへようこそ。JavaScriptのサンプルなども用意してあります。　　　　　"
+    var scr_speed = 200	//スクロール速度
+    function msgScroll()
+        {
+        document.getElementById('stream-text').value = msg
+        msg = msg.substring(2,msg.length) + msg.substring(0,2)
+        timerID = setTimeout("msgScroll()",scr_speed)
+    }
+</script>
+
+{% schema %}
+{
+    "presets": [
+        {
+            "name": "Stream Animation"
+        }
+    ]
+}
+{% endschema %}
