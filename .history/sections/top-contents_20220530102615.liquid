@@ -39,35 +39,35 @@
     }
 </style>
 
-
-<div class="swiper">
-    <!-- 必要に応じたwrapper -->
-    <div class="swiper-wrapper">
-        {% for block in section.blocks limit: section.blocks.size %}
-            <div class="swiper-slide relative">
-                {% if block.settings.image_picker != blank %}
-                    <img
-                        loading="lazy"
-                        src="{{ block.settings.image_picker | img_url: 'original' }}"
-                        alt="{{ block.settings.image_picker.alt }}"
-                        height="{{ block.settings.image_picker.height }}"
-                        width="{{ block.settings.image_picker.width }}"
-                        class="bg-cover bg-center w-full h-[450px] md:h-[700px] object-cover object-center"
-                    >
-                {% else %}
-                    {{ 'product-1' | placeholder_svg_tag: "w-full h-80 object-cover object-center" }}
-                {% endif %}
-                <div class="absolute z-10 top-0 left-0 w-3/4 h-48 translate-x-1/4 translate-y-1/2 ">
-                    <div class="mx-8 md:mx-14 lg:mx-24 py-12 md:py-24">
-                        <p class="text-3xl md:text-6xl text-left text-white font-bold">{{ block.settings.text }}</p>
-                        <p class="text-sm md:text-3xl text-left text-white font-bold">{{ block.settings.sub_text }}</p>
+<div class="relative">
+    <div class="swiper">
+        <!-- 必要に応じたwrapper -->
+        <div class="swiper-wrapper">
+            {% for block in section.blocks limit: section.blocks.size %}
+                <div class="swiper-slide relative">
+                    {% if block.settings.image_picker != blank %}
+                        <img
+                            loading="lazy"
+                            src="{{ block.settings.image_picker | img_url: 'original' }}"
+                            alt="{{ block.settings.image_picker.alt }}"
+                            height="{{ block.settings.image_picker.height }}"
+                            width="{{ block.settings.image_picker.width }}"
+                            class="bg-cover bg-center w-full h-[350px] md:h-[550px] object-cover object-center"
+                        >
+                    {% else %}
+                        {{ 'product-1' | placeholder_svg_tag: "w-full h-80 object-cover object-center" }}
+                    {% endif %}
+                    <div class="absolute z-10 top-0 left-0 w-3/4 h-48 translate-x-1/4 translate-y-1/2 ">
+                        <div class="mx-8 md:mx-14 lg:mx-24 py-12 md:py-24">
+                            <p class="text-3xl md:text-6xl text-left text-white font-bold">{{ block.settings.text }}</p>
+                            <p class="text-sm md:text-3xl text-left text-white font-bold">{{ block.settings.sub_text }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
-
 
 
 

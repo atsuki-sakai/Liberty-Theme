@@ -5,16 +5,15 @@
         <!-- COLLECTION DESCRIPTION -->
         <p class="tetx-center text-lg font-zen_maru_gothic text-gray-500">{{ collections[section.settings.featured_collection].description }}</p>
         <div class="grid {% if section.settings.one_line %}grid-cols-1{% else %}grid-cols-2{% endif %} md:grid-cols-4 gap-4">
-            {% assign featured_collection = section.settings.featured_collection %}
-            {% for product in collections[featured_collection].products  limit: section.settings.line_items_per_row %}
+            {% for product in section.settings.featured_collection].products | limit: section.settings.line_items_per_row %}
                 <!-- PRODUCT CARD -->
-                <div class="w-full py-6">
-                    <div class="overflow-hidden">
+                <div id={{ forloop.index }} class="w-full py-6">
+                    <div class="border bg-white shadow-lg rounded-lg overflow-hidden">
                         <!-- PRODUCT IMAGE -->
                         <a aria-label="Product Link" href="{{ product.url }}">
                             {% if product.featured_image %}
                                 <div class="{% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
-                                    <img loading="lazy" class="rounded-md w-full h-full object-cover transfrom ease-out duration-500 scale-100 hover:scale-105"
+                                    <img loading="lazy" class="w-full h-full object-cover transfrom ease-out duration-500 scale-100 hover:scale-105"
                                         src="{{ product.featured_image | img_url: 'large' }}"
                                         alt="{{ product.featured_image.alt }}"
                                         height="{{ product.featured_image.height }}"
@@ -24,12 +23,12 @@
                             {% else %}
                                 {% assign placeholder_img = "product-1" %}
                                 <div class="{% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
-                                    {{ placeholder_img | placeholder_svg_tag: "rounded-md w-full h-full object-cover bg-gray-400" }}
+                                    {{ placeholder_img | placeholder_svg_tag: "w-full h-full object-cover bg-gray-400" }}
                                 </div>
                             {% endif %}
                         </a>
                         <!-- DESCRIPTION -->
-                        <div class="flex flex-col py-2">
+                        <div class="flex flex-col py-2 px-4">
                             <span class="text-xs md:text-sm text-gray-500">{{ product.vendor }}</span>
                             <a href="{{ product.url }}" class="font-bold {% if section.settings.one_line %}text-lg md:text-base{% else %}text-sm md:text-base{% endif %}">{{ product.title | truncate: 15, '...' }}</a>
                             <p class="text-gray-500 w-full {% if section.settings.one_line %}text-base md:text-sm{% else %}text-xs md:text-sm{% endif %}">{{ product.price | money }}</p>
