@@ -39,14 +39,12 @@ endif
         <div class="flex justify-around items-center py-2 md:py-4 md:justify-start md:space-x-4 ">
             <!-- STORE NAME -->
             <div class="flex justify-start items-center md:flex-1 truncate w-full">
-                <a href="/">
-                <div class="flex items-center space-x-1">
-                    {% render "icon-wealty-logo" %}
-                    <h1 id="header-shop-text" class="font-orelega_one text-lg lg:text-2xl font-bold truncate">
+                {% render "icon-wealty-logo" %}
+                <h1 id="mr-1 header-shop-text" class="font-orelega_one text-lg lg:text-2xl font-bold truncate">
+                    <a href="/">
                         {{ shop.name }}
-                    </h1>
-                </div>
-                </a>
+                    </a>
+                </h1>
             </div>
             <!-- MENU ICON -->
             <div id="header-icon" class="flex -mr-2  ml-3 md:hidden">

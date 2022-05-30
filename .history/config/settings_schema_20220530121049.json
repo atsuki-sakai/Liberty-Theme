@@ -38,6 +38,15 @@
             },
             {
                 "type":"color",
+                "id":"color_banner_bg",
+                "default": "#2E2E2E",
+                "label": {
+                    "en": "Banner Color",
+                    "ja": "バナーの背景"
+                }
+            },
+            {
+                "type":"color",
                 "id": "color_topbar_bg",
                 "default": "#FFFFFF",
                 "label": {
@@ -77,6 +86,15 @@
                 "content": {
                     "en": "Text",
                     "ja":"テキスト"
+                }
+            },
+            {
+                "type": "color",
+                "id": "color_banner_text",
+                "default": "#FFFFFF",
+                "label": {
+                    "en": "Banner Text Color",
+                    "ja": "バナーテキスト"
                 }
             },
             {

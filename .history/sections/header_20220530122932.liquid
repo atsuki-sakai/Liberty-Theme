@@ -5,6 +5,14 @@
         background-color: {{ settings.color_topbar_bg }};
     }
 
+    #banner-bg {
+        background-color: {{ settings.color_banner_bg }};
+    }
+
+    #banner-text {
+        color: {{ settings.color_banner_text }};
+    }
+
     #header-text {
         color: {{ settings.color_header_text }};
     }
@@ -26,27 +34,24 @@ endif
 <!-- HEADER -->
 <div id="header-bg" class="w-full relative top-0 z-50" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
     {% if section.settings.show_banner %}
-        <div class="bg-black w-full flex justify-center h-8 md:h-12 items-center">
-            <a class="text-white inline-flex items-center hover:scale-105 transform duration-300 ease-in-out"
+        <div id="banner-bg" class="w-full flex justify-center h-8 md:h-12 items-center">
+            <a id="banner-text" class="inline-flex items-center hover:scale-105 transform duration-300 ease-in-out"
                 href="{{ section.settings.url }}">
-                {% render "icon-sale" %}
-                <h1 class="ml-1 text-center text-lg md:text-2xl font-oswaldtext-lg font-bold">{{section.settings.title}}</h1>
+                {% render "icon-sale", size:6 %}
+                <h1 class="text-center text-lg md:text-2xl font-oswaldtext-lg font-bold">{{section.settings.title}}</h1>
                 <p class="ml-2 text-center text-xs md:text-base font-semibold font-oswald">{{section.settings.description }}</p>
             </a>
         </div>
     {% endif %}
     <div id="header-text" class="mx-auto px-8 sm:px-12 ">
-        <div class="flex justify-around items-center py-2 md:py-4 md:justify-start md:space-x-4 ">
+        <div class="flex justify-around items-center py-6 md:justify-start md:space-x-4 ">
             <!-- STORE NAME -->
-            <div class="flex justify-start items-center md:flex-1 truncate w-full">
-                <a href="/">
-                <div class="flex items-center space-x-1">
-                    {% render "icon-wealty-logo" %}
-                    <h1 id="header-shop-text" class="font-orelega_one text-lg lg:text-2xl font-bold truncate">
+            <div class="flex justify-start md:flex-1 truncate w-full">
+                <h1 id="header-shop-text" class="font-orelega_one text-lg lg:text-2xl font-bold truncate">
+                    <a href="/">
                         {{ shop.name }}
-                    </h1>
-                </div>
-                </a>
+                    </a>
+                </h1>
             </div>
             <!-- MENU ICON -->
             <div id="header-icon" class="flex -mr-2  ml-3 md:hidden">
@@ -112,16 +117,12 @@ endif
                     <button aria-label="Search Product" x-on:click="searchBarOpen = true" type="button" class="whitespace-nowrap transform ease-in-out duration-300 text-gray-900 hover:text-gray-500">
                         {% render "icon-search" %}
                     </button>
-                    <div id="header-icon" class="flex -mr-2  ml-3">
-                        <a href="{{ routes.cart_url }}">
-                            <div class="relative p-2 flex items-center justify-center hover:opacity-50">
-                                {% render "icon-cart", size: 8 %}
-                                <div id="header-icon" class="absolute -top-1 -right-1 bg-gray-600 rounded-full">
-                                    <p class="font-orelega_one px-2 text-lg text-white">{{ cart.item_count }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <a href="{{ routes.cart_url }}" class="whitespace-nowrap transform ease-in-out duration-300 text-gray-900 hover:text-gray-500">
+                        <div class="flex">
+                            {% render "icon-cart", size: 8 %}
+                            <span class="font-orelega_one text-lg ml-1">{{ cart.item_count }}</span>
+                        </div>
+                    </a>
                     {% if shop.customer_accounts_enabled %}
                         {% if customer %}
                         <!-- CUSTOMER LOGGED-IN -->

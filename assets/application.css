@@ -779,6 +779,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 2rem;
 }
 
+.mr-1{
+  margin-right: 0.25rem;
+}
+
 .block{
   display: block;
 }
@@ -1159,6 +1163,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+
+.space-x-1 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .divide-y-2 > :not([hidden]) ~ :not([hidden]){
@@ -1579,6 +1589,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1rem;
 }
 
+.pl-1{
+  padding-left: 0.25rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -1871,6 +1885,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-opacity: 0.05;
 }
 
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition{
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -2077,6 +2095,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0.5;
 }
 
+.hover\:opacity-60:hover{
+  opacity: 0.6;
+}
+
 .hover\:shadow-inner:hover{
   --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
@@ -2241,6 +2263,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 850px;
   }
 
+  .md\:h-12{
+    height: 3rem;
+  }
+
+  .md\:h-8{
+    height: 2rem;
+  }
+
+  .md\:h-10{
+    height: 2.5rem;
+  }
+
   .md\:w-1\/2{
     width: 50%;
   }
@@ -2255,6 +2289,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-1\/4{
     width: 25%;
+  }
+
+  .md\:w-8{
+    width: 2rem;
+  }
+
+  .md\:w-10{
+    width: 2.5rem;
   }
 
   .md\:max-w-lg{
@@ -2321,6 +2363,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:py-24{
     padding-top: 6rem;
     padding-bottom: 6rem;
+  }
+
+  .md\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .md\:pt-36{
