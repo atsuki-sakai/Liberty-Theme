@@ -16,8 +16,8 @@
           "type": "image_picker",
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/1.jpg",
-            "text": "sample text",
-            "sub_text": "sample text",
+            "text": "Moisturizer",
+            "sub_text": "moisturizes tattoos and optimizes coloration.",
             "url": "https:\/\/wealthy-store.com"
           }
         },
