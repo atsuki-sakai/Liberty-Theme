@@ -1,13 +1,14 @@
 {
   "current": {
-    "color_banner_bg": "#000000",
-    "color_topbar_bg": "#ffffff",
+    "color_topbar_bg": "#000000",
     "color_main_bg": "#ffffff",
     "color_footer_bg": "#e7e3e3",
     "color_footer_under_bg": "#011d3e",
+    "color_shop_text": "#ffffff",
+    "color_header_text": "#ffffff",
+    "color_header_icon": "#ffffff",
+    "color_banner_bg": "#000000",
     "color_banner_text": "#ffffff",
-    "color_shop_text": "#000000",
-    "color_header_text": "#000000",
     "color-main-text": "#ffffff",
     "sections": {
       "header": {
