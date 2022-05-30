@@ -6,16 +6,25 @@
         "adc11196-79d0-4d0a-869b-b92580590b81": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/4k_bg.jpg",
-            "text": "sample text",
-            "sub_text": "sample text",
+            "image_picker": "shopify:\/\/shop_images\/2.jpg",
+            "text": "Prevents fading",
+            "sub_text": "It is designed to improve tattoo coloration and delay fading with long-term use.",
             "url": "https:\/\/wealthy-store.com"
           }
         },
         "22f2694c-8459-4aa4-8003-83096600fb81": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/bright-flatlay-of-a-makeup-pallet-and-other-items.jpg",
+            "image_picker": "shopify:\/\/shop_images\/1.jpg",
+            "text": "sample text",
+            "sub_text": "sample text",
+            "url": "https:\/\/wealthy-store.com"
+          }
+        },
+        "75cd037c-1017-4f5d-ba93-e756c12e4fe2": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/3.jpg",
             "text": "sample text",
             "sub_text": "sample text",
             "url": "https:\/\/wealthy-store.com"
@@ -24,7 +33,8 @@
       },
       "block_order": [
         "adc11196-79d0-4d0a-869b-b92580590b81",
-        "22f2694c-8459-4aa4-8003-83096600fb81"
+        "22f2694c-8459-4aa4-8003-83096600fb81",
+        "75cd037c-1017-4f5d-ba93-e756c12e4fe2"
       ],
       "settings": {
       }
