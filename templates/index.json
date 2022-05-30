@@ -1,5 +1,34 @@
 {
   "sections": {
+    "1653878771d3da127c": {
+      "type": "top-contents",
+      "blocks": {
+        "adc11196-79d0-4d0a-869b-b92580590b81": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/4k_bg.jpg",
+            "text": "sample text",
+            "sub_text": "sample text",
+            "url": "https:\/\/wealthy-store.com"
+          }
+        },
+        "22f2694c-8459-4aa4-8003-83096600fb81": {
+          "type": "image_picker",
+          "settings": {
+            "image_picker": "shopify:\/\/shop_images\/bright-flatlay-of-a-makeup-pallet-and-other-items.jpg",
+            "text": "sample text",
+            "sub_text": "sample text",
+            "url": "https:\/\/wealthy-store.com"
+          }
+        }
+      },
+      "block_order": [
+        "adc11196-79d0-4d0a-869b-b92580590b81",
+        "22f2694c-8459-4aa4-8003-83096600fb81"
+      ],
+      "settings": {
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -100,7 +129,6 @@
         "75ac1b71-05d6-4df7-a2c7-60ff6d6b8a86": {
           "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
-            "heading_font": "helvetica_n4",
             "heading_size": 20,
             "feed_width": 100,
             "html_area": ""
@@ -130,6 +158,7 @@
     }
   },
   "order": [
+    "1653878771d3da127c",
     "featured-collection",
     "1650765388056480a0",
     "image_swiper",
