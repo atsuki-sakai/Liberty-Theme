@@ -25,8 +25,8 @@
           "type": "image_picker",
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/3.jpg",
-            "text": "sample text",
-            "sub_text": "sample text",
+            "text": "100% Organic",
+            "sub_text": "All are made from natural sources and gently penetrate the skin.",
             "url": "https:\/\/wealthy-store.com"
           }
         }
