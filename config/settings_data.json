@@ -7,7 +7,7 @@
     "color_footer_under_bg": "#011d3e",
     "color_banner_text": "#ffffff",
     "color_shop_text": "#000000",
-    "color_header_text": "#262626",
+    "color_header_text": "#000000",
     "color-main-text": "#ffffff",
     "sections": {
       "header": {
@@ -15,7 +15,7 @@
         "settings": {
           "mobile_menu_title": "Menu",
           "menu": "main-menu",
-          "show_banner": false,
+          "show_banner": true,
           "title": "25%Off",
           "url": "shopify:\/\/products\/sample-product",
           "description": "開店セール実施中!!"
