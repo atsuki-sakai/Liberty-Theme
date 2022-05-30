@@ -123,6 +123,21 @@
         "textarea": "Wealthystoreからのタトゥーケアのニュースを受け取ろう"
       }
     },
+    "1653543359720aded6": {
+      "type": "feature-blog",
+      "settings": {
+        "title": "WEALTHY STORE BLOG",
+        "sub_title": "タトゥーオイルの最新情報！随時更新中！",
+        "blog": "shopify",
+        "post_limit": 3
+      }
+    },
+    "1653564408b05067ee": {
+      "type": "fixed-banner",
+      "settings": {
+        "url": "https:\/\/lin.ee\/31HZrZP"
+      }
+    },
     "1651667062f5d06cd3": {
       "type": "apps",
       "blocks": {
@@ -140,21 +155,6 @@
       ],
       "settings": {
       }
-    },
-    "1653543359720aded6": {
-      "type": "feature-blog",
-      "settings": {
-        "title": "WEALTHY STORE BLOG",
-        "sub_title": "タトゥーオイルの最新情報！随時更新中！",
-        "blog": "shopify",
-        "post_limit": 3
-      }
-    },
-    "1653564408b05067ee": {
-      "type": "fixed-banner",
-      "settings": {
-        "url": "https:\/\/lin.ee\/31HZrZP"
-      }
     }
   },
   "order": [
@@ -163,8 +163,8 @@
     "1650765388056480a0",
     "image_swiper",
     "16513285395115f606",
-    "1651667062f5d06cd3",
     "1653543359720aded6",
-    "1653564408b05067ee"
+    "1653564408b05067ee",
+    "1651667062f5d06cd3"
   ]
 }
