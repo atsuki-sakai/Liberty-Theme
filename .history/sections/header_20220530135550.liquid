@@ -170,15 +170,15 @@ endif
                         {% if shop.customer_accounts_enabled %}
                             {% if customer %}
                             <!-- CUSTOMER LOGGED-IN -->
-                                <a href="{{ routes.account_url }}" class="text-base font-zen_maru_gothic text-white hover:text-gray-400">
+                                <a href="{{ routes.account_url }}" class="text-base font-zen_maru_gothic text-gray-600 hover:text-gray-400">
                                     アカウント
                             </a>
                                 {%- comment -%}Liquidのreplaceフィルターを使って<a>タグのclassにtailwindcssを付与{%- endcomment -%}
-                                {{ "ログアウト" | customer_logout_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-white hover:text-gray-400"' }}
+                                {{ "ログアウト" | customer_logout_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-gray-700 hover:text-gray-400"' }}
                             {% else %} 
                                 <!-- CUSTOMER NOT LOGIN -->
-                                {{ "ログイン" | customer_login_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-white hover:text-gray-400"' }}
-                                {{ "登録" | customer_register_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-white hover:text-gray-400"' }}
+                                {{ "ログイン" | customer_login_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-gray-600 hover:text-gray-400"' }}
+                                {{ "登録" | customer_register_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-gray-600 hover:text-gray-400"' }}
                             {% endif %} 
                         {% endif %} 
                         <button
