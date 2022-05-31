@@ -1,0 +1,89 @@
+<!-- FEATURED COLLLECTION -->
+<div class="mx-8 my-12 md:my-24">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-center text-xl md:text-2xl mb-3 font-noto_sans_jp text-black">{{ collections[section.settings.featured_collection].title }}</h1>
+        <!-- COLLECTION DESCRIPTION -->
+        <h5 class="text-center text-sm md:text-base font-noto_sans_jp text-gray-500">{{ collections[section.settings.featured_collection].description }}</h5>
+        <div class="grid {% if section.settings.one_line %}grid-cols-1{% else %}grid-cols-2{% endif %} md:grid-cols-4 gap-4">
+            {% assign featured_collection = section.settings.featured_collection %}
+            {% for product in collections[featured_collection].products  limit: section.settings.line_items_per_row %}
+                <!-- PRODUCT CARD -->
+                <div class="w-full py-6">
+                    <div class="overflow-hidden">
+                        <!-- PRODUCT IMAGE -->
+                        <a aria-label="Product Link" href="{{ product.url }}">
+                            {% if product.featured_image %}
+                                <div class="{% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
+                                    <img loading="lazy" class="rounded-md w-full h-full object-cover transfrom ease-out duration-500 scale-100 hover:scale-105"
+                                        src="{{ product.featured_image | img_url: 'large' }}"
+                                        alt="{{ product.featured_image.alt }}"
+                                        height="{{ product.featured_image.height }}"
+                                        width="{{ product.featured_image.width }}"
+                                    >
+                                </div>
+                            {% else %}
+                                {% assign placeholder_img = "product-1" %}
+                                <div class="{% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
+                                    {{ placeholder_img | placeholder_svg_tag: "rounded-md w-full h-full object-cover bg-gray-400" }}
+                                </div>
+                            {% endif %}
+                        </a>
+                        <!-- DESCRIPTION -->
+                        <div class="flex flex-col py-2">
+                            <span class="text-xs md:text-sm text-gray-500">{{ product.vendor }}</span>
+                            <a href="{{ product.url }}" class="font-bold {% if section.settings.one_line %}text-lg md:text-base{% else %}text-sm md:text-base{% endif %}">{{ product.title | truncate: 15, '...' }}</a>
+                            <p class="text-gray-500 w-full {% if section.settings.one_line %}text-base md:text-sm{% else %}text-xs md:text-sm{% endif %}">{{ product.price | money }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                {%- comment -%}Collectionoがない時{%- endcomment -%}
+                {% for item in (1..4) %}
+                    {% render 'product-card-placeholder' %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{%- comment -%}presets:  管理画面からセクションを追加するできるようになる{%- endcomment -%}
+{%- comment -%}詳細:https://shopify.dev/themes/architecture/sections/section-schema#presets{%- endcomment -%}
+{% schema %}
+{
+    "name": "Featured Collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Featured Collection",
+            "label": "Title"
+        },
+        {
+            "type":"collection",
+            "id": "featured_collection",
+            "label": "Collection"
+        },
+        {
+            "type": "range",
+            "id": "line_items_per_row",
+            "min": 4,
+            "max": 12,
+            "step": 4,
+            "default": 4,
+            "label": "Line Items per row"
+        },
+        {
+            "type": "checkbox",
+            "id": "one_line",
+            "default": false,
+            "label": "Mobile Line: 1 or 2"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Collection"
+        }
+    ]
+}
+{% endschema %}

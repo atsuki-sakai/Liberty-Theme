@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@1,700&family=Noto+Sans+JP:wght@100&family=Noto+Serif+JP:wght@500&family=Rubik+Mono+One&display=swap');
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+[x-cloak] { display: none !important; }

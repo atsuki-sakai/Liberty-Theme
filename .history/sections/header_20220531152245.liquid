@@ -1,0 +1,296 @@
+{%- comment -%} エラーが出るがこれでコンソールからヘッダーの色をいじれる {%- endcomment -%}
+{%- comment -%}settings_schema.jsonの値を呼び出し{%- endcomment -%}
+<style lang="scss" scoped>
+    #header-bg {
+        background-color: {{ settings.color_topbar_bg }};
+    }
+
+    #header-text {
+        color: {{ settings.color_header_text }};
+    }
+    #header-shop-text {
+        color: {{ settings.color_shop_text }};
+    }
+    #header-icon {
+        color: {{ settings.color_header_icon }}
+    }
+</style>
+
+{% liquid
+if section.settings.menu.links == blank
+assign main_menu_linklist = linklists[section.settings.menu].links
+else
+assign main_menu_linklist = section.settings.menu.links
+endif
+%}
+<!-- HEADER -->
+<div id="header-bg" class="w-full relative top-0 z-50" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
+    {% if section.settings.show_banner %}
+        <div class="bg-black w-full flex justify-center h-8 md:h-12 items-center">
+            <a class="text-white inline-flex items-center hover:scale-105 transform duration-300 ease-in-out"
+                href="{{ section.settings.url }}">
+                {% render "icon-sale" %}
+                <h1 class="ml-1 text-center text-lg md:text-2xl font-noto_sans_jp">{{section.settings.title}}</h1>
+                <p class="ml-2 text-center text-xs md:text-base font-noto_sans_jp">{{section.settings.description }}</p>
+            </a>
+        </div>
+    {% endif %}
+    <div id="header-text" class="mx-auto px-8 sm:px-12 ">
+        <div class="flex justify-around items-center py-2 md:py-4 md:justify-start md:space-x-4 ">
+            <!-- STORE NAME -->
+            <div class="flex justify-start items-center md:flex-1 truncate w-full">
+                <a class="hover:scale-105 transform duration-200 ease-in-out" href="/">
+                <div class="flex items-center space-x-1">
+                    {% render "icon-wealty-logo" %}
+                    <h1 id="header-shop-text" class="font-montserrat_bold text-lg lg:text-2xl truncate">
+                        {{ shop.name }}
+                    </h1>
+                </div>
+                </a>
+            </div>
+            <!-- MENU ICON -->
+            <div id="header-icon" class="flex -mr-2  ml-3 md:hidden">
+                <a href="{{ routes.cart_url }}">
+                    <div class="relative p-2 flex items-center justify-center text-white hover:text-gray-400 transform duration-200 ease-in-out">
+                        {% render "icon-cart", size: 6 %}
+                        <div id="header-icon" class="absolute -top-1 -right-1 bg-gray-600 rounded-full">
+                            <p class="font-montserrat_bold px-1.5 text-xs">{{ cart.item_count }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div id="header-icon" class="-mr-2 -my-2 ml-6 md:hidden ">
+                <button aria-label="MenuOpen" x-on:click="mobileMenuOpen = true" type="button"
+                    class="p-2 flex items-center justify-center text-white hover:text-gray-400 transform duration-200 ease-in-out">
+                    {% render "icon-menu" %}
+                </button>
+            </div>
+
+            <div class="xl:flex xl:items-center xl:justify-center xl:space-x-24">
+                <!-- NAVIGATION MENUS -->
+                <div class="hidden md:flex space-x-6 font-noto_sans_jp lg:text-lg">
+                    {% for link in main_menu_linklist %}
+                    <!-- MENU LINK -->
+                        {% if link.links != blank %}
+                            {% assign link_handle = link.handle | replace: "-", "_" %}
+                            <div class="relative max-w-md" x-data="{ {{ link_handle }}: false }">
+                                <button class="inline-flex items-center text-white hover:text-gray-300 transform duration-200 ease-in-out" x-on:click=" {{ link_handle }} = ! {{ link_handle }}">
+                                    {{ link.title }}
+                                    {% render "icon-dropdown" %}
+                                </button>
+                                <div x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0 translate-y-3"
+                                    x-transition:enter-end="opacity-100 translate-y-0"
+                                    x-transition:leave="transition ease-out duration-300"
+                                    x-transition:leave-start="opacity-100 translate-y-0"
+                                    x-transition:leave-end="opacity-0 translate-y-3" x-show="{{ link_handle }}"
+                                    @click.away="{{ link_handle }} = false" x-cloak
+                                    class="absolute z-10 -ml-72 transform px-2 w-screen max-w-sm sm:px-0 ">
+                                    <div class="shadow-lg border ring-black ring-opacity-5 over-flow-hidden rounded-lg">
+                                        <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                                            {% for childlink in link.links %}
+                                            <a href="{{ childlink.url }}"
+                                                class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-100 transform duration-200 ease-in-out">
+                                                <div class="ml-4">
+                                                    <p class="text-black">
+                                                        {{ childlink.title }}
+                                                    </p>
+                                                </div>
+                                            </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <a href="{{ link.url }}" class="text-white hover:text-gray-300 transform duration-200 ease-in-out">{{ link.title }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- SEARCH BUTTON / CART BUTTON / ACCOUNT LINKS IF ENABLED -->
+                <div class="hidden md:flex items-center justify-end md:flex-1 space-x-5 pt-3 xl:pt-0">
+                    <button aria-label="SearchProduct" x-on:click="searchBarOpen = true" type="button" class="whitespace-nowrap text-white hover:text-gray-300 transform duration-200 ease-in-out">
+                        {% render "icon-search" %}
+                    </button>
+                    <div id="header-icon" class="flex -mr-2 ml-3">
+                        <a href="{{ routes.cart_url }}">
+                            <div class="relative p-2 flex items-center justify-center text-white hover:text-gray-300 transform duration-200 ease-in-out">
+                                {% render "icon-cart", size: 8 %}
+                                <div id="header-icon" class="absolute -top-1 -right-1 bg-gray-500 rounded-full">
+                                    <p class="font-montserrat_bold px-2 text-base ">{{ cart.item_count }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% if shop.customer_accounts_enabled %}
+                        {% if customer %}
+                        <!-- CUSTOMER LOGGED-IN -->
+                        <a href="{{ routes.account_url }}" class="transform ease-in-out duration-300 text-white hover:text-gray-400">
+                        アカウント
+                        </a>
+                        {%- comment -%}Liquidのreplaceフィルターを使って<a>タグのclassにtailwindcssを付与{%- endcomment -%}
+                            {{ "ログアウト" | customer_logout_link | replace: '
+                            <a', '<a aria-label="Logout" id="logout" class="transform font-noto_sans_jp ease-in-out duration-300 text-white hover:text-gray-400"' }} {% else %}
+                            <!-- CUSTOMER NOT LOGIN -->
+                            {{ "ログイン" | customer_login_link | replace: '<a'
+                                , '<a aria-label="Login" id="login" class="transform font-noto_sans_jp ease-in-out duration-300 text-white hover:text-gray-400"' }}
+                            {{ "会員登録" |
+                                customer_register_link | replace: '<a'
+                                , '<a aria-label="Register" id="register" class="transform font-noto_sans_jp ease-in-out duration-300 text-white hover:text-gray-400"' }}
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <!-- MOBILE MENU CONTAINER -->
+            <div x-show="mobileMenuOpen" x-cloak x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-x-12"
+                x-transition:enter-end="opacity-100 translate-x-0"
+                x-transition:leave="transition ease-out duration-300"
+                x-transition:leave-start="opacity-100 translate-x-0"
+                x-transition:leave-end="opacity-0 translate-x-12"
+                class="absolute z-10 top-0 inset-x-0 p-2 transform origin-top-left md:hidden"
+            >
+                <div class="shadow-lg rounded-lg ring-1 ring-black ring-opacity-5  bg-white w-full">
+                    <div class="p-5 divide-y-2 divide-gray-50">
+                        <!-- MOBILE MENU HEADER TITLE AND CLOSEBUTTON -->
+                        <div class="flex items-center justify-between py-3">
+                            <h1 class="text-xl font-bold font-montserrat_bold text-gray-900">
+                                {{ section.settings.mobile_menu_title }}
+                            </h1>
+                            <div class="-mr-2">
+                                <button aria-label="Close Menu" x-on:click="mobileMenuOpen = false" type="button"
+                                    class="bg-white rounded-md p-2 text-gray-600">
+                                    {% render "icon-close" %}
+                                </button>
+                            </div>
+                        </div>
+                        <!-- NAVIGATION LINKS FOR MOBILE MENU -->
+                        <div class="pt-3">
+                        <nav class="grid gap-y-7">
+                        {% if shop.customer_accounts_enabled %}
+                            {% if customer %}
+                            <!-- CUSTOMER LOGGED-IN -->
+                                <a href="{{ routes.account_url }}" class="text-base font-zen_maru_gothic text-gray-700 hover:text-gray-900">
+                                    アカウント
+                            </a>
+                                {%- comment -%}Liquidのreplaceフィルターを使って<a>タグのclassにtailwindcssを付与{%- endcomment -%}
+                                {{ "ログアウト" | customer_logout_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-gray-700 hover:text-gray-900"' }}
+                            {% else %} 
+                                <!-- CUSTOMER NOT LOGIN -->
+                                {{ "ログイン" | customer_login_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-gray-700 hover:text-gray-900"' }}
+                                {{ "登録" | customer_register_link | replace: '<a', '<a class="text-base font-zen_maru_gothic text-gray-700 hover:text-gray-900"' }}
+                            {% endif %} 
+                        {% endif %} 
+                        <button
+                            x-on:click="searchBarOpen = true, mobileMenuOpen = false"
+                            type="button"
+                            class="whitespace-nowrap text-base text-gray-700 font-zen_maru_gothic hover:text-gray-900 text-left"
+                        >
+                            商品を検索する
+                        </button>
+                        {% for link in main_menu_linklist %}
+                            <!-- MENU LINK -->
+                            {% if link.links != blank %}
+                                {% assign link_handle = link.handle | replace: '-', '_' %}
+                                <div class="relative" x-data="{ {{ link_handle }}: false }">
+                                    <button
+                                        x-on:click="{{ link_handle }} = ! {{ link_handle }}"
+                                        class="text-base transform text-gray-900 font-zen_maru_gothic hover:text-gray-500 flex items-center justify-between w-full"
+                                    >
+                                        {{ link.title }}
+                                        {% render "icon-dropdown" %}
+                                    </button>
+                                    <ul x-show="{{ link_handle }}"
+                                        click.away="{{ link_handle }} = false" x-cloak>
+                                        {% for link in link.links %}
+                                        <li class="p-3 text-gray-600 font-zen_maru_gothic hover:text-gray-400">
+                                            <a href="{{ link.url }}">{{ link.title }}</a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <a class="text-gray-900 font-zen_maru_gothic hover:text-gray-500"
+                                href="{{ link.url }}">{{ link.title }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div x-cloak x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-12" x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-out duration-300" x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-12" x-show="searchBarOpen"
+        class="w-full absolute top-0 shadow-md rounded-b-md bg-white border transform">
+        <button class="absolute top-0 right-0 mr-5 mt-5 text-gray-500" x-on:click="searchBarOpen = false">
+            {% render "icon-close" %}
+        </button>
+        <div class="h-40 flex justify-center items-center">
+            <form action="{{ routes.search_url }}" method="get">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h2 class="text-xl text-gray-500 font-zen_maru_gothic font-bold">{{ shop.name }}</h2>
+                        <p class="text-sm text-gray-500 font-zen_maru_gothic font-thin">{{ shop.description }}</p>
+                    </div>
+                    <div class="relative text-gray-500 px-10 border rounded-sm">
+                        <input type="search" name="q" placeholder="Search"
+                            class="w-full bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
+                        <button type="submit" class="absolute right-0 top-0 mt-2 mr-2 md-mr-20">
+                            {% render 'icon-search' %}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+    {% schema %}
+    {
+    "name": "Header",
+    "settings": [
+    {
+    "type":"text",
+    "id":"mobile_menu_title",
+    "default":"Menu",
+    "label":"Mobile Menu Title"
+    },
+    {
+    "type": "link_list",
+    "id": "menu",
+    "default": "main-menu",
+    "label": "Header Naigation Menu"
+    },
+    {
+    "type": "checkbox",
+    "id": "show_banner",
+    "default": false,
+    "label": "Show Banner"
+    },
+    {
+    "type": "text",
+    "id": "title",
+    "default": "title",
+    "label": "Title"
+    },
+    {
+    "type":"url",
+    "id": "url",
+    "default": "/",
+    "label": "Link"
+    },
+    {
+    "type": "text",
+    "id": "description",
+    "default": "description",
+    "label": "Description"
+    }
+    ]
+    }
+    {% endschema %}
