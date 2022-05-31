@@ -47,7 +47,7 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks limit: section.blocks.size %}
                     <div class="swiper-slide relative">
-                        <div class="bg-gray-300 bg-opacity-50 h-[220px] md:h-[500px] w-full overflow-hidden flex justify-center items-center">
+                        <div class="bg-gray-300 bg-opacity-50 h-48 md:h-96 w-full overflow-hidden flex justify-center items-center">
                             {% if block.settings.image_picker != blank %}
                             <div class="relative w-full">
                                 <img
@@ -56,7 +56,7 @@
                                     alt="{{ block.settings.image_picker.alt }}" 
                                     height="{{ block.settings.image_picker.height }}" 
                                     width="{{ block.settings.image_picker.width }}"
-                                    class="w-full h-[220px] md:h-[500px] object-cover object-center"
+                                    class="w-full h-48 md:h-96 object-cover object-center"
                                 >
                             </div>
                             {% else %}

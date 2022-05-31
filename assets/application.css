@@ -872,6 +872,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 315px;
 }
 
+.h-\[150px\]{
+  height: 150px;
+}
+
+.h-\[250px\]{
+  height: 250px;
+}
+
+.h-\[220px\]{
+  height: 220px;
+}
+
 .min-h-full{
   min-height: 100%;
 }
@@ -2293,6 +2305,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:h-40{
     height: 10rem;
+  }
+
+  .md\:h-\[200px\]{
+    height: 200px;
+  }
+
+  .md\:h-\[600px\]{
+    height: 600px;
+  }
+
+  .md\:h-\[500px\]{
+    height: 500px;
   }
 
   .md\:w-1\/2{
