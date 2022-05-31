@@ -29,24 +29,24 @@
                 <div class="text-green-500">
                     {% render "icon-success" %}
                 </div>
-                <div class="text-sm md:text-lg ml-3">メッセージの送信に失敗しました...</div>
+                <div class="text-sm font-medium ml-3">メッセージの送信に失敗しました...</div>
             </div>
         {% endif %}
         <div class="max-w-6xl mx-auto justify-center flex items-center px-4">
             <div class="flex px-1 mb-3">
                 <div class="px-3 md:w-1/2">
-                    <label class="uppercase text-xs text-gray-500 font-noto_serif_jp_bold" for="contact_name">名前</label>
+                    <label class="uppercase text-xs text-gray-500 font-medium" for="contact_name">名前</label>
                     <input class="border px-2 mb-3 text-gray-700 w-full focus:outline-none" type="text" name="contact[name]" id="contact_name">
                 </div>
                 <div class="px-3 md:w-1/2">
-                    <label class="uppercase text-xs text-gray-500 font-noto_serif_jp_bold" for="contact_email">メールアドレス</label>
+                    <label class="uppercase text-xs text-gray-500 font-medium" for="contact_email">メールアドレス</label>
                     <input class="border px-2 mb-3 text-gray-700 w-full focus:outline-none" type="email" name="contact[email]" id="contact_email">
                 </div>
             </div>
         </div>
         <div class="flex px-4">
             <div class="flex flex-col w-full px-4">
-                <label class="text-xs text-gray-500 uppercase font-noto_serif_jp_bold mb-1" for="contact_message">お問合せ内容</label>
+                <label class="text-xs text-gray-500 uppercase" for="contact_message">Message</label>
                 <textarea class="border px-2 resize-none focus:outline-none" name="contact[body]" id="contact_message" rows="7"></textarea>
             </div>
         </div>

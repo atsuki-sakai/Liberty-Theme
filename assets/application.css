@@ -2243,6 +2243,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 1rem;
   }
 
+  .md\:mt-16{
+    margin-top: 4rem;
+  }
+
   .md\:block{
     display: block;
   }
