@@ -140,17 +140,17 @@
             {% case block.type %}
             {% when "vendor" %}
             <!-- PRODUCT VENDOR -->
-            <div class="my-2">
+            <div class="my-3">
                 <span class="text-xs text-gray-500 font-montserrat_italic">{{ product.vendor }}</span>
             </div>
             {% when "title" %}
             <!-- PRODUCT TITLE -->
-            <div class="my-2">
+            <div class="my-3">
                 <h1 class="text-2xl  text-gray-900 font-bold font-noto_serif_jp_bold">{{ product.title }}</h1>
             </div>
             {% when "price" %}
             <!-- PRODUCT PRICE -->
-            <div class="my-2" id="price-{{ section.id }}">
+            <div class="my-3" id="price-{{ section.id }}">
                 <span class="text-base text-gray-400 line-through">
                     {{ selected_variant.compare_at_price | money }}
                 </span>
@@ -162,19 +162,19 @@
                 {% endif %}
             </div>
             {% when "variant_selector" %}
-            <div class="my-2">
+            <div class="my-3">
                 <!-- PRODUCT OPTIONS-->
                 {% unless product.has_only_default_variant %}
                 {%- comment -%}div -> variant-selector に変更。customElementsで作成{%- endcomment -%}
                 <variant-selector data-url="{{ product.url }}" data-section="{{ section.id }}">
                     {% for option in product.options_with_values %}
                     {%- comment -%}for=""：属性は一意の値を入れる{%- endcomment -%}
-                    <label class="font-noto_serif_jp_bold text-lg font-bold" for="Option-{{ section.id }}">{{ option.name }}</label>
+                    <label class="font-zen_maru_gothic text-xl font-bold" for="Option-{{ section.id }}">{{ option.name }}</label>
                     <div class="my-2">
                         <select name="options[{{ option.name | escape }}]" id="Option-{{ section.id }}"
                             class="w-full border-2 py-1 px-3 rounded-md focus:outline-none">
                             {% for value in option.values %}
-                            <option class="font-noto_sans_jp_italic" value="{{ value | escape }}" 
+                            <option class="font-zen_maru_gothic" value="{{ value | escape }}" 
                                 {% if option.selected_value == value %}
                                 selected="selected" 
                                 {% endif %}

@@ -108,10 +108,10 @@
       },
       {
         "type": "color",
-        "id": "color_footer_text",
+        "id": "color_footer_title",
         "default": "#FFFFFF",
         "label": {
-          "en": "Footer Text Color",
+          "en": "Footer Title Color",
           "ja": "フッターテキストカラー"
         }
       },

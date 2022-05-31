@@ -92,7 +92,7 @@
         <!-- PRODUCT IMAGES -->
         <div class="product--medias">
             <div class="hidden md:block">
-                {% if product.media.first != null %}
+                {% if product.media %}
                     {% for media in product.media %}
                         <div class="h-100 overflow-hidden p-2">
                             {% render "product-media", media: media %}
@@ -100,7 +100,7 @@
                     {% endfor %}
                 {% else %}
                     {% assign placeholder_img = "product-1" %}
-                    <div class="h-100 overflow-hidden">
+                    <div class="{% if section.settings.one_line %}h-80{% else %}h-40 md:h-80{% endif %} overflow-hidden">
                         {{ placeholder_img | placeholder_svg_tag: "rounded-md w-full h-full object-cover bg-gray-400" }}
                     </div>
                 {% endif %}
@@ -108,20 +108,13 @@
             <div class="md:hidden">
                 <div class="swiper h-96">
                     <div class="swiper-wrapper">
-                        {% if product.media.first != null %}
-                            {% for media in product.media %}
-                                <div class="swiper-slide">
-                                    <div class="h-80 overflow-hidden p-2">
-                                        {% render "product-media", media: media %}
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            {% assign placeholder_img = "product-1" %}
-                            <div class="w-80 mx-auto h-80 overflow-hidden">
-                                {{ placeholder_img | placeholder_svg_tag: "rounded-md w-full h-full object-cover bg-gray-400" }}
+                        {% for media in product.media %}
+                        <div class="swiper-slide">
+                            <div class="h-80 overflow-hidden p-2">
+                                {% render "product-media", media: media %}
                             </div>
-                        {% endif %}
+                        </div>
+                        {% endfor %}
                     </div>
                     <div class="swiper-pagination"></div>
                     <div class="swiper-button-prev"></div>
@@ -140,41 +133,39 @@
             {% case block.type %}
             {% when "vendor" %}
             <!-- PRODUCT VENDOR -->
-            <div class="my-2">
-                <span class="text-xs text-gray-500 font-montserrat_italic">{{ product.vendor }}</span>
+            <div class="my-3">
+                <span class="text-xs text-gray-500 font-oswald">{{ product.vendor }}</span>
             </div>
             {% when "title" %}
             <!-- PRODUCT TITLE -->
-            <div class="my-2">
-                <h1 class="text-2xl  text-gray-900 font-bold font-noto_serif_jp_bold">{{ product.title }}</h1>
+            <div class="my-3">
+                <h1 class="text-3xl text-gray-900 font-bold font-oswald">{{ product.title }}</h1>
             </div>
             {% when "price" %}
             <!-- PRODUCT PRICE -->
-            <div class="my-2" id="price-{{ section.id }}">
-                <span class="text-base text-gray-400 line-through">
-                    {{ selected_variant.compare_at_price | money }}
-                </span>
+            <div class="my-3" id="price-{{ section.id }}">
+                <span class="text-base text-gray-400 line-through">{{ selected_variant.compare_at_price | money
+                    }}</span>
                 <span class="text-lg text-gray-900 ml-1">{{ selected_variant.price | money }}</span>
-                {% if selected_variant.price < selected_variant.compare_at_price %} 
-                    <span class="px-3 py-1 font-montserrat_italic uppercase text-sm font-bold bg-green-500 border-2 border-green-600 rounded-full text-white mx-4">
-                        Sale
-                    </span>
-                {% endif %}
+                {% if selected_variant.price < selected_variant.compare_at_price %} <span
+                    class="px-5 py-1 font-oswald uppercase text-sm font-bold bg-green-500 border-4 border-green-600 rounded-full text-white mx-4">
+                    Sale</span>
+                    {% endif %}
             </div>
             {% when "variant_selector" %}
-            <div class="my-2">
+            <div class="my-3">
                 <!-- PRODUCT OPTIONS-->
                 {% unless product.has_only_default_variant %}
                 {%- comment -%}div -> variant-selector に変更。customElementsで作成{%- endcomment -%}
                 <variant-selector data-url="{{ product.url }}" data-section="{{ section.id }}">
                     {% for option in product.options_with_values %}
                     {%- comment -%}for=""：属性は一意の値を入れる{%- endcomment -%}
-                    <label class="font-noto_serif_jp_bold text-lg font-bold" for="Option-{{ section.id }}">{{ option.name }}</label>
+                    <label class="font-zen_maru_gothic text-xl font-bold" for="Option-{{ section.id }}">{{ option.name }}</label>
                     <div class="my-2">
                         <select name="options[{{ option.name | escape }}]" id="Option-{{ section.id }}"
                             class="w-full border-2 py-1 px-3 rounded-md focus:outline-none">
                             {% for value in option.values %}
-                            <option class="font-noto_sans_jp_italic" value="{{ value | escape }}" 
+                            <option class="font-zen_maru_gothic" value="{{ value | escape }}" 
                                 {% if option.selected_value == value %}
                                 selected="selected" 
                                 {% endif %}

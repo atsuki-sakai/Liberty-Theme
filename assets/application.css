@@ -946,6 +946,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: fit-content;
 }
 
+.w-80{
+  width: 20rem;
+}
+
 .max-w-5xl{
   max-width: 64rem;
 }

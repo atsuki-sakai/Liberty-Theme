@@ -85,34 +85,34 @@
                     </div>
                 </div>
             {% endif %}
-            <div id="footer-text" class="flex flex-col space-y-2">
-                <h3 class="font-montserrat_bold font-bold uppercase mb-3">{{ section.settings.menu_text }}</h3>
+            <div class="flex flex-col space-y-2">
+                <h3 class="font-orelega_one font-bold uppercase mb-3">{{ section.settings.menu_text }}</h3>
                 {% for link in footer_menu_links %}
                     <!-- MENU LINK -->
                     <!-- リンクリストは表示させていない。 -->
                     {% if link.links == blank %}
-                        <a href="{{ link.url }}" class="font-noto_sans_jp_italic mb-1 text-base text-white hover:text-gray-400">{{ link.title }}</a>
+                        <a href="{{ link.url }}" class="font-zen_maru_gothic mb-1 text-base text-gray-600 hover:text-gray-400">{{ link.title }}</a>
                     {% endif %}
                  {% endfor %}
             </div>
-            <div id="footer-text" class="flex flex-col space-y-2">
-                <h3 class="font-montserrat_bold font-bold uppercase mb-3">{{ section.settings.menu2_text }}</h3>
+            <div class="flex flex-col space-y-2">
+                <h3 class="font-orelega_one font-bold uppercase mb-3">{{ section.settings.menu2_text }}</h3>
                 {% for link2 in footer_menu2_links %}
                     <!-- MENU LINK -->
                     <!-- リンクリストは表示させていない。 -->
                     {% if link2.links == blank %}
-                        <a href="{{ link2.url }}" class="font-noto_sans_jp_italic mb-1 text-base text-white hover:text-gray-400">{{ link2.title }}</a>
+                        <a href="{{ link2.url }}" class="font-zen_maru_gothic mb-1 text-base text-gray-600 hover:text-gray-400">{{ link2.title }}</a>
                     {% endif %}
                 {% endfor %}
             </div>
             {% unless section.settings.show_Textarea %}
-                <div id="footer-text" class="flex flex-col space-y-2">
-                    <h3 class="font-montserrat_bold font-bold uppercase mb-3">{{ section.settings.menu3_text }}</h3>
+                <div class="flex flex-col space-y-2">
+                    <h3 class="font-orelega_one font-bold uppercase mb-3">{{ section.settings.menu3_text }}</h3>
                     {% for link3 in footer_menu3_links %}
                         <!-- MENU LINK -->
                         <!-- リンクリストは表示させていない。 -->
                         {% if link3.links == blank %}
-                            <a href="{{ link3.url }}" class="font-noto_sans_jp_italic mb-1 text-base text-white hover:text-gray-400">{{ link3.title }}</a>
+                            <a href="{{ link3.url }}" class="font-zen_maru_gothic mb-1 text-base text-gray-600 hover:text-gray-400">{{ link3.title }}</a>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -120,10 +120,10 @@
         </div>
     </div>
     <div id="footer-under-bg" class="md:flex w-full text-center py-6 px-12 justify-between text-white">
-        <div id="footer-text" class="flex my-3 items-center justify-center w-full">
+        <div class="flex my-3 items-center justify-center w-full">
             <a href="/" class="text-sm font-oswald">© 2022 Copyright : {{ shop.name }}</a>
         </div>
-        <div id="footer-text" class="flex my-3 justify-center items-center w-full">
+        <div class="flex my-3 justify-center items-center w-full">
             {% for type in shop.enabled_payment_types %}
             {{ type | payment_type_svg_tag: class: 'mr-2' }}
             {% endfor %}

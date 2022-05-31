@@ -108,15 +108,6 @@
       },
       {
         "type": "color",
-        "id": "color_footer_text",
-        "default": "#FFFFFF",
-        "label": {
-          "en": "Footer Text Color",
-          "ja": "フッターテキストカラー"
-        }
-      },
-      {
-        "type": "color",
         "id": "color_header_icon",
         "default": "#000000",
         "label": {
