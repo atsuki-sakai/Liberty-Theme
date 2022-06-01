@@ -55,7 +55,7 @@
           "type": "image_picker",
           "settings": {
             "switch": false,
-            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
+            "image_picker": "shopify:\/\/shop_images\/1_f1d9e45b-7f54-4ec2-9b56-85a82f4db017.jpg",
             "title": "STEP.1",
             "description": "お風呂上がり患部に２~３滴塗り込みます。"
           }
@@ -64,18 +64,18 @@
           "type": "image_picker",
           "settings": {
             "switch": true,
-            "image_picker": "shopify:\/\/shop_images\/barber-sprays-water-on-customers-head.jpg",
+            "image_picker": "shopify:\/\/shop_images\/2_0f718f56-679f-4f0a-997f-72f9d8f30df8.jpg",
             "title": "STEP.2",
-            "description": "Lorem ipsum dolor sit amet, consecte"
+            "description": "吸収されるまで肌にやさしくなでます。"
           }
         },
         "fc0419d2-bd39-4b6c-b832-1dd946c73445": {
           "type": "image_picker",
           "settings": {
             "switch": false,
-            "image_picker": "shopify:\/\/shop_images\/barber-sprays-water-on-customers-head.jpg",
-            "title": "STEP.2",
-            "description": "DescriptinnLorem ipsum dolor sit amet, consecte"
+            "image_picker": "shopify:\/\/shop_images\/3_982ca59f-c262-4ff5-91a6-d1545a5b8a7e.jpg",
+            "title": "STEP.3",
+            "description": "余分なオイルを優しく拭き取り完了。"
           }
         }
       },
@@ -85,8 +85,8 @@
         "fc0419d2-bd39-4b6c-b832-1dd946c73445"
       ],
       "settings": {
-        "title": "Title",
-        "description": "Description"
+        "title": "HOW TO USE??",
+        "description": "タトゥーを正しくケアして美しく保ちましょう。"
       }
     },
     "image_swiper": {
@@ -95,25 +95,28 @@
         "e4ce7eca-1c89-4e4b-848e-186801a98d63": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg",
-            "text": "LEDIES",
-            "sub_text": "sample text"
+            "image_picker": "shopify:\/\/shop_images\/1_49f82882-e3f1-4462-b241-a6575da3d678.jpg",
+            "text": "Tattoのケアしてますか？",
+            "sub_text": "一生物だからちゃんとケア",
+            "url": "https:\/\/wealthy-store.com\/blogs\/tatoo-care\/how-to-use-tatto-care-oil"
           }
         },
         "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
-            "text": "MENS",
-            "sub_text": "sample text"
+            "image_picker": "shopify:\/\/shop_images\/2_92b489c3-457d-4afb-a56d-3a71fb7cc103.jpg",
+            "text": "100%オーガニックのこだわり",
+            "sub_text": "全て天然素材だからあなたと地球に優しい",
+            "url": "https:\/\/wealthy-store.com\/blogs\/tatoo-care\/whats-tatto-care-oil"
           }
         },
         "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
           "type": "image_picker",
           "settings": {
-            "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg",
-            "text": "UNISEX",
-            "sub_text": "sample text"
+            "image_picker": "shopify:\/\/shop_images\/3_391a84e3-0077-468e-a6bb-bef8054644d4.jpg",
+            "text": "タトゥーの質問受付",
+            "sub_text": "タトゥーのケアについて無料お悩み相談",
+            "url": "https:\/\/lin.ee\/31HZrZP"
           }
         }
       },
@@ -129,8 +132,8 @@
     "16513285395115f606": {
       "type": "newsletter-form",
       "settings": {
-        "title": "お得な情報を受け取る",
-        "textarea": "Wealthystoreからのタトゥーケアのニュースを受け取ろう"
+        "title": "無料メルマガ会員登録",
+        "textarea": "Wealthystoreからのタトゥーケアのニュースを受け取ろう。"
       }
     },
     "1653543359720aded6": {
@@ -138,7 +141,7 @@
       "settings": {
         "title": "WEALTHY STORE BLOG",
         "sub_title": "タトゥーオイルの最新情報！随時更新中！",
-        "blog": "shopify",
+        "blog": "tatoo-care",
         "post_limit": 3
       }
     },
