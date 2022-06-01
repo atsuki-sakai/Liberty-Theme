@@ -45,7 +45,7 @@
         "title": "Featured Collection",
         "featured_collection": "select-cosme",
         "line_items_per_row": 4,
-        "one_line": false
+        "one_line": true
       }
     },
     "1650765388056480a0": {
@@ -97,7 +97,8 @@
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/woman-applying-lipstick.jpg",
             "text": "LEDIES",
-            "sub_text": "sample text"
+            "sub_text": "sample text",
+            "url": "https:\/\/wealthy-store.com"
           }
         },
         "0fe8fbed-2428-43f4-b665-54183d2cb3f7": {
@@ -105,7 +106,8 @@
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/model-in-summer-clothes.jpg",
             "text": "MENS",
-            "sub_text": "sample text"
+            "sub_text": "sample text",
+            "url": "https:\/\/wealthy-store.com"
           }
         },
         "9669b82b-dec0-4bd3-a2c6-ae2b073cf5bc": {
@@ -113,7 +115,8 @@
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/necklaces-hanging-on-black.jpg",
             "text": "UNISEX",
-            "sub_text": "sample text"
+            "sub_text": "sample text",
+            "url": "https:\/\/wealthy-store.com"
           }
         }
       },
@@ -138,7 +141,7 @@
       "settings": {
         "title": "WEALTHY STORE BLOG",
         "sub_title": "タトゥーオイルの最新情報！随時更新中！",
-        "blog": "shopify",
+        "blog": "tatoo-care",
         "post_limit": 3
       }
     },
