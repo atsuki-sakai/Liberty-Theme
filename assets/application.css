@@ -935,6 +935,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 2rem;
 }
 
+.w-24{
+  width: 6rem;
+}
+
 .max-w-5xl{
   max-width: 64rem;
 }
@@ -1672,6 +1676,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .uppercase{
   text-transform: uppercase;
+}
+
+.capitalize{
+  text-transform: capitalize;
 }
 
 .leading-relaxed{
