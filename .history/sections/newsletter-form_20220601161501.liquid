@@ -10,26 +10,25 @@
             <div class="max-w-md mx-auto mt-6 md:mt-0">
                 <h4 class="font-bold text-lg md:text-2xl  p-1">お得な最新情報を受け取る</h4>
                 {% form 'customer' %}
-                <input type="hidden" name="contact[tags]" value="newsletter">
                     {{ form.errors | default_errors }}
                     {% if form.posted_successfully? %}
                         <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
                     {% else %}
                         <div class="flex mt-4 justify-center">
                             <label for="email" class="sr-only">メールアドレス</label>
-                            <input
-                                class="border w-full rounded-md px-2 focus:outline-none"
+                            <input 
+                                class="border w-full rounded-md px-2 focus:outline-none" 
                                 type="email"
-                                placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                                placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" 
                                 name="contact[email]"
-                                aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                                aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" 
                                 autocorrect="off"
                                 autocapitalize="off"
                             >
                             <div
                                 class="bg-black text-white rounded-md ml-4 py-3 px-3 shadow-md cursor-pointer border-3 border-gray-500 hover:bg-white hover:shadow-inner hover:shadow-gray-700 hover:text-black hover:border-black transform ease-in-out duration-300">
                                 <input
-                                    class=" cursor-pointer"
+                                    class=" cursor-pointer" 
                                     type="submit"
                                     value="{{ 'general.newsletter_form.submit' | t }}">
                             </div>

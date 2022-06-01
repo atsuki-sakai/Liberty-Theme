@@ -10,7 +10,6 @@
             <div class="max-w-md mx-auto mt-6 md:mt-0">
                 <h4 class="font-bold text-lg md:text-2xl  p-1">お得な最新情報を受け取る</h4>
                 {% form 'customer' %}
-                <input type="hidden" name="contact[tags]" value="newsletter">
                     {{ form.errors | default_errors }}
                     {% if form.posted_successfully? %}
                         <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
