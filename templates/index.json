@@ -136,6 +136,12 @@
         "textarea": "Wealthystoreからのタトゥーケアのニュースを受け取ろう。"
       }
     },
+    "1654061793c2bd72f9": {
+      "type": "video_player",
+      "settings": {
+        "video_id": "hg-jxKRdSOM"
+      }
+    },
     "1653543359720aded6": {
       "type": "feature-blog",
       "settings": {
@@ -168,12 +174,6 @@
       ],
       "settings": {
       }
-    },
-    "1654061793c2bd72f9": {
-      "type": "video_player",
-      "settings": {
-        "video_id": "hg-jxKRdSOM"
-      }
     }
   },
   "order": [
@@ -182,9 +182,9 @@
     "1650765388056480a0",
     "image_swiper",
     "16513285395115f606",
+    "1654061793c2bd72f9",
     "1653543359720aded6",
     "1653564408b05067ee",
-    "1651667062f5d06cd3",
-    "1654061793c2bd72f9"
+    "1651667062f5d06cd3"
   ]
 }
