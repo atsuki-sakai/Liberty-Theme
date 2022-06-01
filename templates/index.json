@@ -55,7 +55,7 @@
           "type": "image_picker",
           "settings": {
             "switch": false,
-            "image_picker": "shopify:\/\/shop_images\/kelly-sikkema-fQucGYNXAG8-unsplash.jpg",
+            "image_picker": "shopify:\/\/shop_images\/1_f1d9e45b-7f54-4ec2-9b56-85a82f4db017.jpg",
             "title": "STEP.1",
             "description": "お風呂上がり患部に２~３滴塗り込みます。"
           }
@@ -64,7 +64,7 @@
           "type": "image_picker",
           "settings": {
             "switch": true,
-            "image_picker": "shopify:\/\/shop_images\/barber-sprays-water-on-customers-head.jpg",
+            "image_picker": "shopify:\/\/shop_images\/2_0f718f56-679f-4f0a-997f-72f9d8f30df8.jpg",
             "title": "STEP.2",
             "description": "吸収されるまで肌にやさしくなでます。"
           }
@@ -73,7 +73,7 @@
           "type": "image_picker",
           "settings": {
             "switch": false,
-            "image_picker": "shopify:\/\/shop_images\/barber-sprays-water-on-customers-head.jpg",
+            "image_picker": "shopify:\/\/shop_images\/3_982ca59f-c262-4ff5-91a6-d1545a5b8a7e.jpg",
             "title": "STEP.3",
             "description": "余分なオイルを優しく拭き取り完了"
           }
