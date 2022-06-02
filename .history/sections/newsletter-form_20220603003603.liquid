@@ -17,7 +17,7 @@
                             id="NewsletterForm--{{ section.id }}"
                             type="email"
                             name="contact[email]"
-                            class="border w-full rounded-md px-3 py-1.5 text-base md:text-xl  focus:outline-none"
+                            class="border w-full rounded-md px-3 py-1.5 text-base md:text-xl   focus:outline-none"
                             value="{{ form.email }}"
                             aria-required="true"
                             autocorrect="off"
@@ -41,13 +41,13 @@
                                     登録
                                 </button>
                             </div>
+                            {%- if form.errors -%}
+                                <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                            {%- endif -%}
+                            {%- if form.posted_successfully? -%}
+                                <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+                            {%- endif -%}
                         </div>
-                        {%- if form.errors -%}
-                            <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
-                        {%- endif -%}
-                        {%- if form.posted_successfully? -%}
-                            <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
-                        {%- endif -%}
                     </div>
                 {% endform %}
                 <!-- {% form 'customer' %}

@@ -11,13 +11,13 @@
                 <h4 class="font-bold text-lg md:text-2xl  p-1">お得な最新情報を受け取る</h4>
                 {% form 'customer', class: 'newsletter-form' %}
                     <input type="hidden" name="contact[tags]" value="newsletter">
-                    <div class="newsletter-form__field-wrapper">
+                        <div class="newsletter-form__field-wrapper">
                         <div class="field flex items-center space-x-1">
                             <input
                             id="NewsletterForm--{{ section.id }}"
                             type="email"
                             name="contact[email]"
-                            class="border w-full rounded-md px-3 py-1.5 text-base md:text-xl  focus:outline-none"
+                            class="border w-full rounded-md px-3 py-1.5 text-base md:text-xl   focus:outline-none"
                             value="{{ form.email }}"
                             aria-required="true"
                             autocorrect="off"
@@ -45,11 +45,11 @@
                         {%- if form.errors -%}
                             <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
                         {%- endif -%}
+                        </div>
                         {%- if form.posted_successfully? -%}
                             <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
                         {%- endif -%}
-                    </div>
-                {% endform %}
+                    {% endform %}
                 <!-- {% form 'customer' %}
                     {{ form.errors | default_errors }}
                     {% if form.posted_successfully? %}
