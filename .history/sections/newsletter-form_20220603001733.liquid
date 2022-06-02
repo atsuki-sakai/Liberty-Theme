@@ -28,16 +28,16 @@
                             required
                             >
                             <div class="bg-black text-white font-noto_serif_jp_bold text-base md:text-xl rounded-md ml-4 py-1.5 text-center w-24 px-3 shadow-md cursor-pointer border-gray-500 hover:bg-white hover:shadow-inner hover:shadow-gray-700 hover:text-black hover:border-black transform ease-in-out duration-300">
-                                <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe">
+                                <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
                                     登録
                                 </button>
                             </div>
                             {%- if form.errors -%}
-                                <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-red-500">{% render 'icon-error' %}</div>メールマガジン登録に失敗しました。</div>
+                                <div class=""><div class="text-red-400">{% render 'icon-error' %}</div>メールマガジンの登録に失敗しました。</div>
                             {%- endif -%}
                             </div>
                             {%- if form.posted_successfully? -%}
-                                <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-green-500">{% render 'icon-success' %}</div>メールマガジン登録が完了しました。</div>
+                                <div class="flex space-x-1"><div class="text-green-500">{% render 'icon-success' %}</div>メールマガジン登録が完了しました。</div>
                             {%- endif -%}
                         </div>
                 {% endform %}
