@@ -11,44 +11,43 @@
                 <h4 class="font-bold text-lg md:text-2xl  p-1">お得な最新情報を受け取る</h4>
                 {% form 'customer', class: 'newsletter-form' %}
                     <input type="hidden" name="contact[tags]" value="newsletter">
-                        <div class="newsletter-form__field-wrapper">
-                            <div class="field flex items-center space-x-1">
-                                <input
-                                id="NewsletterForm--{{ section.id }}"
-                                type="email"
-                                name="contact[email]"
-                                class="border w-full rounded-md px-3 py-1.5 text-base md:text-xl   focus:outline-none"
-                                value="{{ form.email }}"
-                                aria-required="true"
-                                autocorrect="off"
-                                autocapitalize="off"
-                                autocomplete="email"
-                                {% if form.errors %}
-                                    autofocus
-                                    aria-invalid="true"
-                                    aria-describedby="Newsletter-error--{{ section.id }}"
-                                {% elsif form.posted_successfully? %}
-                                    aria-describedby="Newsletter-success--{{ section.id }}"
-                                {% endif %}
-                                placeholder="メールアドレス"
-                                required
-                                >
-                                <label class="field__label sr-only" for="NewsletterForm--{{ section.id }}">
-                                    メルマガ登録
-                                </label>
-                                <div class="bg-black text-white font-noto_serif_jp_bold text-base md:text-xl rounded-md ml-4 py-1.5 text-center w-24 px-3 shadow-md cursor-pointer border-gray-500 hover:bg-white hover:shadow-inner hover:shadow-gray-700 hover:text-black hover:border-black transform ease-in-out duration-300">
-                                    <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
-                                        登録
-                                    </button>
-                                </div>
-                                {%- if form.errors -%}
-                                    <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-red-500">{% render 'icon-error' %}</div>メールマガジン登録に失敗しました。</div>
-                                {%- endif -%}
-                                {%- if form.posted_successfully? -%}
-                                    <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-green-500">{% render 'icon-success' %}</div>メールマガジン登録が完了しました。</div>
-                                {%- endif -%}
+                        < class="newsletter-form__field-wrapper">
+                        <div class="field flex items-center space-x-1">
+                            <input
+                            id="NewsletterForm--{{ section.id }}"
+                            type="email"
+                            name="contact[email]"
+                            class="border w-full rounded-md px-3 py-1.5 text-base md:text-xl   focus:outline-none"
+                            value="{{ form.email }}"
+                            aria-required="true"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            autocomplete="email"
+                            {% if form.errors %}
+                                autofocus
+                                aria-invalid="true"
+                                aria-describedby="Newsletter-error--{{ section.id }}"
+                            {% elsif form.posted_successfully? %}
+                                aria-describedby="Newsletter-success--{{ section.id }}"
+                            {% endif %}
+                            placeholder="メールアドレス"
+                            required
+                            >
+                            <label class="field__label sr-only" for="NewsletterForm--{{ section.id }}">
+                                メルマガ登録
+                            </label>
+                            <div class="bg-black text-white font-noto_serif_jp_bold text-base md:text-xl rounded-md ml-4 py-1.5 text-center w-24 px-3 shadow-md cursor-pointer border-gray-500 hover:bg-white hover:shadow-inner hover:shadow-gray-700 hover:text-black hover:border-black transform ease-in-out duration-300">
+                                <button type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                                    登録
+                                </button>
                             </div>
                         </div>
+                        {%- if form.errors -%}
+                            <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-red-500">{% render 'icon-error' %}</div>メールマガジン登録に失敗しました。</div>
+                        {%- endif -%}
+                        {%- if form.posted_successfully? -%}
+                            <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-green-500">{% render 'icon-success' %}</div>メールマガジン登録が完了しました。</div>
+                        {%- endif -%}
                     {% endform %}
                 <!-- {% form 'customer' %}
                     {{ form.errors | default_errors }}

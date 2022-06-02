@@ -42,11 +42,11 @@
                                     </button>
                                 </div>
                                 {%- if form.errors -%}
-                                    <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-red-500">{% render 'icon-error' %}</div>メールマガジン登録に失敗しました。</div>
-                                {%- endif -%}
-                                {%- if form.posted_successfully? -%}
-                                    <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-green-500">{% render 'icon-success' %}</div>メールマガジン登録が完了しました。</div>
-                                {%- endif -%}
+                            <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-red-500">{% render 'icon-error' %}</div>メールマガジン登録に失敗しました。</div>
+                        {%- endif -%}
+                        {%- if form.posted_successfully? -%}
+                            <div class="flex space-x-1 mt-2 font-noto_serif_jp_bold"><div class="text-green-500">{% render 'icon-success' %}</div>メールマガジン登録が完了しました。</div>
+                        {%- endif -%}
                             </div>
                         </div>
                     {% endform %}
