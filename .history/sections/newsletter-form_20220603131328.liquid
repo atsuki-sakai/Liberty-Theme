@@ -13,18 +13,10 @@
                     {% form 'customer' %}
                         {{ form.errors | default_errors }}
                         {% if form.posted_successfully? %}
-                            <div class="flex items-center space-x-1">
-                                <div class="text-green-500">
-                                    {% render "icon-success" %}
-                                </div>
-                                <p class="font-noto_serif_jp_bold text-lg">メルマガの登録が完了しました。</p>
-                            </div>
+                            <p class="font-noto_serif_jp_bold text-lg">メルマガの登録が完了しました。</p>
                         {% else %}
                         {%- if form.errors -%}
-                            <div class="flex items-center space-x-1">
-                                <div class="text-red-500">{% render 'icon-error' %}</div>
-                                <p class="font-noto_serif_jp_bold text-lg">メルマガの登録に失敗しました。</p>
-                            </div>
+                            <div class="flex"><div class="text-red-500">{% render 'icon-error' %}</div>メルマガの登録に失敗しました。</div>
                         {%- endif -%}
                             <input type="hidden" name="contact[tags]" value="newsletter">
                             <div class="flex items-center space-x-1">
