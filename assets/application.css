@@ -1597,6 +1597,11 @@ Ensure the default browser behavior of the `hidden` attribute.
      object-fit: cover;
 }
 
+.object-fill{
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
 .object-center{
   -o-object-position: center;
      object-position: center;
