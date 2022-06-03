@@ -13,12 +13,12 @@
                     {% form 'customer' %}
                         {{ form.errors | default_errors }}
                         {% if form.posted_successfully? %}
-                            <p class="font-noto_serif_jp_bold text-lg">メルマガ登録完了しました。</p>
+                            <p class="note form-success font-noto_serif_jp_bold text-lg">メルマガ登録完了しました。</p>
                         {% else %}
                             <input type="hidden" name="contact[tags]" value="newsletter">
                             <div class="input-group">
                                 <label for="Email" class="sr-only">メールアドレス</label>
-                                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="メールアドレス" name="contact[email]" id="Email" class="focus:outline-none px-6 py-2 border rounded-md" aria-label="NewsletterSubscrib" autocorrect="off" autocapitalize="off">
+                                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="メールアドレス" name="contact[email]" id="Email" class="fosus:outline-none px-6 py-2 border rounded-md" aria-label="NewsletterSubscrib" autocorrect="off" autocapitalize="off">
                                 <span class="input-group-btn">
                                     <button type="submit" class="btn" name="commit" id="subscribe">登録する</button>
                                 </span>
