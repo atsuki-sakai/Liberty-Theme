@@ -19,10 +19,8 @@
                             <div class="flex"><div class="text-red-500">{% render 'icon-error' %}</div>メルマガの登録に失敗しました。</div>
                         {%- endif -%}
                             <input type="hidden" name="contact[tags]" value="newsletter">
-                            <div class="flex items-center space-x-1">
-                                <label for="Email" class="sr-only">
-                                    メールアドレス
-                                </label>
+                            <div class="input-group">
+                                <label for="Email" class="sr-only">メールアドレス</label>
                                 <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="メールアドレス" name="contact[email]" id="Email" class="focus:outline-none px-6 py-2 border rounded-md" aria-label="NewsletterSubscrib" autocorrect="off" autocapitalize="off">
                                 <div class="w-full px-6 py-2 bg-black rounded-md shadow-md text-white font-noto_serif_jp_bold transform duration-300 ease-in-out hover:bg-white hover:text-black">
                                     <button type="submit" class="btn" name="commit" id="subscribe">登録する</button>
