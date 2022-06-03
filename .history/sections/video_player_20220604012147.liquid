@@ -1,0 +1,25 @@
+
+<div class="mx-8 py-12 md:py-24">
+    <p class="">YouTube</p>
+    <div class="max-w-6xl h-[315px] md:h-[525px] mx-auto px-4 ">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/{{ section.settings.video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Video Player",
+    "settings": [
+        {
+            "type":"text",
+            "id":"video_id",
+            "label": "Youtube Video ID"
+        }
+    ],
+    "presets": [
+        {
+            "name":"Video Player"
+        }
+    ]
+}
+{% endschema %}
