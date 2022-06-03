@@ -50,7 +50,7 @@
     {% elsif request.path == '/policies/legal-notice' %}
       {% section 'legal-notice' %}
     {% elsif request.path == '/challenge' %}
-      {% render 'challenge' %}
+      {% include 'challenge' %}
     {% else %}
       <main role="main">
         {{ content_for_layout }}
