@@ -49,8 +49,8 @@
       {% section 'terms-of-service' %}
     {% elsif request.path == '/policies/legal-notice' %}
       {% section 'legal-notice' %}
-    <!-- {% elsif request.path == '/challenge' %}
-      {% render 'challenge' %} -->
+    {% elsif request.path == '/challenge' %}
+      {% render 'challenge' %}
     {% else %}
       <main role="main">
         {{ content_for_layout }}
