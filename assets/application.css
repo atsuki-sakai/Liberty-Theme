@@ -763,6 +763,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: block;
 }
 
+.inline-block{
+  display: inline-block;
+}
+
 .flex{
   display: flex;
 }
@@ -935,6 +939,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 2rem;
 }
 
+.w-48{
+  width: 12rem;
+}
+
 .max-w-5xl{
   max-width: 64rem;
 }
@@ -1099,6 +1107,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-around;
 }
 
+.justify-evenly{
+  justify-content: space-evenly;
+}
+
 .gap-3{
   gap: 0.75rem;
 }
@@ -1168,6 +1180,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]){
@@ -1293,6 +1311,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-gray-500{
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+
+.border-red-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
 .bg-gray-200{
@@ -1528,6 +1551,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-16{
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.py-0\.5{
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.py-0{
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .pt-3{

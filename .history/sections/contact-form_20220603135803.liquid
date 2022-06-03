@@ -34,44 +34,28 @@
             </div>
         {% endif %}
         <div class="max-w-6xl mx-auto justify-between flex items-center px-4">
-            <div class="px-3 md:w-1/2">
-                <div class="flex items-center space-x-2 mb-1">
-                    <label class="uppercase text-sm text-gray-500 font-noto_serif_jp_bold" for="contact_type">お問合せ内容</label>
-                    <div class="rounded-full bg-white border-2 border-red-500">
-                        <span class="text-red-500 font-bold text-center text-xs px-3 py-1.5">必須</span>
-                    </div>
+            <div class="flex px-1 mb-3">
+                <div class="px-3 md:w-1/2">
+                    <label class="uppercase text-xs text-gray-500 font-noto_serif_jp_bold" for="contact_name">お問合せ内容</label>
+                    <select class="block border px-2 mb-3 text-gray-700 w-48 focus:outline-none" name="contact[type]" required>
+                        <option value class="text-gray-400">選択してください。</option>
+                        <option value="商品について">商品について</option></option>
+                        <option value="卸売りについて">卸売りについて</option>
+                        <option value="その他">その他</option>
+                    </select>
                 </div>
-                <select class="block border px-3 py-2 mb-3 text-gray-700 w-full focus:outline-none" name="contact[type]" id="contact_type" required>
-                    <option value>選択してください。</option>
-                    <option value="商品について">商品について</option></option>
-                    <option value="卸売りについて">卸売りについて</option>
-                    <option value="その他">その他</option>
-                </select>
-            </div>
-            <div class="px-3 md:w-1/2">
-                <div class="flex items-center space-x-2 mb-1">
-                    <label class="uppercase text-sm text-gray-500 font-noto_serif_jp_bold" for="contact_type">電話番号</label>
-                    <div class="rounded-full bg-white border-2 border-red-500">
-                        <span class="text-red-500 font-bold text-center text-xs px-3 py-1.5">必須</span>
-                    </div>
-                </div>
-                <input class="border px-3 py-1.5 mb-3 text-gray-700 w-full focus:outline-none" type="text" name="contact[phone]" id="contact_phone" placeholder="09012345678">
+               
             </div>
         </div>
         <div class="max-w-6xl mx-auto justify-center flex items-center px-4">
             <div class="flex px-1 mb-3">
                 <div class="px-3 md:w-1/2">
-                    <div class="flex items-center space-x-2 mb-1">
-                        <label class="uppercase text-sm text-gray-500 font-noto_serif_jp_bold" for="contact_type">名前</label>
-                        <div class="rounded-full bg-white border-2 border-red-500">
-                            <span class="text-red-500 font-bold text-center text-xs px-3 py-1.5">必須</span>
-                        </div>
-                    </div>
-                    <input class="border px-3 py-2 mb-3 text-gray-700 w-full focus:outline-none" type="text" name="contact[name]" id="contact_name" placeholder="山田 太郎">
+                    <label class="uppercase text-xs text-gray-500 font-noto_serif_jp_bold" for="contact_name">名前</label>
+                    <input class="border px-2 mb-3 text-gray-700 w-full focus:outline-none" type="text" name="contact[name]" id="contact_name" placeholder="山田 太郎">
                 </div>
                 <div class="px-3 md:w-1/2">
                     <label class="uppercase text-xs text-gray-500 font-noto_serif_jp_bold" for="contact_email">メールアドレス</label>
-                    <input class="border px-3 py-2 mb-3 text-gray-700 w-full focus:outline-none" type="email" name="contact[email]" id="contact_email" placeholder="sample@email.com">
+                    <input class="border px-2 mb-3 text-gray-700 w-full focus:outline-none" type="email" name="contact[email]" id="contact_email" placeholder="sample@email.com">
                 </div>
             </div>
         </div>
