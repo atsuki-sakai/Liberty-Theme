@@ -1,15 +1,24 @@
 {
   "sections": {
+    "1654276710ddfe7f8a": {
+      "type": "background-movie",
+      "settings": {
+        "title": "New TATTO care <br>Product",
+        "description": "あなたのアートをより一層美しく。",
+        "image_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0606\/5838\/5110\/files\/1_e5b998db-50aa-4ad5-9227-af5021969eab.jpg?v=1654285043",
+        "movie_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/9e55e9bccfd2432db39c086a249db7e4.mp4"
+      }
+    },
     "1653878771d3da127c": {
       "type": "top-contents",
+      "disabled": true,
       "blocks": {
         "adc11196-79d0-4d0a-869b-b92580590b81": {
           "type": "image_picker",
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/2.jpg",
             "text": "Prevents fading",
-            "sub_text": "It is designed to improve tattoo coloration and delay fading with long-term use.",
-            "url": "https:\/\/wealthy-store.com"
+            "sub_text": "It is designed to improve tattoo coloration and delay fading with long-term use."
           }
         },
         "22f2694c-8459-4aa4-8003-83096600fb81": {
@@ -17,8 +26,7 @@
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/1.jpg",
             "text": "Moisturizer",
-            "sub_text": "moisturizes tattoos and optimizes coloration.",
-            "url": "https:\/\/wealthy-store.com"
+            "sub_text": "moisturizes tattoos and optimizes coloration."
           }
         },
         "75cd037c-1017-4f5d-ba93-e756c12e4fe2": {
@@ -26,8 +34,7 @@
           "settings": {
             "image_picker": "shopify:\/\/shop_images\/3.jpg",
             "text": "100% Organic",
-            "sub_text": "All are made from natural sources and gently penetrate the skin.",
-            "url": "https:\/\/wealthy-store.com"
+            "sub_text": "All are made from natural sources and gently penetrate the skin."
           }
         }
       },
@@ -42,7 +49,8 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured Collection",
+        "title": "Pick up Product",
+        "description": "こだわりの商品を手にしてみませんか？",
         "featured_collection": "select-cosme",
         "line_items_per_row": 4,
         "one_line": false
@@ -57,7 +65,7 @@
             "switch": false,
             "image_picker": "shopify:\/\/shop_images\/1_f1d9e45b-7f54-4ec2-9b56-85a82f4db017.jpg",
             "title": "STEP.1",
-            "description": "お風呂上がり患部に２~３滴塗り込みます。"
+            "description": "お風呂上がりに清潔にした患部に２~３滴塗り込みます。"
           }
         },
         "f21a7a6b-28a1-4ecf-a2e9-618251e95f0e": {
@@ -66,7 +74,7 @@
             "switch": true,
             "image_picker": "shopify:\/\/shop_images\/2_0f718f56-679f-4f0a-997f-72f9d8f30df8.jpg",
             "title": "STEP.2",
-            "description": "吸収されるまで肌にやさしくなでます。"
+            "description": "吸収されるまで肌にやさしくなでます。ゆっくり肌に馴染むまで優しくマッサージします。"
           }
         },
         "fc0419d2-bd39-4b6c-b832-1dd946c73445": {
@@ -75,7 +83,7 @@
             "switch": false,
             "image_picker": "shopify:\/\/shop_images\/3_982ca59f-c262-4ff5-91a6-d1545a5b8a7e.jpg",
             "title": "STEP.3",
-            "description": "余分なオイルを優しく拭き取り完了。"
+            "description": "余分なオイルを優しく拭き取り完了。長期的な使用でインクの褪色を防ぎます。"
           }
         }
       },
@@ -139,7 +147,8 @@
     "1654061793c2bd72f9": {
       "type": "video_player",
       "settings": {
-        "video_id": "hg-jxKRdSOM"
+        "video_id": "hg-jxKRdSOM",
+        "youtube_text": "Wealthy Store Channel"
       }
     },
     "1653543359720aded6": {
@@ -149,12 +158,6 @@
         "sub_title": "タトゥーオイルの最新情報！随時更新中！",
         "blog": "tatoo-care",
         "post_limit": 3
-      }
-    },
-    "1653564408b05067ee": {
-      "type": "fixed-banner",
-      "settings": {
-        "url": "https:\/\/lin.ee\/31HZrZP"
       }
     },
     "1651667062f5d06cd3": {
@@ -174,9 +177,16 @@
       ],
       "settings": {
       }
+    },
+    "1654276719769f8fdf": {
+      "type": "fixed-banner",
+      "settings": {
+        "url": "https:\/\/lin.ee\/31HZrZP"
+      }
     }
   },
   "order": [
+    "1654276710ddfe7f8a",
     "1653878771d3da127c",
     "featured-collection",
     "1650765388056480a0",
@@ -184,7 +194,7 @@
     "16513285395115f606",
     "1654061793c2bd72f9",
     "1653543359720aded6",
-    "1653564408b05067ee",
-    "1651667062f5d06cd3"
+    "1651667062f5d06cd3",
+    "1654276719769f8fdf"
   ]
 }
