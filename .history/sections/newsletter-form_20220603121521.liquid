@@ -1,0 +1,55 @@
+<div class="px-8 py-12 md:py-24">
+    <div class="max-w-5xl mx-auto px-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="max-w-md mx-auto">
+                <h3 class="text-xl md:text-2xl text-start text-gray-700 font-bold ">{{ section.settings.title }}
+                </h3>
+                <p class="text-base md:text-xl text-start text-gray-500 font-bold ">{{ section.settings.textarea }}
+                </p>
+            </div>
+            <div class="max-w-md mx-auto mt-6 md:mt-0">
+                <h4 class="font-bold text-lg md:text-2xl p-1">お得な最新情報を受け取る</h4>
+                {% form 'customer' %}
+                    {{ form.errors | default_errors }}
+                    {% if form.posted_successfully? %}
+                        <p class="note form-success">メルマガ登録完了</p>
+                    {% else %}
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <div class="input-group">
+                            <label for="Email" class="sr-only">メールアドレス</label>
+                            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="メールアドレス" name="contact[email]" id="Email" class="fosus:outline-none px-6 py-2 border rounded-md" aria-label="NewsletterSubscrib" autocorrect="off" autocapitalize="off">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn" name="commit" id="subscribe">登録する</button>
+                            </span>
+                        </div>
+                    {% endif %}
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Newsletter Form",
+    "settings": [
+        {
+            "type":"text",
+            "id":"title",
+            "default": "Default Title",
+            "label": "Newsletter Title"
+        },
+        {
+            "type":"textarea",
+            "id":"textarea",
+            "default": "Default Textarea",
+            "label": "Newsletter Textarea"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Newsletter Form"
+        }
+    ]
+}
+{% endschema %}

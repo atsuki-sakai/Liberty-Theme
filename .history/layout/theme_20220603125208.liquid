@@ -55,6 +55,17 @@
       </main>
     {% endif %}
   {% section 'footer' %}
+
 {% include 'swymSnippet' %}
+<script>
+  function myFunc() {
+    var str = document.getElementById('footer_signup').innerHTML;
+    console.log('hello',str);
+    var res = str.replace('contact#contact_form', 'contact');
+    document.getElementById('footer_signup').innerHTML = res;
+    console.log("res",res)
+  }
+  myFunc()
+</script>
 </body>
 </html>

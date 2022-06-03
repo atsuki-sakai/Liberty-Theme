@@ -39,7 +39,11 @@
 
 <body id="main-bg">
   {% section 'header' %}
-    {% if request.path == '/policies/privacy-policy' %}
+    {% if request.path == '/challenge' %}
+      {% render 'challenge' %}
+    {%  elsif request.path == '/en/challenge' %}
+      {% render 'challenge' %}
+    {% elsif request.path == '/policies/privacy-policy' %}
       {% section 'privacy-policy' %}
     {% elsif request.path == '/policies/refund-policy' %}
       {% section 'refund-policy' %}
@@ -55,6 +59,15 @@
       </main>
     {% endif %}
   {% section 'footer' %}
+
 {% include 'swymSnippet' %}
+<script>
+  function myFunc() {
+    var str = document.getElementById('newsletter-form').innerHTML;
+    var res = str.replace('contact#newsletter-form', 'contact');
+    document.getElementById('newsletter-form').innerHTML = res;
+  }
+  myFunc()
+</script>
 </body>
 </html>

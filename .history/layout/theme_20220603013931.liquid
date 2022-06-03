@@ -17,7 +17,7 @@
   {%- comment -%}deferを付けるとうまく動かない。解決策：呼び出し元でdocument.addEventListener('DOMContentLoaded', () => {内でSwiperをインスタンス化 {%- endcomment -%}
   <script src="{{ 'swiper.js' | asset_url }}" defer></script>
   <script src="{{ 'aos.js' | asset_url }}" defer></script>
-  <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<script>
 		$(function(){
@@ -28,7 +28,7 @@
 				$.cookie('key', 'visit', { expires: 999999999 });
 			}
 		});
-	</script> -->
+	</script>
 </head>
 
 <style lang="scss" scoped>
@@ -39,7 +39,11 @@
 
 <body id="main-bg">
   {% section 'header' %}
-    {% if request.path == '/policies/privacy-policy' %}
+    {% if request.path == '/challenge' %}
+      {% render 'challenge' %}
+    {%  elsif request.path == '/en/challenge' %}
+      {% render 'challenge' %}
+    {% elsif request.path == '/policies/privacy-policy' %}
       {% section 'privacy-policy' %}
     {% elsif request.path == '/policies/refund-policy' %}
       {% section 'refund-policy' %}
@@ -55,6 +59,8 @@
       </main>
     {% endif %}
   {% section 'footer' %}
+
 {% include 'swymSnippet' %}
+
 </body>
 </html>
