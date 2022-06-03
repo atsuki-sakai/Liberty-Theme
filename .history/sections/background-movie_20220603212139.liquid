@@ -1,0 +1,46 @@
+<style>
+    h3 {
+  /* margin: 20px; */
+  font-family: "Paytone One";
+  color: #202020;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+</style>
+<div class ="relative h-[550px] md:h-[900px] xl:h-[860px] w-full -z-10">
+    <video class="overflow-hidden absolute inset-0 -z-10 object-cover h-[550px] md:h-[900px] xl:h-[860px] w-full" id="video" poster="https://cdn.shopify.com/s/files/1/0606/5838/5110/files/7beb895d584d1cb23ccc86cd9ad9d7bf_00b1d3a4-596a-4e85-8253-2761084b6311.jpg?v=1654256978" webkit-playsinline playsinline muted autoplay loop>
+    <source src="https://cdn.shopify.com/videos/c/o/v/9038ee4437814c3cabcb2d69999af354.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 z-0 bg-black bg-opacity-50">
+    </div>
+    <div class="inset-0 h-full w-full translate-x-1/2 translate-y-1/2">
+        <div class="absolute -translate-x-1/2">
+            <h3 class="uppercase text-bold font-noto_serif_jp_bold text-4xl text-white">{{ section.settings.title }}</h3>
+            <p class=" font-noto_serif_jp_bold text-2xl text-white">{{ section.settings.description }}</p>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "TITLE",
+            "label": "タイトル"
+        },
+        {
+            "type": "text",
+            "id": "description",
+            "default": "Description",
+            "label": "デスクリプション"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Background Movie"
+        }
+    ]
+}
+{% endschema %}

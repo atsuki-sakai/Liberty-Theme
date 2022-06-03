@@ -1,0 +1,101 @@
+<div class="px-8 py-12 md:py-24 bg-gray-100">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center space-x-2">
+            <div class="text-yellow-300">
+                {% render "icon-hash" %}
+            </div>
+            <h2 class="text-left font-montserrat_bold text-2xl md:text-4xl">{{ section.settings.title }}</h2>
+        </div>
+        <div class="bg-black h-[12px] w-screen mb-2 rounded-tl-full border-b-2 border-yellow-300 rounded-bl-full"></div>
+        <p class="text-left font-thin bg-black border-transparent border-2 ring-black  ring-2 px-3 py-1.5 text-xs md:text-xl text-white mb-3 md:mb-6">{{ section.settings.description }}</p>
+        {% for block in section.blocks %}
+            <div class='flex w-full mb-4 md:mb-8 {% if block.settings.switch %}flex-row-reverse{% endif %} items-center justify-center'>
+                <div class="w-full m-2 md:m-4 flex justify-center">
+                    <div data-aos="fade-up">
+                        <div class="m-2 md:m-5">
+                            <p class="text-left font-bold text-2xl md:text-4xl">{{ block.settings.title }}</p>
+                            <p class="text-left font-thin text-sm md:text-lg">{{ block.settings.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex justify-center">
+                        <div data-aos="fade-up">
+                            <div class="h-[160px] w-[160px] md:h-[320px] md:w-[320px]">
+                                <img
+                                    loading="lazy"
+                                    class="object-cover object-center h-[160px] w-[160px] md:h-[320px] md:w-[320px] rounded-full shadow-md border-yellow-300 border-4 ring-4 ring-black overflow-hidden"
+                                    src="{{ block.settings.image_picker | img_url: 'large' }}"
+                                    alt="{{ block.settings.image_picker.alt }}"
+                                    height="{{ block.settings.image_picker.height }}"
+                                    width="{{ block.settings.image_picker.width }}"
+                                >
+                            </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init();
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Animate on scroll image",
+    "settings": [
+        {
+            "type": "text",
+            "id":"title",
+            "default":"Title",
+            "label":"Title"
+        },
+        {
+            "type": "textarea",
+            "id":"description",
+            "default":"Description",
+            "label":"Description"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image_picker",
+            "name": "Slide Image",
+            "limit": 5,
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id":"switch",
+                    "default": false,
+                    "label": "Switch Position"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image_picker",
+                    "label": "Slide Image"
+                },
+                {
+                    "type":"text",
+                    "id":"title",
+                    "default": "Title",
+                    "label": "Title"
+                },
+                {
+                    "type":"textarea",
+                    "id":"description",
+                    "default": "Description",
+                    "label": "Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Animate on scroll image"
+        }
+    ]
+}
+{% endschema %}

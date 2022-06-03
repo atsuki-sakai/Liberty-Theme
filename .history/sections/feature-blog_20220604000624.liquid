@@ -1,0 +1,87 @@
+<div class="px-8 py-12 md:py-24 bg-gray-100">
+    <div class="max-w-5xl mx-auto">
+        <div class="bg-black w-screen px-3 py-1.5 mb-4">
+            <h3 class="text-white text-3xl md:text-4xl font-bold">{{ section.settings.title }}</h3>
+            <div class="h-0.5 w-full bg-yellow-300 rounded-lg my-1"></div>
+            <p class="text-white text-sm ml:text-base font-thin">{{ section.settings.sub_title }}</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {% for article in section.settings.blog.articles limit: section.settings.post_limit %}
+                <div class="py-4 ">
+                    <a href={{ article.url }}>
+                        <div class="bg-gray-300 rounded-md overflow-hidden">
+                            {% if article.image != blank %}
+                                <img loading="lazy" class="w-full h-40 md:h-80 object-cover object-center hover:scale-105 transform duration-500 ease-in-out overflow-hidden" src="{{ article.image | img_url: 'large' }}" alt="{{ article.image.alt }}" width="{{ article.image.width }}" height="{{ article.image.height }}">
+                            {% else %}
+                                {% assign placeholder_image = 'image' %}
+                                {{ placeholder_image | placeholder_svg_tag: 'w-full h-40 md:h-80 object-cover overflow-hidden object-center p-5 hover:scale-105 transform duration-300 ease-in-out' }}
+                            {% endif %}
+                        </div>
+                        <div class="py-4 space-y-2 border-b">
+                            <h4 class="text-xl font-bold bg-black text-yellow-300 w-screen">{{ article.title }}</h4>
+                            <div class="flex">
+                                {% for tag in article.tags limit: 3 %}
+                                    <p class="border-indigo-700 border px-3 py-1 w-auto rounded-md text-indigo-700 text-sm ml-1">
+                                        {{ tag }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">{{ article.published_at | time_tag: format: "abbreviated_date" }}</span>
+                                </div>
+                                <div class="ml-4 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">{{ article.author  }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Feature Blog",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "タイトル",
+            "default": "BLOG TITLE"
+        },{
+            "type": "text",
+            "id": "sub_title",
+            "label": "サブタイトル",
+            "default": "SUB BLOG TITLE"
+        },
+        {
+            "type": "blog",
+            "id": "blog",
+            "label": "ブログ記事"
+        },
+        {
+            "type": "range",
+            "id": "post_limit",
+            "min": 2,
+            "max": 6,
+            "step": 1,
+            "default": 3,
+            "label": "表示ブログ数"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Feature Blog"
+        }
+    ]
+}
+{% endschema %}

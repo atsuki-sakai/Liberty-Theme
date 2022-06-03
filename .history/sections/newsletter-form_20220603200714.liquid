@@ -1,0 +1,132 @@
+<!-- <div class="px-8 py-12 md:py-24">
+    <div class="max-w-5xl mx-auto px-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="max-w-md mx-auto">
+                <h3 class="text-xl md:text-2xl text-start text-gray-700 font-bold ">{{ section.settings.title }}
+                </h3>
+                <p class="text-base md:text-xl text-start text-gray-500 font-bold ">{{ section.settings.textarea }}
+                </p>
+            </div>
+            <div class="max-w-md mx-auto mt-6 md:mt-0">
+                <h4 class="font-bold text-lg md:text-2xl p-1">お得な最新情報を受け取る</h4>
+                <div id="footer_signup">
+                    {% form 'customer' %}
+                        {{ form.errors | default_errors }}
+                        {% if form.posted_successfully? %}
+                            <div class="flex items-center space-x-1">
+                                <div class="text-green-500">
+                                    {% render "icon-success" %}
+                                </div>
+                                <p class="font-noto_serif_jp_bold text-lg">メルマガの登録が完了しました。</p>
+                            </div>
+                        {% else %}
+                        {% if form.errors %}
+                            <div class="flex items-center space-x-1">
+                                <div class="text-red-500">{% render 'icon-error' %}</div>
+                                <p class="font-noto_serif_jp_bold text-lg">メルマガの登録に失敗しました。</p>
+                            </div>
+                        {% endif %}
+                            <input type="hidden" name="contact[tags]" value="newsletter">
+                            <div class="flex items-center space-x-1">
+                                <label for="Email" class="sr-only">
+                                    メールアドレス
+                                </label>
+                                <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="メールアドレス" name="contact[email]" id="Email" class="focus:outline-none px-6 py-2 border rounded-md" aria-label="NewsletterSubscrib" autocorrect="off" autocapitalize="off">
+                                <div class="w-20 px-6 py-2 bg-black rounded-md shadow-md text-white font-noto_serif_jp_bold transform duration-300 ease-in-out hover:bg-white hover:text-black">
+                                    <button type="submit" class="btn" name="commit" id="subscribe">登録する</button>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endform %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Newsletter Form",
+    "settings": [
+        {
+            "type":"text",
+            "id":"title",
+            "default": "Default Title",
+            "label": "Newsletter Title"
+        },
+        {
+            "type":"textarea",
+            "id":"textarea",
+            "default": "Default Textarea",
+            "label": "Newsletter Textarea"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Newsletter Form"
+        }
+    ]
+}
+{% endschema %} -->
+
+<style>
+    .visual {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        z-index: -1;
+        background: url(背景画像URL) no-repeat bottom;
+        background-size: cover;
+        text-align: center;
+    }
+
+    #video {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .coverTop {
+        width: 100%;
+        height: 400px;
+        position: absolute;
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.164) 50%, rgba(0, 0, 0, 0.384) 50%);
+        background-size: 2px 2px;
+        z-index: 0;
+    }
+
+    h2 {
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        font-size: 4em;
+        color: #ffffff;
+        text-shadow: 0px 0px 10px #3d3d3d;
+    }
+</style>
+
+<div class="visual">
+    <video id="video" poster="画像URL" webkit-playsinline playsinline muted autoplay loop>
+        <source src="動画URL" type="video/mp4">
+    </video>
+    <div class="coverTop">
+    </div>
+    <h2>TITLE</h2>
+</div>
+<div class="mainContents">
+    <p>text/text/text</p>
+</div>
+
+
+{% schema %}
+{
+    "presets": [
+        {
+            "name": "Newsletter Form"
+        }
+    ]
+}
+{% endschema %}

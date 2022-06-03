@@ -1,0 +1,64 @@
+
+
+<style>
+    .visual {
+        width: 100%;
+        height: 700px;
+        position: relative;
+        z-index: -1;
+        background: url("https://cdn.shopify.com/s/files/1/0606/5838/5110/files/7beb895d584d1cb23ccc86cd9ad9d7bf.jpg?v=1654254521") no-repeat bottom;
+        background-size: cover;
+        text-align: center;
+    }
+
+    #video {
+        width: 100%;
+        height: 700px;
+        overflow: hidden;
+        display: flex;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .coverTop {
+        width: 100%;
+        height: 700px;
+        position: absolute;
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.164) 50%, rgba(0, 0, 0, 0.384) 50%);
+        background-size: 2px 2px;
+        z-index: 0;
+    }
+
+    h2 {
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        font-size: 4em;
+        color: #ffffff;
+        text-shadow: 0px 0px 10px #3d3d3d;
+    }
+</style>
+
+<div class="visual">
+    <video id="video" poster="画像URL" webkit-playsinline playsinline muted autoplay loop>
+        <source src="https://cdn.shopify.com/videos/c/o/v/a9c54b156d834cecaabbb1ec14c56300.mp4" type="video/mp4">
+    </video>
+    <div class="coverTop">
+    </div>
+    <h2>TITLE</h2>
+</div>
+<div class="mainContents">
+    <p>text/text/text</p>
+</div>
+
+
+{% schema %}
+{
+    "name": "Newsletter Form",
+    "presets": [
+        {
+            "name": "Newsletter Form"
+        }
+    ]
+}
+{% endschema %}
