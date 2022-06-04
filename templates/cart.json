@@ -25,16 +25,24 @@
         "a1a3f24a-fd2e-4855-a5b4-ba5597f5fada"
       ],
       "settings": {
+        "upcell_collection": "",
+        "collection_product_limit": 3
       }
     },
-    "16504712312d0dd17b": {
-      "type": "newsletter-form",
+    "16543607422aae11ce": {
+      "type": "featured-collection",
       "settings": {
+        "title": "Featured Collection",
+        "hide_title": true,
+        "description": "Featured Collection Description",
+        "featured_collection": "select-cosme",
+        "line_items_per_row": 4,
+        "one_line": false
       }
     }
   },
   "order": [
     "template",
-    "16504712312d0dd17b"
+    "16543607422aae11ce"
   ]
 }
