@@ -4,7 +4,7 @@
         {% assign number_of_orders = customer.orders | size %}
         {% if number_of_orders > 0 %}
         <div class="w-full my-6 md:my-12">
-            <h2 class="text-xl md:text-2xl xl:text-4xl font-bold">注文履歴</h2>
+            <h2 class="text-xl md:text-2xl xl:text-4xl font-bold ">注文履歴</h2>
             {% paginate customer.orders by 6 %}
             <div class="mt-6 grid grid-cols-2 gap-y-4 gap-x-4 md:grid-cols-3 lg:grid-cols-4">
                 {% for order in customer.orders %}
@@ -50,12 +50,10 @@
         </div>
         {% endif %}
         <div class="w-full md:w-1/4">
-            <h2 class="text-xl md:text-2xl xl:text-4xl font-bold ">アカウント詳細</h2>
-            <div class="text-gray-500 text-sm md:text-base my-4">
-                {{ customer.default_address | format_address }}
-            </div>
+            <h2 class="text-xl md:text-2xl xl:text-4xl font-bold mb-4">アカウント詳細</h2>
+            {{ customer.default_address | format_address }}
             <a href="{{ routes.account_addresses_url }}"
-                class="text-sm md:text-lg font-montserrat_bold mt-4 text-blue-600 hover:text-blue-900 underline">住所を編集する</a>
+                class="text-sm md:text-lg font-montserrat_bold mt-4 text-blue-600 hover:text-blue-900 underline">住所を確認</a>
         </div>
     </div>
 </div>

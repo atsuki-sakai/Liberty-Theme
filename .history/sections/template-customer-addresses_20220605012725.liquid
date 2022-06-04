@@ -2,14 +2,14 @@
 <div class="mx-8">
     <div class="max-w-6xl mx-auto py-12 md:py-24" x-data="{ new_address: false }">
         <!-- MENU -->
-        <div class="flex items-center justify-around max-w-6xl mx-auto mt-4">
-            <h1 class="text-xl md:text-2xl xl:text-5xl  font-bold">配送先住所</h1>
+        <div class="flex items-center justify-between mt-4">
+            <h1 class="text-xl md:text-4xl font-bold">配送先住所</h1>
             <div>
                 <button x-on:click="new_address = true" type="button"
-                    class="text-white text-sm md:text-base xl:text-xl bg-gray-700 hover:bg-gray-900 px-6 py-2 transform duration-300 ease-in-out rounded-md shadow-md">
+                    class="text-white font-noto_serif_jp_bold bg-gray-700 hover:bg-gray-900 px-6 py-2 transform duration-300 ease-in-out rounded-md shadow-md">
                     新しい住所を追加
                 </button>
-                <a href="{{ routes.account_url }}" class="block mt-3 md:mt-6 text-sm md:text-base xl:text-xl  text-blue-600 hover:text-blue-800  font-noto_serif_jp_bold underline">
+                <a href="{{ routes.account_url }}" class="block mt-3 md:mt-6 text-blue-600 hover:text-blue-800  font-noto_serif_jp_bold underline">
                     アカウントへ戻る
                 </a>
             </div>

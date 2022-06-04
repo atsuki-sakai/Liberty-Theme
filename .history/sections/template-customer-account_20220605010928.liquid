@@ -50,12 +50,12 @@
         </div>
         {% endif %}
         <div class="w-full md:w-1/4">
-            <h2 class="text-xl md:text-2xl xl:text-4xl font-bold ">アカウント詳細</h2>
+            <h2 class="text-xl md:text-2xl xl:text-4xl font-bold mb-4">アカウント詳細</h2>
             <div class="text-gray-500 text-sm md:text-base my-4">
                 {{ customer.default_address | format_address }}
             </div>
             <a href="{{ routes.account_addresses_url }}"
-                class="text-sm md:text-lg font-montserrat_bold mt-4 text-blue-600 hover:text-blue-900 underline">住所を編集する</a>
+                class="text-sm md:text-lg font-montserrat_bold mt-4 text-blue-600 hover:text-blue-900 underline">住所を確認</a>
         </div>
     </div>
 </div>
