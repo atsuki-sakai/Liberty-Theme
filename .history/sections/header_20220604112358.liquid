@@ -48,7 +48,7 @@ assign main_menu_linklist = section.settings.menu.links
 endif
 %}
 <!-- HEADER -->
-<div id="header-bg" class="w-full fixed z-50 bg-black bg-opacity-30 hover:bg-opacity-100 transform ease-in-out duration-300" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
+<div id="header-bg" class="w-full fixed top-0 z-50 hover:bg-black transform ease-in-out duration-500" x-data="{ mobileMenuOpen: false, searchBarOpen: false }">
     {% if section.settings.show_banner %}
     <div class="bg-yellow-300 w-full flex justify-center h-8 md:h-12 items-center">
         <a class="text-black inline-flex items-center hover:scale-105 transform duration-300 ease-in-out"
@@ -63,7 +63,7 @@ endif
         <div class="flex justify-around items-center py-2 md:py-4 md:justify-start md:space-x-4 ">
             <!-- STORE NAME -->
             <div class="flex justify-start items-center md:flex-1 truncate w-full">
-                <a class="hover:-translate-y-1 h-10 w-fit transform duration-200 ease-in-out" href="/">
+                <a class="hover:translate-y-1  w-fit transform duration-200 ease-in-out" href="/">
                     <div class="flex w-fit px-3 items-center space-x-1">
                         {% render "icon-wealty-logo" %}
                         <h1 class="font-montserrat_bold text-lg lg:text-2xl truncate text-white">
