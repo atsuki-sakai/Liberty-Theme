@@ -1,0 +1,152 @@
+<div class="h-12 md:h-24"></div>
+{% if cart.item_count > 0 %}
+<div class="py-12 md:py-24">
+    <!-- CART HEADER -->
+    <div class="max-w-6xl flex flex-col mx-auto">
+        <div class="flex items-end justify-between my-3">
+            <h1 class="text-2xl md:text-4xl font-bold">{{ "cart.general.title" | t }}</h1>
+            <a href="{{ routes.all_products_collection_url }}"
+                class="text-blue-600 hover:text-blue-800 transform duration-500 ease-in-out font-noto_sans_jp_italic text-base md:text-xl underline">{{ "cart.general.continue_shopping" | t
+                }}</a>
+        </div>
+    </div>
+    <!--CART CONTENTS -->
+    <div class="max-w-6xl flex flex-col my-4 mx-auto">
+        {%- comment -%}novalidate属性が存在すると、フォームの入力内容の検証を無効にする{%- endcomment -%}
+        <form action="{{ routes.cart_url }}" method="POST" novalidate>
+            <!-- ITEMS TABLE -->
+            <table class="table-auto divide-y divide-gray-200 my-4 w-full">
+                <!-- TABLE HEADER -->
+                <thead>
+                    <th class="px-3 py-1.5 text-left text-sm md:text-base font-noto_serif_jp_bold text-gray-600">{{ "customer.order.product" | t }}</th>
+                    <th class="px-3 py-1.5 text-left text-sm md:text-base font-noto_serif_jp_bold text-gray-600">{{ "customer.order.quantity" | t }}</th>
+                    <th class="px-3 py-1.5 text-left text-sm md:text-base font-noto_serif_jp_bold text-gray-600">{{ "customer.order.total" | t }}</th>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody>
+                    {% for item in cart.items %}
+                    <tr class="table-row">
+                        <!-- PRODUCT IMAGE -->
+                        <td class="p-2 flex flex-col justify-center">
+                            <a href="{{ item.url }}">
+                                {% if item.image %}
+                                    <img
+                                        loading="lazy"
+                                        src="{{ item.image | img_url: "medium" }}"
+                                        alt="{{ item.title | escape }}"
+                                        height="{{ item.image.height }}"
+                                        width="{{ item.image.width }}"
+                                        class="w-20 h-20 md:h-40 md:w-40 object-cover border rounded-md overflow-hidden"
+                                    >
+                                {% else %}
+                                    {{ "product-1" | placeholder_svg_tag: "w-20 h-20 md:h-40 md:w-40 object-cover border rounded-md overflow-hidden" }}
+                                {% endif %}
+                            </a>
+                        </td>
+                        <!-- PRODUCT DATA -->
+                        <td class="p-2 flex flex-col justify-center">
+                            <a href="{{ item.url }}" class="mt-1 text-sm md:text-lg font-noto_serif_jp_bold">{{ item.product.title }}</a>
+                            <span class="text-sm md:text-lg font-noto_serif_jp_bold text-gray-500 mb-1">{{ item.variant.title }}</span>
+                            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm md:text-lg font-noto_sans_jp_italic text-red-500 my-1">
+                                {{ "cart.general.remove" | t }}
+                            </a>
+                        </td>
+                        <!-- PRODUCT QUANTITY -->
+                        {%- comment -%}type="number" name="updates[]" id="updates_{{forloop.index}}" value={{item.quantity}} で更新させる。{%- endcomment -%}
+                        <td class="py-4 px-2">
+                            <input type="number" name="updates[]" value="{{ item.quantity }}" min="1"
+                                id="updates_{{ forloop.index }}" class="focus:outline-none w-12 md:w-20 border rounded-md bg-gray-100 p-2" />
+                            <label for="updates_{{ forloop.index }}" class="text-sm md:text-lg font-noto_serif_jp_bold">{{ "cart.label.quantity" | t
+                                }}</label>
+                        </td>
+                        <!-- PRODUCT TOTAL PRICE -->
+                        <td class="py-4 px-2">
+                            <div class="flex">
+                                <span class="text-lg md:text-2xl font-montserrat_italic">{{ item.line_price | money }}</span>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <!-- CART NOTES -->
+                <div class="w-full my-4">
+                    <div class="flex flex-col items-start">
+                        <label for="cart_notes" class="my-1 text-sm md:text-lg font-noto_serif_jp_bold">{{ "cart.label.add_note" | t }}</label>
+                        <textarea class="focus:outline-none p-2 border rounded-md w-full md:max-w-lg resize-none h-36" name="note" id="cart_notes" ></textarea>
+                    </div>
+                </div>
+                <!-- BLOCKS -->
+                <!-- TOTAL PRICE / CHECKOUT / UPDATE ITEM -->
+                <div class="w-full my-4 md:w-80">
+                    {% for block in section.blocks %}
+                        {% case block.type %}
+                            {%- comment -%}*＊''：シングルクゥォーテーションで*＊{%- endcomment -%}
+                            {% when 'subtotal' %}
+                                <!-- TOTAL PRICE -->
+                                <div class="my-4 flex items-center w-full text-left">
+                                    <h3 class="text-xl md:text-3xl font-noto_serif_jp_bold">{{ "customer.order.total" | t }}:</h3>
+                                    <p class="text-3xl md:text-5xl font-montserrat_bold">{{ cart.total_price | money }}</p>
+                                </div>
+                            {% when "update_button" %}
+                                <!-- UPDATE BUTTON -->
+                                <div class="my-2">
+                                    {%- comment -%}name="update" type="submmit" で更新させる。{%- endcomment -%}
+                                    <button type="submit" name="update" class="w-full p-3 border-2 border-black font-noto_serif_jp_bold text-lg md:text-2xl hover:bg-black hover:text-white transform duration-500 ease-in-out">
+                                        {{ "cart.general.update" | t }}
+                                    </button>
+                                </div>
+                            {% when "checkout_button" %}
+                                <!-- CHECKOUT -->
+                                <div class="my-2">
+                                    <input value="{{ "cart.general.checkout" | t }}" type="submit" name="checkout" class="w-full p-3 border-2 border-black font-noto_serif_jp_bold text-lg md:text-2xl hover:bg-black hover:text-white transform duration-500 ease-in-out" />
+                                </div>
+                            {% else %}
+                        {% endcase %}
+                    {% endfor %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% else %}
+<!-- EMPTY CART MENU -->
+<div class="mx-8 py-12 md:py-24">
+    <div class="max-w-6xl mx-auto my-4 h-60 flex justify-center items-center text-center">
+        <div>
+            <h1 class="text-gray-500 text-sm md:text-xl my-4">{{ "cart.general.empty" | t }}</h1>
+            </h1>
+            <div class="flex justify-center my-4 py-4">
+                <a href="{{ routes.all_products_collection_url }}"
+                    class="border border-yellow-300 text-white bg-black hover:text-gray-600 hover:bg-white transform duration-300 ease-in-out px-8 py-3">
+                    {{ "cart.general.continue_shopping" | t }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Template Cart",
+    "blocks": [
+        {
+            "type": "subtotal",
+            "name": "SubTotal",
+            "limit": 1
+        },
+        {
+            "type": "update_button",
+            "name": "Update Button",
+            "limit": 1
+        },
+        {
+            "type": "checkout_button",
+            "name": "Checkout Button",
+            "limit": 1
+        }
+    ]
+}
+{% endschema %}

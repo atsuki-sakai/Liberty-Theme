@@ -1,0 +1,306 @@
+
+{%- comment -%}
+コンソールからレイアウトを編集できる
+blocksでレイアウトを切り分ける
+itemscope: タグに含まれるHTMLが特定のグループであることを明記 , itemstype="https://schema.org/BlogPosting"
+{%- endcomment -%}
+<!-- ARTICLE DISPLAY -->
+<!-- <div class="h-12 md:h-20 bg-gray-500"></div> -->
+<article class=" relative" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="inset-0 h-[350px] md:h-[450px] w-full">
+        <div class=" ">
+            {% if article.image != blank %}
+                <img itemprop="image" loading="lazy" class="h-[350px] md:h-[450px] w-full object-cover object-center" src="{{ article.image | img_url: 'original' }}" alt="{{ article.image.alt }}" width="{{ article.image.width }}" height="{{ article.image.height }}">
+            {% else %}
+                {% assign placeholder_image = 'lifestyle-2' %}
+                {{ placeholder_image | placeholder_svg_tag: 'w-full h-40 md:h-80 object-cover object-center' }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="">
+        <div class="mx-8 bg-white">
+            <div itemprop="articleBody" class="px-4 md:mx-auto max-w-7xl lg:px-48 text-base md:text-lg  text-gray-700 tracking-wide">{{ article.content }}</div>
+        </div>
+    </div>
+    <!-- BLOCKS -->
+    {%- comment -%}  *SEPARATE BY BLOCK TYPE: *SCHEME TYPE NAME* {%- endcomment -%}
+    <!-- {% for block in section.blocks %}
+        {% case block.type %}
+            {% when "article_title" %}
+                <div class="flex justify-center items-center text-center my-3">
+                    <div class="max-w-7xl">
+                        <a href="{{ blog.url }}" class="text-base uppercase border border-indigo-700 transform duration-300 ease-out  px-3 py-1.5 text-indigo-700 hover:text-indigo-400 font-montserrat_bold">{{ blog.title }}</a>
+                        <!-- itemprop: schema.orgで決められた見出しを意味するプロパティ -->
+                        <!-- <h1 class="mt-2 md:mt-4 text-2xl md:text-4xl font-medium font-noto_serif_jp_bold" itemprop="headline">{{ article.title }}</h1>
+                    </div>
+                </div>
+            {% when "article_author" %}
+                <div class="max-w-7xl lg:px-48 mx-auto">
+                    <div class="max-w-7xl mx-auto">
+                        <div class="flex justify-end mx-8 my-2 " itemscope itemtype="http://schema.org/Person" itemprop="author">
+                            {% render "icon-person" %}
+                            <p class="ml-1 text-xs md:text-sm" itemprop="name">{{ article.author }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% when "article_published_date" %}
+                <div class="max-w-7xl lg:px-48  mx-auto">
+                    <div class="flex justify-end mx-8 my-2  text-xs md:text-sm">
+                        {% render "icon-time" %}
+                        <time class="ml-1" datetime="{{ article.published_at | date: "%Y-%m-%d" }}" itemprop="datePublished dateCreated">{{ article.published_at | time_tag: format: "abbreviated_date"  }}</time>
+                    </div>
+                </div>
+            {% when "feature_image" %}
+            <div class="px-3 md:px-6">
+                <div class="max-w-7xl px-4 lg:px-48  rounded-lg md:mx-auto overflow-hidden my-4">
+                    {% if article.image != blank %}
+                        <img itemprop="image" loading="lazy" class="w-full h-40 md:h-80 object-cover object-center" src="{{ article.image | img_url: 'large' }}" alt="{{ article.image.alt }}" width="{{ article.image.width }}" height="{{ article.image.height }}">
+                    {% else %}
+                        {% assign placeholder_image = 'lifestyle-2' %}
+                        {{ placeholder_image | placeholder_svg_tag: 'w-full h-40 md:h-80 object-cover object-center p-5' }}
+                    {% endif %}
+                </div>
+            </div>
+            {% when "article_content" %}
+                <div itemprop="articleBody" class="px-4 md:mx-auto max-w-7xl lg:px-48 text-base md:text-lg  text-gray-700 tracking-wide">{{ article.content }}</div>
+            {% else %}
+        {% endcase %}
+    {% endfor %} -->
+</article> 
+
+<!-- コメント -->
+{% if blog.comments_enabled? %}
+    <div class="my-8" id="comments">
+        {% if article.comments_count > 0 %}
+            <div class="flex-1 items-center justify-center mx-auto max-w-4xl px-4">
+                <h1 class="text-lg mb-2 font-medium">Comments</h1>
+                <!-- COMMENTS LIST -->
+                {% paginate article.comments by 5 %}
+                    {% for comment in article.comments %}
+                        <div class="flex-1 border my-4 px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+                            <span class="comment-author">{{ comment.author  }}</span>  <span class="text-xs text-gray-400">{{ comment.created_at | date: format: "default" | split: '+' | first }}</span>
+                            <p class="text-xs font-thin text-gray-700 ">{{ comment.content }}</p>
+                        </div>
+                    {% endfor %}
+                    <!-- PAGINATE ACTION -->
+                    <div class="max-w-6xl mx-auto">
+                        {%- comment -%}第二引数に**"変数名": paginateオブジェクト**でpagination.liquidに渡す{%- endcomment -%}
+                        {% render "pagination", pagination: paginate %}
+                    </div>
+                {% endpaginate %}
+                <div class="h-12"></div>
+            </div>
+        {% else %}
+            <div class="mx-16">
+                <div class="flex-1 items-center text-center justify-center mx-auto max-w-4xl py-2 px-4">
+                    <p class=" text-gray-500 font-noto_serif_jp_bold">まだコメントはありません。</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <!-- COMMENTS FORM -->
+    <div class="mb-8" id="comment_form">
+        {% form "new_comment", article %}
+            <div class="flex-1 mx-auto items-center justify-center max-w-4xl  px-4">
+                {% if form.errors %}
+                    <!-- ERROR SEND COMMENTS -->
+                    <div class="border p-5">
+                        <div class="flex flex-row items-center w-full my-3">
+                            <div>
+                                <div class="flex">
+                                    <div class="text-red-500">
+                                        {% render "icon-error" %}
+                                    </div>
+                                    <div class="text-sm md:text-lg font-montserrat_bold ml-3">
+                                        コメントの送信に失敗しました...
+                                    </div>
+                                </div>
+                                <ul class="px-4 mb-3 ml-7 list-decimal">
+                                    {% for error in form.errors %}
+                                        <li>
+                                            <span class="text-sm md:text-lg font-montserrat_bold ml-3" >{{ form.errors.messages[error] }}</span>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% elsif form.posted_successfully? %}
+                <!-- SUCCESS SEND COMMENTS -->
+                    <div class="flex flex-row items-center w-full my-3 p-5">
+                        <div class="text-green-500">
+                            {% render "icon-success" %}
+                        </div>
+                        <div class="text-sm md:text-lg font-noto_serif_jp_bold ml-3">コメントを送信しました。</div>
+                    </div>
+                {% endif %}
+                <!-- INPUT FORM -->
+                <div class="px-1 md:flex mb-3">
+                    <div class="px-3 md:w-1/2">
+                        <label for="comment_author" class="text-gray-700 font-medium uppercase text-xs font-noto_serif_jp_bold mb-2">投稿者名</label>
+                        <input type="text" name="comment[author]" id="comment-author" placeholder="山田 太郎" class="w-full text-gray-700 border pl-2 py-3 mb-3 focus:outline-none" required>
+                    </div>
+                    <div class="px-3 md:w-1/2">
+                        <label for="comment_email" class="text-gray-700 font-medium uppercase text-xs font-noto_serif_jp_bold mb-2">メールアドレス</label>
+                        <input type="text" name="comment[email]" id="comment-email" placeholder="sample@email.com" class="w-full text-gray-700 border pl-2 py-3 mb-3 focus:outline-none" required>
+                    </div>
+                </div>
+                <div class="px-1 md:flex mb-3">
+                    <div class="md:w-full px-3">
+                        <label for="comment_content" class="text-gray-700 font-medium uppercase text-xs font-noto_serif_jp_bold mb-2">コメント</label>
+                        <textarea placeholder="コメント入力して下さい" class="w-full text-gray-700 border resize-none h-20  py-2 px-3 focus:outline-none" name="comment[body]" id="comment-content" required></textarea>
+                    </div>
+                </div>
+                <div class="px-1 md:flex mb-3">
+                    <div class="md:w-full px-3">
+                        <input type="submit" class="w-full transform ease-in-out duration-200 cursor-pointer px-4 py-2 border text-base md:text-lg font-noto_serif_jp_bold text-white bg-gray-900 hover:bg-gray-500" value="コメントを送信">
+                    </div>
+                </div>
+            </div>
+        {% endform %}
+    </div>
+{% endif %}
+
+<!-- 関連ブログ -->
+<div class="mx-8 py-6 md:py-12">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center space-x-2">
+            {% render "icon-wealty-logo" %}
+            <p class="text-lg md:text-2xl font-bold">関連ブログ</p>
+        </div>
+        <div class="h-2 w-full rounded-md bg-black border-b-4 border-yellow-300"></div>
+        <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
+            {% for article in section.settings.blog.articles limit: section.settings.line_items_per_row %}
+                <div class="py-4 ">
+                    <a href={{ article.url }}>
+                        <div class="bg-gray-300 rounded-md overflow-hidden">
+                            {% if article.image != blank %}
+                                <img loading="lazy" class="w-full h-40 md:h-80 object-cover object-center hover:scale-105 transform duration-500 ease-in-out overflow-hidden" src="{{ article.image | img_url: 'large' }}" alt="{{ article.image.alt }}" width="{{ article.image.width }}" height="{{ article.image.height }}">
+                            {% else %}
+                                {% assign placeholder_image = 'image' %}
+                                {{ placeholder_image | placeholder_svg_tag: 'w-full h-40 md:h-80 object-cover overflow-hidden object-center p-5 hover:scale-105 transform duration-300 ease-in-out' }}
+                            {% endif %}
+                        </div>
+                        <div class="py-4 space-y-2 border-b">
+                            <h4 class="text-2xl font-bold">{{ article.title }}</h4>
+                            <div class="flex">
+                                {% for tag in article.tags limit: 3 %}
+                                    <p class="border-yellow-400 border px-3 py-1 w-auto rounded-md text-yellow-400 text-sm ml-1">
+                                        {{ tag }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                            <div class="md:flex items-center ">
+                                <div class="flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span class="text-xs md:text-sm ">{{ article.published_at | time_tag: format: "abbreviated_date" }}</span>
+                                </div>
+                                <div class="md:ml-4 flex items-center  justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <span class="text-xs md:text-sm">{{ article.author  }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{%- comment -%}
+JSON-LD:「検索結果での目を引く表示」「検索順位の向上」が目的、Liquidもかけるが、書いてる時はシンタックスエラーが発生、コロンに気を付ける 
+{%- endcomment -%}
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": {{ article.title | json }},
+        "articleBody": {{ article.content | strip_html | json }},
+        {% if article.excerpt != blank %}
+            "description": {{ article.excerpt | strip_html | json }},
+        {% endif %}
+        {% if article.image %}
+            "image": [
+                {{ article.image | image_url: "medium" | prepend: "https:" | json }}
+            ],
+        {% endif %}
+        "datePublished": {{ article.published_at | date: format: "default" | json }},
+        "dateCreated": {{ article.created_at | date: format: "default" | json }},
+        "author": {
+            "@type": "Person",
+            "name": {{ article.author | json }}
+
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": {{ shop.name | json }}
+        }
+
+    }
+</script>
+
+
+{%- comment -%}
+settings => "tidl": type, if, default, label
+blocks => "tnl": "type", "name", "limit"
+blocksはjsonテンプレートで追記が必要
+{%- endcomment -%}
+
+{% schema %}
+{
+    "name": "Template Article",
+    "settings": [
+        {
+            "type": "blog",
+            "id": "blog",
+            "label": "ブログ　カテゴリ"
+        },
+        {
+            "type": "range",
+            "id": "line_items_per_row",
+            "min": 1,
+            "default": 3,
+            "step": 1,
+            "max":8,
+            "label": "表示件数"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "article_title",
+            "name": "Title",
+            "limit": 1
+        },
+        {
+            "type": "article_author",
+            "name": "Author",
+            "limit": 1
+        },
+        {
+            "type": "article_published_date",
+            "name":"Published Date",
+            "limit": 1
+        },
+        {
+            "type": "feature_image",
+            "name":"Thumbnail",
+            "limit": 2
+        },
+        {
+            "type": "article_content",
+            "name": "Content",
+            "limit": 1
+        },
+        {
+            "type": "category_blog",
+            "name": "CategoryBlog",
+            "limit": 1
+        }
+    ]
+}
+{% endschema %}
