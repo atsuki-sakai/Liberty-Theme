@@ -27,6 +27,11 @@
           "type": "article_content",
           "settings": {
           }
+        },
+        "5bb5caf3-b6e5-45e4-8df9-7b5fcb496410": {
+          "type": "category_blog",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -34,9 +39,12 @@
         "884dbea6-07a8-4cc6-b233-8db14790c17f",
         "c93e1ff6-e213-41a0-abed-be6b7e667b48",
         "85385e27-ba65-4a34-b619-6fc989da73f7",
-        "ed44deea-df23-4cfc-a8d9-eb9d2223bfb3"
+        "ed44deea-df23-4cfc-a8d9-eb9d2223bfb3",
+        "5bb5caf3-b6e5-45e4-8df9-7b5fcb496410"
       ],
       "settings": {
+        "blog": "tatoo-care",
+        "line_items_per_row": 3
       }
     }
   },
