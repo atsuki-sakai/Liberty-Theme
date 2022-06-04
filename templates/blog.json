@@ -1,8 +1,22 @@
 {
-    "sections": {
-        "template": {
-            "type": "template-blog"
-        }
+  "sections": {
+    "template": {
+      "type": "template-blog",
+      "settings": {
+        "blog_read_more": "Read More",
+        "number_of_blog_posts": 3
+      }
     },
-    "order": ["template"]
+    "165436048754359783": {
+      "type": "newsletter-form",
+      "settings": {
+        "title": "タトゥーのケアについて知る",
+        "textarea": "タトゥーケアの最新情報を手に入れる。<br>より長く鮮やかに美しく保ちます。"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "165436048754359783"
+  ]
 }
