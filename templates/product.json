@@ -37,6 +37,11 @@
           "type": "checkout_buttons",
           "settings": {
           }
+        },
+        "65ec57a6-8c15-4365-9e00-6de721a11be0": {
+          "type": "shipping_detail",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -46,7 +51,8 @@
         "98c9f053-5985-468d-a11c-e80e8d451115",
         "bb4117fd-dbd2-44de-a45f-cf8012251b73",
         "99644ce2-918a-4440-a391-d50b86d260af",
-        "34dff4a5-922f-4130-ad15-95307c953793"
+        "34dff4a5-922f-4130-ad15-95307c953793",
+        "65ec57a6-8c15-4365-9e00-6de721a11be0"
       ],
       "settings": {
       }
@@ -65,10 +71,22 @@
       ],
       "settings": {
       }
+    },
+    "1654360345d66f98bd": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "こちらの商品に興味はございませんか？",
+        "hide_title": true,
+        "description": "Featured Collection Description",
+        "featured_collection": "select-cosme",
+        "line_items_per_row": 4,
+        "one_line": false
+      }
     }
   },
   "order": [
     "template",
-    "1650634855be01e3cf"
+    "1650634855be01e3cf",
+    "1654360345d66f98bd"
   ]
 }
