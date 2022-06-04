@@ -1,0 +1,41 @@
+<!-- PRODUCT CARD -->
+<div class="w-full py-6 px-3">
+    <div class="bg-white  overflow-hidden">
+        <!-- PRODUCT IMAGE -->
+        <div class="relative">
+            <a href="{{ product.url }}">
+                {% if product.featured_image %}
+                    <div class="h-80 rounded-md overflow-hidden">
+                        <img loading="lazy" class="w-full h-full object-cover rounded-md overflow-hidden transfrom ease-out duration-500 scale-100 hover:scale-105"
+                            src="{{ product.featured_image | img_url: 'large' }}"
+                            alt="{{ product.featured_image.alt }}"
+                            height="{{ product.featured_image.height }}"
+                            width="{{ product.featured_image.width }}"
+                        >
+                    </div>
+                {% else %}
+                    {% assign placeholder_img = "product-1" %}
+                    <div class="h-80 rounded-md overflow-hidden">
+                        {{ placeholder_img | placeholder_svg_tag: "w-full rounded-md h-full object-cover bg-gray-400" }}
+                    </div>
+                {% endif %}
+            </a>
+            {% if product.price < product.compare_at_price %}
+                <div class="absolute top-0 right-0 w-40 h-20 bg-red-300 rotate-6">
+                    {% render "icon-product-sale", size:20 %}
+                </div>
+            {% endif %}
+        </div>
+        <!-- DESCRIPTION -->
+        <div class="flex flex-col p-4">
+            <span class="text-xs md:text-sm font-montserrat_bold text-gray-500">{{ product.vendor }}</span>
+            <a href="{{ product.url }}" class="text-black font-noto_serif_jp_bold">{{ product.title }}</a>
+            <div class="my-2" id="price-{{ section.id }}">
+                <span class="text-base text-gray-400 line-through">
+                    {{ product.compare_at_price | money }}
+                </span>
+                <span class="text-lg text-gray-900 ml-1">{{ product.price | money }}</span>
+            </div>
+        </div>
+    </div>
+</div>

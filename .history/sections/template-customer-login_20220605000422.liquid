@@ -1,0 +1,108 @@
+<div class="h-14 md:h-28"></div>
+<div class="h-full flex items-start justify-center py-12 px-6 md:px-4 lg:px-8" x-data="{ loginForm: true, pwRecoverForm: false}">
+    <div x-show="loginForm" class="max-w-md w-full space-y-8">
+        <!-- SIGN IN FORM -->
+        <div>
+            <h1 class="text-center text-2xl md:text-3xl xl:text-5xl font-bold mt-6 font-bebas">LOGIN</h1>
+        </div>
+        <div class="mt-8">
+            {% form 'customer_login' %}
+                {% if form.errors %}
+                {%- comment -%}role="alert": この要素が新しく生成されたことをスクリーンリーダに伝える。SEO?{%- endcomment -%}
+                    <div class="relative border-2 border-red-700 bg-red-200 px-4 py-3" role="alert">
+                        <strong class="font-bold">ERROR!!</strong>
+                        <p class="block sm:inline">{{ form.errors | default_errors }}</p>
+                    </div>
+                {% endif %}
+                <div class="my-2">
+                    {%- comment -%}sr-only: スクリーンリーダーのみで表示される。画面上は消える{%- endcomment -%}
+                    <label for="email_address" class="text-xs md:text-sm text-gray-500">メールアドレス</label>
+                    <input
+                        type="email"
+                        name="customer[email]"
+                        id="email_address"
+                        autocomplete="email"
+                        class="relative block w-full px-3 py-2 border focus:outline-none"
+                        placeholder="メールアドレス"
+                    >
+                </div>
+                {% if form.password_needed %}
+                    <div class="my-2">
+                        {%- comment -%}sr-only: スクリーンリーダーのみで表示される。画面上は消える{%- endcomment -%}
+                        <label for="password" class="text-xs md:text-sm text-gray-500">パスワード</label>
+                        <input
+                            type="password"
+                            name="customer[password]"
+                            id="password"
+                            autocomplete="current-password"
+                            class="relative block w-full px-3 py-2 border focus:outline-none"
+                            placeholder="パスワード"
+                        >
+                    </div>
+                {% endif %}
+                <div>
+                    <button type="submit" class="relative w-full py-2 px-4 text-sm md:text-lg font-noto_serif_jp_bold text-white bg-gray-600 hover:bg-gray-900 transfrom ease-in-out duration-300 rounded-md">
+                        サインイン
+                    </button>
+                </div>
+                <div class="my-2 mt-6 text-sm flex justify-center">
+                    <a x-on:click="loginForm = !loginForm; pwRecoverForm = !pwRecoverForm;" href="#" class="underline font-noto_serif_jp_bold text-gray-500 hover:text-gray-900">
+                        パスワードをお忘れですか?
+                    </a>
+                </div>
+            {% endform %}
+        </div>
+        {% if shop.checkout.guest_login %}
+            <hr class="my-12">
+            <div class="mt-6 text-center font-noto_serif_jp_bold text-3xl font-bold">
+                ゲストとして続ける。
+            </div>
+            {% form 'guest_login' %}
+            <div>
+                <button type="submit" class="relative font-noto_serif_jp_bold w-full py-2 px-4 text-sm text-white bg-black hover:gray-500">
+                    続ける
+                </button>
+            </div>
+            {% endform %}
+        {% endif %}
+    </div>
+    <!-- RECOVER PASSWORD FORM -->
+    <div x-show="pwRecoverForm" class="max-w-md w-full space-y-8">
+        <div>
+            <h1 class="text-center text-2xl md:text-3xl font-bold font-noto_serif_jp_bold mt-6">パスワードの再発行</h1>
+            <div class="mt-8">
+                {% form 'recover_customer_password' %}
+                    {% if form.errors %}
+                    {%- comment -%}role="alert": この要素が新しく生成されたことをスクリーンリーダに伝える。SEO?{%- endcomment -%}
+                        <div class="relative border-2 border-red-700 bg-red-200 px-4 py-3" role="alert">
+                            <strong class="font-bold">エラー!!</strong>
+                            <p class="block sm:inline">{{ form.errors | default_errors }}</p>
+                        </div>
+                    {% endif %}
+                    <div class="my-2">
+                        {%- comment -%}sr-only: スクリーンリーダーのみで表示される。画面上は消える{%- endcomment -%}
+                        <label for="email" class="text-xs md:text-sm text-gray-500">メールアドレス</label></label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            autocomplete="email"
+                            class="relative block w-full px-3 py-2 border focus:outline-none"
+                            placeholder="メールアドレス"
+                        >
+                    </div>
+                    <div>
+                        <button type="submit" class="relative w-full py-2 px-4 text-sm md:text-lg font-noto_serif_jp_bold text-white bg-gray-600 hover:bg-gray-900 transfrom ease-in-out duration-300 rounded-md">
+                            復旧する
+                        </button>
+                    </div>
+                    <div class="mt-8 text-sm flex justify-center">
+                        <a x-on:click="loginForm = !loginForm; pwRecoverForm = !pwRecoverForm;" href="#" class="underline font-noto_serif_jp_bold text-gray-500 hover:text-gray-900">
+                            ログインページへ戻る
+                        </a>
+                    </div>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</div>

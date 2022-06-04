@@ -1,0 +1,23 @@
+{%- comment -%}受け取ったpaginationを使う{%- endcomment -%}
+{% if pagination.pages > 0 %}
+    <nav role="navigation" class="flex justify-center my-8">
+        {% if pagination.previous %}
+            <a class="transform duration-300 ease-in-out px-8 py-3 mx-1 rounded-sm bg-black text-white border-yellow-300 border-2 ring-2 ring-black
+            " href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>
+        {% endif %}
+        {% for part in pagination.parts %}
+            {% if part.is_link %}
+                <a href="{{ part.url }}" class="transform duration-300 ease-in-out border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-4 py-3 mx-1 rounded-sm font-medium">{{ part.title }}</a>
+            {% else %}
+                {% if part.title == '…' %}
+                    <a href="{{ part.url }}" class="transform duration-300 ease-in-out border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-4 py-3 mx-1 rounded-sm font-medium">{{ part.title }}</a>
+                {% else %}
+                <a href="{{ part.url }}" class="transform duration-300 ease-in-out border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-4 py-3 mx-1 rounded-sm font-medium">{{ part.title }}</a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% if pagination.next %}
+            <a class="transform duration-300 ease-in-out border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium" href="{{ pagination.next.url }}">{{ pagination.next.title }}</a>
+        {% endif %}
+    </nav>
+{% endif %}

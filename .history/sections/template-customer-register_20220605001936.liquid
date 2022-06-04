@@ -1,0 +1,87 @@
+<div class="h-14 md:h-28"></div>
+<div class="h-full flex items-start justify-center py-12 px-6 md:px-4 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <!-- REGISTER FORM -->
+        <div>
+            <h1 class="text-center text-3xl md:text-5xl xl:text-7xl font-bold mt-6 font-bebas">REGISTER</h1>
+            <div class="mt-8">
+                {% form 'create_customer' %}
+                    {% if form.errors %}
+                        <div class="relative border-2 border-red-700 bg-red-200 px-4 py-3" role="alert">
+                            <strong class="font-bold">エラー!!</strong>
+                            <p class="block sm:inline">{{ form.errors | default_errors }}</p>
+                        </div>
+                    {% endif %}
+                    <div class="my-2">
+                        <label for="first_name" class="text-xs md:text-sm text-gray-500">名前(メイ)</label>
+                        <input
+                            type="text"
+                            name="customer[first_name]"
+                            id="first_name"
+                            autocomplete="given-name"
+                            class="relative block w-full px-3 py-1.5 border focus:outline-none"
+                            placeholder="太郎"
+                        >
+                    </div>
+                    <div class="my-2">
+                        <label for="last_name" class="text-xs md:text-sm text-gray-500">苗字(セイ)</label>
+                        <input
+                            type="text"
+                            name="customer[last_name]"
+                            id="last_name"
+                            autocomplete="family-name"
+                            class="relative block w-full px-3 py-1.5 border focus:outline-none"
+                            placeholder="山田"
+                        >
+                    </div>
+                    <div class="my-2">
+                        {%- comment -%}カスタムフィールド追加できる{%- endcomment -%}
+                        <label for="phone" class="text-xs md:text-sm text-gray-500">電話番号</label>
+                        <input
+                            type="tel"
+                            name="customer[note][phone]"
+                            id="phone"
+                            class="relative block w-full px-3 py-2 border focus:outline-none"
+                            placeholder="09012345678"
+                        >
+                    </div>
+                    <div class="my-2 w-full">
+                        {%- comment -%}カスタムフィールド追加できる{%- endcomment -%}
+                        <label for="Birthday" class="text-xs md:text-sm text-gray-500">生年月日</label>
+                        <input
+                            type="date"
+                            name="customer[note][Birthday]"
+                            class="relative block w-full text-gray-500 text-base px-3 py-2 border focus:outline-none">
+                    </div>
+                    <div class="my-2">
+                        <label for="email_address" class="text-xs md:text-sm text-gray-500">メールアドレス</label>
+                        <input
+                            type="email"
+                            name="customer[email]"
+                            id="email_address"
+                            autocomplete="email"
+                            class="relative block w-full px-3 py-2 border focus:outline-none"
+                            placeholder="メールアドレス"
+                        >
+                    </div>
+                    <div class="my-2">
+                        <label for="password" class="text-xs md:text-sm text-gray-500">パスワード</label>
+                        <input
+                            type="password"
+                            name="customer[password]"
+                            id="password"
+                            autocomplete="new-password"
+                            class="relative block w-full px-3 py-2 border focus:outline-none"
+                            placeholder="パスワード"
+                        >
+                    </div>
+                    <div>
+                        <button type="submit" class="relative w-full py-2 px-4 text-sm md:text-base font-noto_serif_jp_bold text-white bg-gray-600 hover:bg-gray-900 rounded-md shadow-md transform duration-300 ease-in-out">
+                            アカウント作成　
+                        </button>
+                    </div>
+                {% endform %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+
+<div class="h-14 md:h-28"></div>
+<div class="px-8 py-12 md:py-20">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col items-center my-8">
+            <h1 class="text-2xl md:text-4xl xl:text-6xl font-bold font-bebas">
+                {{ section.settings.title }}
+            </h1>
+            <div class="my-6 md:my-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {% for collection in collections limit: section.settings.collection_line_items_per_row %}
+                        {% if collection.all_products_count > 0 %}
+                            <div class="w-full py-6 px-3">
+                                <div class="relative rounded-md shadow-md ">
+                                    <a href="{{ collection.url }}">
+                                        <div class="h-40 md:h-80 rounded-md shadow-md overflow-hidden">
+                                            {% if collection.featured_image != blank %}
+                                                {% assign collection_image = collection.featured_image %}
+                                            {% else %}
+                                                {% assign collection_image = collection.products.first.image %}
+                                            {% endif %}
+                                            <img loading="lazy" class="w-full h-full object-cover transition duration-1000 ease-in-out transform hover:scale-105" src="{{ collection_image | img_url: "original" }}" alt="{{ collection.title | escape }}" height="{{ collection.image.height }}" width="{{ collection.image.width }}"}} >
+                                        </div>
+                                    </a>
+                                    <div class=" absolute -bottom-7 px-6 py-2 w-full h-fit bg-black border-black ring-2 ring-white rounded-b-md border-2">
+                                        <h1 class="text-base text-center text-white">
+                                            {{ collection.title }}sdaffadfasfasf
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "List Collection Template",
+    "settings": [
+        {
+            "type": "number",
+            "id": "collection_line_items_per_row",
+            "default": 6,
+            "label": "Collection line items per row"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Collections",
+            "label": "Title"
+        }
+    ]
+}
+{% endschema %}
