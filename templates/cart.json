@@ -32,7 +32,7 @@
     "16543607422aae11ce": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured Collection",
+        "title": "売れ筋商品",
         "hide_title": true,
         "description": "Featured Collection Description",
         "featured_collection": "select-cosme",
