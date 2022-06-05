@@ -1,0 +1,35 @@
+
+<div class="mx-8 py-12 md:py-24">
+    <div class="max-w-6xl mx-auto relative">
+        <div class="absolute -bottom-14 translate-x-1/2 w-fit px-3 py-1.5 h-fit bg-black  border-white border-2 ring-2 ring-yellow-300">
+            <p class="text-center font-montserrat_bold text-base md:text-lg xl:text-2xl text-white p-2">{{ section.settings.youtube_text }}</p>
+        </div>
+        <div class="h-[315px] md:h-[525px] mx-auto px-4 ">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/{{ section.settings.video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Video Player",
+    "settings": [
+        {
+            "type":"text",
+            "id":"video_id",
+            "label": "Youtube Video ID"
+        },
+        {
+            "type":"text",
+            "id":"youtube_text",
+            "default": "Store Channel",
+            "label": "YouTube Text"
+        }
+    ],
+    "presets": [
+        {
+            "name":"Video Player"
+        }
+    ]
+}
+{% endschema %}

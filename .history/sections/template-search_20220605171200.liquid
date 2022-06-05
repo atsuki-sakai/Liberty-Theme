@@ -1,0 +1,77 @@
+<!-- SEARCH CONTENT -->
+<div class="h-24 md:h-48"></div>
+<div class="container mx-auto">
+        {% paginate search.results by 10 %}
+        <h1 class="text-xl md:text-2xl xl:text-3xl my-4 tex-gray-700 text-center">検索結果</h1>
+        <div class="flex justify-center items-center">
+            <!-- SEARCH FORM -->
+            <form class="border mx-2" action="{{ routes.search_url }}" method="get">
+                <div class="relative px-8 md:px-12 text-black bg-white border rounded-sm">
+                    <input type="search" name="q" placeholder="商品キーワードで検索"
+                        class="w-full bg-white h-10 px-5 pr-10 text-sm focus:outline-none">
+                    <button type="submit" class="absolute right-0 top-0 mt-2 mr-2 text-black">
+                        {% render 'icon-search', size:6 %}
+                    </button>
+                </div>
+            </form>
+        </div>
+        {% if search.performed %}
+            {% if search.results.size > 0 %}
+            <div class="max-w-6xl mx-auto">
+                <p class="text-gray-500 text-center my-10">
+                    <span class="text-3xl text-black font-bold">
+                        {{search.results.size}}<span class="text-lg text-black font-bold">件</span>
+                    </span>
+                    の商品が見つかりました。
+                </p>
+                <!-- PRODUCT LIST -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {% for product in search.results %}
+                    {% case product.object_type %}
+                        {% when 'product' %}
+                        <!-- PRODUCT CARD -->
+                         
+                                <div class="w-full py-3">
+                                    <div class="overflow-hidden">
+                                        <!-- PRODUCT IMAGE -->
+                                        <a aria-label="Product Link" href="{{ product.url }}">
+                                            {% if product.featured_image %}
+                                            {% assign index = forloop.index %}
+                                                <div class="h-40 md:h-80 rounded-md shadow-md overflow-hidden">
+                                                    <img loading="lazy" class="rounded-md w-full h-full object-cover transfrom ease-out duration-500 scale-100 hover:scale-105"
+                                                        src="{{ product.featured_image | img_url: 'large' }}"
+                                                        alt="{{ product.featured_image.alt }}"
+                                                        height="{{ product.featured_image.height }}"
+                                                        width="{{ product.featured_image.width }}"
+                                                    >
+                                                </div>
+                                            {% else %}
+                                                {% assign placeholder_img = "product-1" %}
+                                                <div class="h-40 md:h-80 overflow-hidden">
+                                                    {{ placeholder_img | placeholder_svg_tag: "rounded-md w-full h-full object-cover bg-gray-400" }}
+                                                </div>
+                                            {% endif %}
+                                        </a>
+                                        <!-- DESCRIPTION -->
+                                        <div class="flex flex-col py-2">
+                                            <span class="text-xs md:text-sm text-gray-500">{{ product.vendor }}</span>
+                                            <a href="{{ product.url }}" class="font-noto_sans_jp_bold {% if section.settings.one_line %}text-lg md:text-base{% else %}text-sm md:text-base{% endif %}">{{ product.title | truncate: 15, '...' }}</a>
+                                            <p class="text-gray-500 w-full {% if section.settings.one_line %}text-base md:text-sm{% else %}text-xs md:text-sm{% endif %}">{{ product.price | money }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                        {% else %}
+                    {% endcase %}
+                {% endfor %}
+                </div>
+            </div>
+            {% else %}
+                <div class="text-center my-4">
+                    <p>No Results found for the search term ** {{ search.terms }} ** . Try to use a different keyword.</p>
+                </div>
+            {% endif %}
+        {% endif %}
+        {% render "pagination", pagination: paginate %}
+        {% endpaginate %}
+</div>
