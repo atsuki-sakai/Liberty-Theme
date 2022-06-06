@@ -142,7 +142,7 @@
                                     <span class="bg-green-500 rounded-full text-sm px-4 py-1 text-white">{{ transaction.status_label }}</span>
                             {% endcase %}
                         {% else %}
-                            <p class="text-gray-500 text-sm md:text-base my-4">この注文は手動で行われました。{{ shop.name }}</p>
+                            <p class="text-sm mb-4 text-gray-500">この注文は手動で行われました。{{ shop.name }}</p>
                         {% endif %}
                     </div>
                 {% endfor %}
@@ -152,16 +152,16 @@
                     <tbody>
                         <tr>
                             {% assign date = order.transactions.first.created_at | date: format: "default" | split: '+' | first %}
-                            <td class="border border-gray-400 px-3 w-24 py-1.5 text-sm font-bold">請求日</td>
-                            <td class="border border-gray-400 px-3  py-1.5 text-sm">{{ date }}</td>
+                            <td class="w-28 text-center border border-gray-200 px-3 py-1">請求日</td>
+                            <td class="border border-gray-200 px-3 py-1">{{ date }}</td>
                         </tr>
                         <tr>
-                            <td class="border border-gray-400 px-3 w-24  py-1.5 text-sm  font-bold">決済方法</td>
-                            <td class="border border-gray-400 px-3  py-1.5 text-sm">{{ order.transactions.first.gateway_display_name }}</td>
+                            <td class="border text-center border-gray-200 px-3 py-1">決済方法</td>
+                            <td class="border border-gray-200 px-3 py-1">{{ order.transactions.first.gateway_display_name }}</td>
                         </tr>
                         <tr>
-                            <td class="border border-gray-400 px-3 w-24  py-1.5 text-sm  font-bold">請求金額</td>
-                            <td class="border border-gray-400 px-3  py-1.5 text-sm">{{ order.total_price | money }}</td>
+                            <td class="border text-center border-gray-200 px-3 py-1">請求金額</td>
+                            <td class="border border-gray-200 px-3 py-1">{{ order.total_price | money }}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -18,7 +18,8 @@
             {% assign featured_collection = section.settings.featured_collection %}
             {% for product in collections[featured_collection].products  limit: section.settings.line_items_per_row %}
                 <!-- PRODUCT CARD -->
-                <div data-aos="fade-up">
+                {% assign delay = forloop.index * 0.7 %}
+                <div data-aos="fade-up" data-aos-delay="{{ delay }}">
                     <div class="w-full py-3">
                         <div class="overflow-hidden">
                             <!-- PRODUCT IMAGE -->

@@ -152,15 +152,15 @@
                     <tbody>
                         <tr>
                             {% assign date = order.transactions.first.created_at | date: format: "default" | split: '+' | first %}
-                            <td class="border border-gray-400 px-3 w-24 py-1.5 text-sm font-bold">請求日</td>
+                            <td class="border border-gray-400 px-3 w-24 py-1.5 text-sm">請求日</td>
                             <td class="border border-gray-400 px-3  py-1.5 text-sm">{{ date }}</td>
                         </tr>
                         <tr>
-                            <td class="border border-gray-400 px-3 w-24  py-1.5 text-sm  font-bold">決済方法</td>
+                            <td class="border border-gray-400 px-3 w-24  py-1.5 text-sm">決済方法</td>
                             <td class="border border-gray-400 px-3  py-1.5 text-sm">{{ order.transactions.first.gateway_display_name }}</td>
                         </tr>
                         <tr>
-                            <td class="border border-gray-400 px-3 w-24  py-1.5 text-sm  font-bold">請求金額</td>
+                            <td class="border border-gray-400 px-3 w-24  py-1.5 text-sm">請求金額</td>
                             <td class="border border-gray-400 px-3  py-1.5 text-sm">{{ order.total_price | money }}</td>
                         </tr>
                     </tbody>
