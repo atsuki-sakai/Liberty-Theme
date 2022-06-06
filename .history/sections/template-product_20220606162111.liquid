@@ -26,9 +26,12 @@
     }
 
     .spr-container {
-        padding: 15px;
-        margin: 0 15%;
+        padding: 30px;
+        margin: 0 16px;
         border: none;
+        @media (700px) {
+            margin: 0 4rem;
+        }
     }
 
     .spr-summary {
@@ -150,21 +153,21 @@
                 </div>
             {% endif %}
             <div class="my-2 {% if selected_variant.price < selected_variant.compare_at_price %}ml-4 md:ml-8{% endif %} ">
-                <span class="text-xs md:text-sm text-gray-500">{{ product.vendor }}</span>
+                <span class="text-xs text-gray-500 font-montserrat_italic">{{ product.vendor }}</span>
             </div>
         </div>
         {% when "title" %}
         <!-- PRODUCT TITLE -->
         <div class="my-2">
-            <h1 class="text-2xl md:text-3xl font-bold">{{ product.title }}</h1>
+            <h1 class="text-2xl  text-gray-900 font-bold font-noto_serif_jp_bold">{{ product.title }}</h1>
         </div>
         {% when "price" %}
         <!-- PRODUCT PRICE -->
-        <div class="flex items-baseline space-x-2 md:space-x-4 my-2" id="price-{{ section.id }}">
-            <p class="text-xs md:text-sm text-red-500 line-through">
+        <div class="flex items-center my-2" id="price-{{ section.id }}">
+            <span class="text-base text-gray-400 line-through">
                 {{ selected_variant.compare_at_price | money }}
-            </p>
-            <span class="text-base md:text-lg ml-1">{{ selected_variant.price | money }}</span>
+            </span>
+            <span class="text-lg text-gray-900 ml-1">{{ selected_variant.price | money }}</span>
         </div>
         {% when "variant_selector" %}
         <div class="my-2">

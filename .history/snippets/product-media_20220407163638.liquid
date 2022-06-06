@@ -1,9 +1,0 @@
-{% case media.media_type %}
-    {% when "image" %}
-        <img src="{{ media | img_url: 'large' }}" alt="{{ media.preview_image.alt | escape }}">
-    {% when condition %}
-    
-        
-    {% else %}
-        
-{% endcase %}
