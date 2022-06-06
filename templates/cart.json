@@ -35,7 +35,7 @@
         "title": "売れ筋商品",
         "hide_title": true,
         "description": "Featured Collection Description",
-        "featured_collection": "select-cosme",
+        "featured_collection": "夏にオススメ厳選ケアオイル",
         "line_items_per_row": 4,
         "one_line": false
       }
