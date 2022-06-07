@@ -1,8 +1,6 @@
 {
   "current": {
-    "apple_touch_icon": "shopify:\/\/shop_images\/Wealthy_Store.png",
-    "webmanifest_icon": "shopify:\/\/shop_images\/Wealthy_Store_cf38b7f8-3695-4389-8745-182c6a15ee8e.png",
-    "webmanifest_splash": "shopify:\/\/shop_images\/Wealthy_Store_cf38b7f8-3695-4389-8745-182c6a15ee8e.png",
+    "favicon": "shopify:\/\/shop_images\/8b1419e88ec5f1943032f6d467a8655b.png",
     "color_topbar_bg": "#000000",
     "color_main_bg": "#ffffff",
     "color_footer_bg": "#000000",
@@ -10,6 +8,9 @@
     "color_shop_text": "#ffffff",
     "color_header_text": "#ffffff",
     "color_header_icon": "#ffffff",
+    "apple_touch_icon": "shopify:\/\/shop_images\/Wealthy_Store.png",
+    "webmanifest_icon": "shopify:\/\/shop_images\/Wealthy_Store_cf38b7f8-3695-4389-8745-182c6a15ee8e.png",
+    "webmanifest_splash": "shopify:\/\/shop_images\/Wealthy_Store_cf38b7f8-3695-4389-8745-182c6a15ee8e.png",
     "color_banner_bg": "#000000",
     "color_banner_text": "#ffffff",
     "color-main-text": "#ffffff",
