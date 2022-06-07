@@ -24,6 +24,29 @@
     ]
   },
   {
+    "name": "ファビコン",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "apple_touch_icon",
+        "label": "Apple touch icon",
+        "info": "180×180px"
+      },
+      {
+        "type": "image_picker",
+        "id": "webmanifest_icon",
+        "label": "Webmanifest icon",
+        "info": "192×192px"
+      },
+      {
+        "type": "image_picker",
+        "id": "webmanifest_splash",
+        "label": "Webmanifest splash image",
+        "info": "512×512px"
+      }
+    ]
+  },
+  {
     "name": {
       "en": "Color",
       "ja": "色"
