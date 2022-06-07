@@ -1,0 +1,8 @@
+<link rel="icon" href="{{ 'favicon.ico' | asset_url }}">
+<link rel="icon" href="{{ 'icon.svg' | asset_url }}" type="image/svg+xml">
+{%- if settings.apple_touch_icon -%}
+<link rel="apple-touch-icon" href="{{ settings.apple_touch_icon | img_url: '180x180' }}">
+{%- endif -%}
+{%- if settings.webmanifest_icon and settings.webmanifest_splash -%}
+<link rel="manifest" href="{{ 'manifest.webmanifest' | asset_url }}">
+{%- endif -%}
