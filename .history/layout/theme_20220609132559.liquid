@@ -31,7 +31,7 @@
   #loading {
     width: 100vw;
     height: 100vh;
-    transition: all 1.3s;
+    transition: all 1.5s;
     background-color: black;
     position: fixed;
     top: 0;
@@ -39,12 +39,12 @@
     z-index: 9999;
   }
   .spinner {
-    width: 60px;
-    height: 60px;
-    background-color: yellow;
+    width: 100px;
+    height: 100px;
     margin: 200px auto;
+    background-image: linear-gradient(to bottom right,rgb(255, 251, 0), rgb(21, 255, 0));
     border-radius: 100%;
-    animation: sk-scaleout 1.3s infinite ease-in-out;
+    animation: sk-scaleout 1.5s infinite ease-in-out;
   }
   .loaded {
     opacity: 0;
@@ -52,9 +52,9 @@
   }
   @keyframes sk-scaleout {
   0% {
-    transform: scale(1.0);
+    transform: scale(0);
   } 100% {
-    transform: scale(2.0);
+    transform: scale(1.0);
     opacity: 0;
   }
 }
@@ -86,7 +86,7 @@
         <div id="loading">
           <div class="spinner">
             <div class="flex justify-center">
-                <div class="translate-y-3.5">
+                <div class="translate-y-8">
                   {% render "icon-wealty-logo" %}
                 </div>
             </div>

@@ -31,20 +31,19 @@
   #loading {
     width: 100vw;
     height: 100vh;
-    transition: all 1.3s;
-    background-color: black;
+    transition: all 1.5s;
+    background-color: yellow;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
   }
   .spinner {
-    width: 60px;
-    height: 60px;
-    background-color: yellow;
+    width: 100px;
+    height: 100px;
     margin: 200px auto;
     border-radius: 100%;
-    animation: sk-scaleout 1.3s infinite ease-in-out;
+    animation: sk-scaleout 1.5s infinite ease-in-out;
   }
   .loaded {
     opacity: 0;
@@ -86,7 +85,7 @@
         <div id="loading">
           <div class="spinner">
             <div class="flex justify-center">
-                <div class="translate-y-3.5">
+                <div class="translate-y-8">
                   {% render "icon-wealty-logo" %}
                 </div>
             </div>
