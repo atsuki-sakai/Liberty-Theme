@@ -20,53 +20,15 @@
   {%- comment -%}deferを付けるとうまく動かない。解決策：呼び出し元でdocument.addEventListener('DOMContentLoaded', () => {内でSwiperをインスタンス化 {%- endcomment -%}
   <script src="{{ 'swiper.js' | asset_url }}" defer></script>
   <script src="{{ 'aos.js' | asset_url }}" defer></script>
-  <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
-  <script src="{{ 'jquery.cookie.min.js' | asset_url }}" defer></script>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="{{ 'jquery.min.js | | asset_url' }}"></script>
 </head>
 
 <style lang="scss" scoped>
   #main-bg {
     background-color: {{ settings.color_main_bg }};
   }
-  #loading {
-    width: 100vw;
-    height: 100vh;
-    transition: all 1s;
-    background-image: linear-gradient(to bottom right,rgb(42, 42, 42), rgb(0, 0, 0));
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-  }
-  .spinner {
-    width: 100px;
-    height: 100px;
-    margin: 200px auto;
-    background-color: rgb(255, 225, 0);
-    border-radius: 100%;
-    animation: sk-scaleout 1.0s infinite ease-in-out;
-  }
-  .loaded {
-    opacity: 0;
-    visibility: hidden;
-  }
-  @keyframes sk-scaleout {
-  0% {
-    transform: scale(0);
-  } 100% {
-    transform: scale(1.0);
-    opacity: 0;
-  }
-}
 </style>
-<var></var>
-<script>
-  window.onload = function() {}
-  window.onload = function() {
-    const spinner = document.getElementById('loading');
-    spinner.classList.add('loaded');
-  }
-</script>
 
 <body id="main-bg">
   {% section 'header' %}
@@ -82,19 +44,6 @@
       {% section 'legal-notice' %}
     {% elsif request.path == '/challenge' %}
       {% include 'challenge' %}
-    {% elsif request.path == '/' %}
-      <main role="main">
-        <div id="loading">
-          <div class="spinner">
-            <div class="flex justify-center">
-                <div class="translate-y-8">
-                  {% render "icon-wealty-logo" %}
-                </div>
-            </div>
-          </div>
-        </div>
-        {{ content_for_layout }}
-      </main>
     {% else %}
       <main role="main">
         {{ content_for_layout }}

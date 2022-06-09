@@ -32,7 +32,7 @@
     width: 100vw;
     height: 100vh;
     transition: all 1s;
-    background-image: linear-gradient(to bottom right,rgb(42, 42, 42), rgb(0, 0, 0));
+    background-image: linear-gradient(to bottom right rgb(42, 42, 42), rgb(250, 231, 31));
     position: fixed;
     top: 0;
     left: 0;
@@ -42,7 +42,7 @@
     width: 100px;
     height: 100px;
     margin: 200px auto;
-    background-color: rgb(255, 225, 0);
+    background-color: #fff;
     border-radius: 100%;
     animation: sk-scaleout 1.0s infinite ease-in-out;
   }
@@ -85,13 +85,7 @@
     {% elsif request.path == '/' %}
       <main role="main">
         <div id="loading">
-          <div class="spinner">
-            <div class="flex justify-center">
-                <div class="translate-y-8">
-                  {% render "icon-wealty-logo" %}
-                </div>
-            </div>
-          </div>
+          <div class="spinner"></div>
         </div>
         {{ content_for_layout }}
       </main>
