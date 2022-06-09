@@ -44,7 +44,7 @@
     background-color: yellow;
     margin: 200px auto;
     border-radius: 100%;
-    animation: sk-scaleout 1.5s infinite ease-in-out;
+    animation: sk-scaleout 1.3s infinite ease-in-out;
   }
   .loaded {
     opacity: 0;
@@ -61,10 +61,10 @@
 </style>
 <var></var>
 <script>
-  window.addEventListener('load', function() {
+  window.onload = function() {
     const spinner = document.getElementById('loading');
     spinner.classList.add('loaded');
-  })
+  }
 </script>
 
 <body id="main-bg">

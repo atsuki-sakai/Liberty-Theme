@@ -1,0 +1,38 @@
+<style>
+    #content {
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+    }
+</style>
+
+<div id="content" class="fixed bottom-2 right-2 z-30">
+    <div class="rounded-md shadow-md">
+        <a href={{ section.settings.url }} target="_blank">
+            <div class="bg-yellow-300 rounded-md shadow-md p-3">
+                <p class="text-xl text-center font-bold text-white">LINE追加で<span class="text-3xl">5%
+                </span>OFF</p>
+                <div class="h-0.5 w-full bg-white"></div>
+                <p class="text-base text-center font-bold write-orient-upright ">質問・お問合せ受付中</p>
+            </div>
+        </a>
+    </div>
+</div> 
+
+{% schema %}
+{
+    "name": "Fiexd Banner",
+    "settings": [
+        {
+            "type":"text",
+            "id": "url",
+            "default": "https://wealthy-store.com",
+            "label": "URL"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Fixed Banner"
+        }
+    ]
+}
+{% endschema %}
