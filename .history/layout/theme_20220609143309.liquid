@@ -20,8 +20,8 @@
   {%- comment -%}deferを付けるとうまく動かない。解決策：呼び出し元でdocument.addEventListener('DOMContentLoaded', () => {内でSwiperをインスタンス化 {%- endcomment -%}
   <script src="{{ 'swiper.js' | asset_url }}" defer></script>
   <script src="{{ 'aos.js' | asset_url }}" defer></script>
-  <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
-  <script src="{{ 'jquery.cookie.min.js' | asset_url }}" defer></script>
+  <!-- <script src="{{ 'jquery.min.js' | asset_url }}" defer></script>
+  <script src="{{ 'jquery.cookie.min.js' | asset_url }}" defer></script> -->
 </head>
 
 <style lang="scss" scoped>
