@@ -31,7 +31,7 @@
   #loading {
     width: 100vw;
     height: 100vh;
-    transition: all 1.5s;
+    transition: all 1s;
     background-image: linear-gradient(to bottom right,rgb(42, 42, 42), rgb(0, 0, 0));
     position: fixed;
     top: 0;
@@ -61,6 +61,7 @@
 </style>
 <var></var>
 <script>
+  window.onload = function() {}
   window.onload = function() {
     const spinner = document.getElementById('loading');
     spinner.classList.add('loaded');
