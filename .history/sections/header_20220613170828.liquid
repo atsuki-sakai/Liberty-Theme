@@ -198,27 +198,27 @@ endif
                                                 </div>
                                             </div>
                                             {%- comment -%}Liquidのreplaceフィルターを使って<a>タグのclassにtailwindcssを付与{%- endcomment -%}
-                                            <div class="flex items-center space-x-2 border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 text-white hover:text-black rounded-md transform duration-200 ease-in-out text-left">
+                                            <div class="flex items-center space-x-2 border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 transform duration-200 ease-in-out text-left">
                                                 {% render "icon-logout", size: 8 %}
                                                 <div>
-                                                    {{ "ログアウト" | customer_logout_link | replace: '<a', '<a class="text-sm"'}}
+                                                    {{ "ログアウト" | customer_logout_link | replace: '<a', '<a class="text-sm text-white hover:text-gray-500 transform duration-200 ease-in-out"'}}
                                                     <div class="h-[1px] w-full bg-yellow-300"></div>
                                                     <p class="text-xs ">Log out</p>
                                                 </div>
                                             </div>
                                         {% else %} 
                                             <!-- CUSTOMER NOT LOGIN -->
-                                            <div class="flex items-center space-x-2 border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 text-white hover:text-black rounded-md transform duration-200 ease-in-out text-left">
+                                            <div class="flex items-center space-x-2 border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 hover:text-black rounded-md transform duration-200 ease-in-out text-left">
                                                 {% render "icon-login", size: 8 %}
-                                                <div>
+                                                <div class="text-white hover:text-black  transform duration-200 ease-in-out">
                                                     {{ "ログイン" | customer_login_link | replace: '<a', '<a class="text-sm "'}} 
                                                     <div class="h-[1px] w-full bg-yellow-300"></div>
                                                     <p class="text-xs">Log in</p>
                                                 </div>
                                             </div>
-                                            <div class="flex items-center space-x-2 border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 text-white hover:text-black rounded-md transform duration-200 ease-in-out text-left">
+                                            <div class="flex items-center space-x-2 border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 transform duration-200 ease-in-out text-left">
                                                 {% render "icon-register", size: 8 %}
-                                                <div >
+                                                <div class="text-white hover:text-black  transform duration-200 ease-in-out">
                                                     {{ "アカウント登録" | customer_register_link | replace: '<a', '<a class="text-sm"'}} 
                                                     <div class="h-[1px] w-full bg-yellow-300"></div>
                                                     <p class="text-xs">Register</p>
@@ -230,13 +230,13 @@ endif
                                     <!-- MENU LINK -->
                                     {% if link.links != blank %}
                                         {% assign link_handle = link.handle | replace: '-', '_' %}
-                                        <div class="relative items-center border-b-2 border-yellow-300 p-1.5 md:p-3 text-white rounded-md hover:bg-gray-200 hover:text-black transform duration-200 ease-in-out text-left" x-data="{ {{ link_handle }}: false }">
+                                        <div class="relative items-center border-b-2 border-yellow-300 p-1.5 md:p-3 transform duration-200 ease-in-out text-left" x-data="{ {{ link_handle }}: false }">
                                             <button x-on:click="{{ link_handle }} = ! {{ link_handle }}" class="flex items-center w-full mb-2">
                                                 {% render "icon-campany", size: 8 %}
-                                                <div class="ml-2 text-sm ">
+                                                <div class="ml-2 text-sm text-white">
                                                     <p class="text-left">{{ link.title }}</p>
                                                     <div class="h-[1px] w-full bg-yellow-300"></div>
-                                                    <p class="text-xs ">campany detail</p>
+                                                    <p class="text-xs text-gray-300">campany detail</p>
                                                 </div>
                                                 <div class="ml-24 sm:ml-48">
                                                     {% render "icon-dropdown" %}
@@ -246,7 +246,7 @@ endif
                                                 {% for link in link.links %}
                                                 <a  href="{{ link.url }}">
                                                     <li
-                                                        class="px-6 py-2 text-sm text-black hover:bg-gray-600 hover:text-white  w-full rounded-md transform duration-200 ease-in-out">
+                                                        class="px-6 py-2 text-sm text-white hover:bg-gray-100 w-full rounded-md transform duration-200 ease-in-out">
                                                         <p>{{ link.title }}</p>
                                                     </li>
                                                 </a>
@@ -255,13 +255,13 @@ endif
                                         </div>
                                     {% else %}
                                         <a  href="{{ link.url }}">
-                                            <div class="border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 rounded-md text-white hover:text-black  transform duration-200 ease-in-out text-left">
+                                            <div class="border-b-2 border-yellow-300 p-1.5 md:p-3 hover:bg-gray-200 transform duration-200 ease-in-out text-left">
                                                 <div class="ml-5 w-full">
-                                                    <p class="text-sm">
+                                                    <p class="text-sm text-white hover:text-gray-500 transform duration-200 ease-in-out">
                                                         {{ link.title }}
                                                     </p>
                                                     <div class="h-[1px] w-24 bg-yellow-300"></div>
-                                                    <p class="text-xs">{{ link.url | replace: 'blogs', '' | replace: 'pages', '' | replace: '/', '' }}</p>
+                                                    <p class="text-xs text-gray-300 ">{{ link.url | replace: 'blogs', '' | replace: 'pages', '' | replace: '/', '' }}</p>
                                                 </div>
                                             </div>
                                         </a>
