@@ -230,7 +230,7 @@ endif
                                     <!-- MENU LINK -->
                                     {% if link.links != blank %}
                                         {% assign link_handle = link.handle | replace: '-', '_' %}
-                                        <div class="relative items-center p-1.5 md:p-3 text-whiterounded-md hover:bg-gray-200 hover:text-black transform duration-200 ease-in-out text-left" x-data="{ {{ link_handle }}: false }">
+                                        <div class="relative items-center p-1.5 md:p-3 text-white rounded-md hover:bg-gray-200 hover:text-black transform duration-200 ease-in-out text-left" x-data="{ {{ link_handle }}: false }">
                                             <button x-on:click="{{ link_handle }} = ! {{ link_handle }}" class="flex items-center w-full mb-2">
                                                 {% render "icon-campany", size: 8 %}
                                                 <div class="ml-2 text-sm ">
@@ -246,7 +246,7 @@ endif
                                                 {% for link in link.links %}
                                                 <a  href="{{ link.url }}">
                                                     <li
-                                                        class="px-6 py-2 text-sm bg-white  text-black hover:bg-gray-600 hover:text-white  w-full rounded-md mt-1 transform duration-200 ease-in-out">
+                                                        class="px-6 py-2 text-sm text-black hover:bg-gray-600 hover:text-white  w-full rounded-md transform duration-200 ease-in-out">
                                                         <p>{{ link.title }}</p>
                                                     </li>
                                                 </a>
